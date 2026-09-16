@@ -8,6 +8,7 @@ kotlin-js-store
 *.iml
 /*.ipr
 
+.idea
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -27,3 +28,6 @@ kotlin-js-store
 
 # Kotlin ignores
 .kotlin
+
+.specify
+.claude

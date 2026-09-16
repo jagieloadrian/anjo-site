@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile check — 390 / 430 / 768</title>
+<style>
+  html, body { margin: 0; background: #17161a; color: #f2f0ef;
+    font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .rail { display: flex; gap: 24px; padding: 24px; align-items: flex-start; overflow-x: auto; }
+  .dev { flex: none; }
+  .dev h2 { margin: 0 0 10px; font-size: 12px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #ff2d95; font-weight: 400; }
+  .dev iframe { display: block; border: 2px solid #ff2d95; background: #07070a; }
+  .n390 iframe { width: 390px; height: 844px; }
+  .n430 iframe { width: 430px; height: 932px; }
+  .n768 iframe { width: 768px; height: 1024px; }
+  p.hint { margin: 0 24px 24px; font-size: 12px; line-height: 1.7; color: #9b9a99; max-width: 70ch; }
+</style>
+</head>
+<body>
+<p class="hint">Real iframes at device widths — media queries fire against each frame's own viewport, so this shows exactly what a phone gets. Scroll each frame independently; drag the nav row sideways to check it scrolls inside the bar.</p>
+<div class="rail">
+  <div class="dev n390"><h2>390 × 844 — iPhone 14</h2><iframe src="index.html" title="390px"></iframe></div>
+  <div class="dev n430"><h2>430 × 932 — iPhone 16 Pro Max</h2><iframe src="index.html" title="430px"></iframe></div>
+  <div class="dev n768"><h2>768 × 1024 — tablet</h2><iframe src="index.html" title="768px"></iframe></div>
+</div>
+</body>
+</html>

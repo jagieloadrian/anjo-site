@@ -1,0 +1,14 @@
+site:
+  title: "anjo-site"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/kotlin-webpack/js/developmentExecutable/anjosite.js"
+      api: "build/libs/anjosite.jar"
+    prod:
+      script: "build/kotlin-webpack/js/productionExecutable/anjosite.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080

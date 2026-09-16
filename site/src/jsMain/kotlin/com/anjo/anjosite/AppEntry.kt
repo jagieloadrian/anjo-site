@@ -5,6 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import com.varabyte.kobweb.compose.css.ScrollBehavior
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.minHeight
+import com.varabyte.kobweb.compose.ui.modifiers.position
 import com.varabyte.kobweb.compose.ui.modifiers.scrollBehavior
 import com.varabyte.kobweb.core.App
 import com.varabyte.kobweb.silk.SilkApp
@@ -18,7 +19,9 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import com.varabyte.kobweb.silk.theme.colors.loadFromLocalStorage
 import com.varabyte.kobweb.silk.theme.colors.saveToLocalStorage
 import com.varabyte.kobweb.silk.theme.colors.systemPreference
+import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.vh
+import org.jetbrains.compose.web.dom.Div
 
 private const val COLOR_MODE_KEY = "anjosite:colorMode"
 
@@ -42,7 +45,12 @@ fun AppEntry(content: @Composable () -> Unit) {
         LaunchedEffect(colorMode) {
             colorMode.saveToLocalStorage(COLOR_MODE_KEY)
         }
-        Surface(SmoothColorStyle.toModifier().minHeight(100.vh)) {
+        Surface(SmoothColorStyle.toModifier().minHeight(100.vh).position(Position.Relative)) {
+            // Decorative overlay chrome (docs/handoff/index.html .fx-scan/.fx-vignette/.fx-grid),
+            // styled in AppStyles.kt — rendered once here so every page gets it (T006).
+            Div(attrs = { classes("fx-scan") })
+            Div(attrs = { classes("fx-vignette") })
+            Div(attrs = { classes("fx-grid") })
             content()
         }
     }

@@ -16,12 +16,12 @@ Status na 2026-09-16: świeży Kobweb template (`site/`), bez custom kodu. Makie
 - [x] **F003** — Google Fonts Archivo + JetBrains Mono (link albo self-host `.woff2`) — CDN link via `kobweb.app.index.head`
 - [x] **F004** — `AppStyles.kt`: reset, scanline/vignette/grid fx jako global CSS
 
-### Faza 1 — Layout i routing
-- **F005** — Potwierdzić: Kobweb static export = SSG per-page, routing file-based automatyczny → hash routing z `app.js` zbędny
-- **F006** — Zweryfikować generowanie `404.html` przy `kobweb export --layout static`
-- **F007** — `NavHeader.kt`: brand glitch, nav buttons, lang switch
-- **F008** — i18n: `LangProvider`/`CompositionLocal` zamiast `data-lang-block`, treści jako data class per język
-- **F009** — Design-notes panel: pominąć w produkcji (albo dev-only flag, do decyzji)
+### Faza 1 — Layout i routing ✅ (specs/002-layout-routing)
+- [x] **F005** — Potwierdzić: Kobweb static export = SSG per-page, routing file-based automatyczny → hash routing z `app.js` zbędny — potwierdzone, brak custom routera
+- [x] **F006** — Zweryfikować generowanie `404.html` przy `kobweb export --layout static` — `@Page("/404")` → `404.html`
+- [x] **F007** — `NavHeader.kt`: brand glitch, nav buttons, lang switch — zaimplementowane, 6 linków, reduced-motion-gated glitch
+- [x] **F008** — i18n: `LangProvider`/`CompositionLocal` zamiast `data-lang-block` — `LocalLang`/`LocalLangSetter`, browser-detected default
+- [x] **F009** — Design-notes panel: pominąć w produkcji — pominięty całkowicie (nigdy nie portowany do Kotlin)
 
 ### Faza 2 — Komponenty
 - **F010** — `Terminal` (boot typing): `LaunchedEffect` + `prefers-reduced-motion` check

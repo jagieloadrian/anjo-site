@@ -1,7 +1,12 @@
 package com.anjo.anjosite
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.varabyte.kobweb.compose.css.ScrollBehavior
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.minHeight
@@ -45,13 +50,19 @@ fun AppEntry(content: @Composable () -> Unit) {
         LaunchedEffect(colorMode) {
             colorMode.saveToLocalStorage(COLOR_MODE_KEY)
         }
-        Surface(SmoothColorStyle.toModifier().minHeight(100.vh).position(Position.Relative)) {
-            // Decorative overlay chrome (docs/handoff/index.html .fx-scan/.fx-vignette/.fx-grid),
-            // styled in AppStyles.kt — rendered once here so every page gets it (T006).
-            Div(attrs = { classes("fx-scan") })
-            Div(attrs = { classes("fx-vignette") })
-            Div(attrs = { classes("fx-grid") })
-            content()
+        // Single app-wide LocalLang provider (spec 002-layout-routing FR-008, data-model.md's
+        // Lang validation rule: exactly one provider must exist). No localStorage persistence
+        // this phase — in-memory only, re-detected fresh on every page load (spec Edge Cases).
+        var lang by remember { mutableStateOf(detectInitialLang()) }
+        CompositionLocalProvider(LocalLang provides lang, LocalLangSetter provides { lang = it }) {
+            Surface(SmoothColorStyle.toModifier().minHeight(100.vh).position(Position.Relative)) {
+                // Decorative overlay chrome (docs/handoff/index.html .fx-scan/.fx-vignette/.fx-grid),
+                // styled in AppStyles.kt — rendered once here so every page gets it (T006).
+                Div(attrs = { classes("fx-scan") })
+                Div(attrs = { classes("fx-vignette") })
+                Div(attrs = { classes("fx-grid") })
+                content()
+            }
         }
     }
 }

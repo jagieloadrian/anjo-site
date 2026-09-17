@@ -19,6 +19,8 @@ import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.dom.Div
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.toSitePalette
+import com.anjo.anjosite.BilingualString
+import com.anjo.anjosite.LocalLang
 
 // Foundation-phase placeholder (spec 001-foundation-setup, FR-010): proves the ported tokens and
 // typefaces render, using only technical labels (token/font names), never narrative prose — this
@@ -45,6 +47,11 @@ private fun Swatch(color: Color, label: String) {
     }
 }
 
+// Demonstrates the language-state mechanism end-to-end (spec 002-layout-routing FR-008/FR-009):
+// one Bilingual String, selected by LocalLang.current — proves the mechanism without introducing
+// real page copy (Phase 3's job).
+private val LangDemoString = BilingualString(en = "Language demo", pl = "Demo języka")
+
 @Page
 @Layout(".components.layouts.PageLayout")
 @Composable
@@ -61,5 +68,6 @@ fun HomePage() {
         }
         SpanText("Archivo", Modifier.fontFamily("Archivo", "system-ui", "sans-serif").fontSize(2.cssRem))
         SpanText("JetBrains Mono", Modifier.fontFamily("JetBrains Mono", "monospace").fontSize(1.cssRem))
+        SpanText(LangDemoString(LocalLang.current), Modifier.fontFamily("Archivo", "system-ui", "sans-serif").fontSize(1.cssRem))
     }
 }

@@ -33,6 +33,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.selectors.hover
+import com.varabyte.kobweb.silk.style.selectors.mediaPrint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
@@ -49,8 +50,15 @@ import com.anjo.anjosite.TrophiesLabel
 import com.anjo.anjosite.components.widgets.IconButton
 import com.anjo.anjosite.toSitePalette
 
-val NavHeaderStyle = CssStyle.base {
-    Modifier.fillMaxWidth().padding(1.cssRem)
+// Hidden under print media (FR-017, specs/004-pages research.md §5) — nav chrome shouldn't
+// compete with printed page content, site-wide, not just on /cv.
+val NavHeaderStyle = CssStyle {
+    base {
+        Modifier.fillMaxWidth().padding(1.cssRem)
+    }
+    mediaPrint {
+        Modifier.display(DisplayStyle.None)
+    }
 }
 
 @Composable

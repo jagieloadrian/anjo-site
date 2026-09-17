@@ -27,6 +27,16 @@ kobweb {
                 )
             }
         }
+        export {
+            // Dynamic routes (/projects/{slug}) are skipped by default export discovery — register
+            // each real project slug explicitly, or its static page is silently never generated
+            // (specs/004-pages research.md §1). Keep in sync with `projectEntries` in
+            // pages/Projects.kt; regenerate this list if that list changes.
+            addExtraRoute("/projects/star-wars-wiki-compose")
+            addExtraRoute("/projects/filebrowser-api")
+            addExtraRoute("/projects/database-scheduler-executor")
+            addExtraRoute("/projects/tuya-key-extractor-kt")
+        }
     }
 }
 

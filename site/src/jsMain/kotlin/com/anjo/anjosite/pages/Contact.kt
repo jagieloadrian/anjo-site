@@ -6,17 +6,15 @@ import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
-import com.varabyte.kobweb.silk.components.text.SpanText
-import org.jetbrains.compose.web.css.cssRem
 import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
-import com.varabyte.kobweb.compose.ui.modifiers.fontSize
-import com.varabyte.kobweb.compose.ui.Modifier
-import com.anjo.anjosite.ContactLabel
-import com.anjo.anjosite.LocalLang
+import com.anjo.anjosite.components.widgets.ContactPrompt
 
-// Foundation-phase placeholder (spec 002-layout-routing, FR-012) — see Projects.kt for rationale
-// (heading is bilingual per analyze finding D1, reuses NavHeader.kt's `ContactLabel` per F2).
+// Real Contact content (specs/004-pages FR-010/FR-011): wires the ContactPrompt component (the
+// one new shared component this phase introduces) with the site owner's fixed email and a fixed
+// subject line, matching docs/handoff/app.js's contact prompt exactly.
+
+private const val RecipientEmail = "jagielo.adrian@gmail.com"
+private const val Subject = "Hello from the site"
 
 @InitRoute
 fun initContactPage(ctx: InitRouteContext) {
@@ -27,5 +25,5 @@ fun initContactPage(ctx: InitRouteContext) {
 @Layout(".components.layouts.PageLayout")
 @Composable
 fun ContactPage() {
-    SpanText(ContactLabel(LocalLang.current), Modifier.fontFamily("JetBrains Mono", "monospace").fontSize(1.cssRem))
+    ContactPrompt(recipientEmail = RecipientEmail, subject = Subject)
 }

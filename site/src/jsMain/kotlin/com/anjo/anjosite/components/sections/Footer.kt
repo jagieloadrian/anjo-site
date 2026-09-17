@@ -13,18 +13,27 @@ import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.base
+import com.varabyte.kobweb.silk.style.selectors.mediaPrint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.style.vars.color.ColorVar
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
+import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.Span
 import com.anjo.anjosite.toSitePalette
 
-val FooterStyle = CssStyle.base {
-    Modifier
-        .backgroundColor(colorMode.toSitePalette().nearBackground)
-        .padding(topBottom = 1.5.cssRem, leftRight = 10.percent)
+// Hidden under print media (FR-017, specs/004-pages research.md §5) — same rationale as
+// NavHeaderStyle.
+val FooterStyle = CssStyle {
+    base {
+        Modifier
+            .backgroundColor(colorMode.toSitePalette().nearBackground)
+            .padding(topBottom = 1.5.cssRem, leftRight = 10.percent)
+    }
+    mediaPrint {
+        Modifier.display(DisplayStyle.None)
+    }
 }
 
 @Composable

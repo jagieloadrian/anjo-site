@@ -1,0 +1,22 @@
+{
+  "stats": [
+    { "key": "level", "value": "—" },
+    { "key": "platinums", "value": "—" },
+    { "key": "games", "value": "6" },
+    { "key": "completion", "value": "—" }
+  ],
+  "games": [
+    { "imageUrl": null, "alt": "Elden Ring cover", "href": "https://psnprofiles.com/Sirdiether18" },
+    { "imageUrl": null, "alt": "Dark Souls cover", "href": "https://psnprofiles.com/Sirdiether18" },
+    { "imageUrl": null, "alt": "Dark Souls II cover", "href": "https://psnprofiles.com/Sirdiether18" },
+    { "imageUrl": null, "alt": "Dark Souls III cover", "href": "https://psnprofiles.com/Sirdiether18" },
+    { "imageUrl": null, "alt": "Call of Duty: Ghosts cover", "href": "https://psnprofiles.com/Sirdiether18" },
+    { "imageUrl": null, "alt": "Call of Duty: Black Ops cover", "href": "https://psnprofiles.com/Sirdiether18" }
+  ],
+  "trophies": [
+    { "tier": "PLATINUM", "name": "The Lands Between", "earnedAt": "2024-03-12", "href": "https://psnprofiles.com/Sirdiether18" },
+    { "tier": "GOLD", "name": "Lord of Cinder", "earnedAt": "2023-11-02", "href": "https://psnprofiles.com/Sirdiether18" },
+    { "tier": "SILVER", "name": "Prepare to Die", "earnedAt": "2023-10-20", "href": "https://psnprofiles.com/Sirdiether18" },
+    { "tier": "BRONZE", "name": "First Steps", "earnedAt": null, "href": "https://psnprofiles.com/Sirdiether18" }
+  ]
+}

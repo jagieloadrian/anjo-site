@@ -1,137 +1,84 @@
 package com.anjo.anjosite.pages
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.css.functions.clamp
-import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.silk.components.navigation.Link
-import com.varabyte.kobweb.silk.components.text.SpanText
-import org.jetbrains.compose.web.css.FlexWrap
-import org.jetbrains.compose.web.css.cssRem
-import org.jetbrains.compose.web.css.vw
-import com.anjo.anjosite.BilingualString
-import com.anjo.anjosite.BilingualTimelineItem
-import com.anjo.anjosite.LocalLang
-import com.anjo.anjosite.TouchTargetStyle
-import com.anjo.anjosite.resolve
-import com.varabyte.kobweb.silk.style.toModifier
+import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
+import com.varabyte.kobweb.silk.components.navigation.UndecoratedLinkVariant
+import org.jetbrains.compose.web.dom.Br
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Em
+import org.jetbrains.compose.web.dom.H1
+import org.jetbrains.compose.web.dom.Li
+import org.jetbrains.compose.web.dom.P
+import org.jetbrains.compose.web.dom.Section
+import org.jetbrains.compose.web.dom.Span
+import org.jetbrains.compose.web.dom.Text
+import org.jetbrains.compose.web.dom.Ul
 import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.anjo.anjosite.components.widgets.TimelineEntry
 
-// Real, print-friendly CV content ported from docs/handoff/index.html's CV screen
-// (specs/004-pages FR-012) — its own dedicated data structure, distinct from Projects/About.
+// Literal port of docs/handoff/index.html's data-screen="cv" — print-friendly, own content
+// source (FR-012), real bullet lists (verbatim from the PDF), distinct from Projects/About.
 
-data class CvSection(val heading: BilingualString, val entries: List<BilingualTimelineItem>)
-data class CvContent(val sections: List<CvSection>)
+private data class CvRole(val title: String, val date: String, val where: String, val bullets: List<String>, val stack: String, val soft: Boolean = false)
 
-private val cvContent = CvContent(
-    sections = listOf(
-        CvSection(
-            heading = BilingualString(en = "Experience", pl = "Doświadczenie"),
-            entries = listOf(
-                BilingualTimelineItem(
-                    date = BilingualString(en = "01.2023 — present", pl = "01.2023 — obecnie"),
-                    title = BilingualString(
-                        en = "Software Developer · GFT Poland Sp. z o.o. · Warsaw",
-                        pl = "Software Developer · GFT Poland Sp. z o.o. · Warszawa",
-                    ),
-                    description = BilingualString(
-                        en = "Develop and maintain backend solutions using Java; conduct code reviews and mentor team members; participate in deployment and release processes; collaborate closely with Product Owners, Architects, QA and frontend teams; support onboarding of new team members; participate in client meetings to refine requirements; client project running on OpenShift — hands-on Kubernetes-based deployment and orchestration. Stack: Java · GraphQL · JUnit · Mockito · Jenkins · OpenShift.",
-                        pl = "Tworzę i utrzymuję rozwiązania backendowe w Javie; prowadzę code review i mentoring zespołu; uczestniczę w procesach wdrożeń i wydań; ściśle współpracuję z Product Ownerami, Architektami, QA i zespołami frontendowymi; wspieram onboarding nowych osób; uczestniczę w spotkaniach z klientem doprecyzowujących wymagania; projekt klienta na OpenShift — praktyczne wdrażanie i orkiestracja oparta na Kubernetesie. Stack: Java · GraphQL · JUnit · Mockito · Jenkins · OpenShift.",
-                    ),
-                ),
-                BilingualTimelineItem(
-                    date = BilingualString(en = "10.2021 — 12.2022", pl = "10.2021 — 12.2022"),
-                    title = BilingualString(
-                        en = "Junior Software Developer · GFT Poland Sp. z o.o. · Warsaw",
-                        pl = "Junior Software Developer · GFT Poland Sp. z o.o. · Warszawa",
-                    ),
-                    description = BilingualString(
-                        en = "Designed and implemented microservices in Kotlin for Kubernetes; built RESTful APIs and maintained technical documentation; supported application deployment processes; collaborated with Product Owners, QA and DevOps teams; participated in requirements gathering and technical discussions with clients. Stack: Kotlin coroutines · MockWebServer · Docker · Kubernetes.",
-                        pl = "Projektowałem i wdrażałem mikroserwisy w Kotlinie dla Kubernetesa; budowałem API RESTful i utrzymywałem dokumentację techniczną; wspierałem procesy wdrażania aplikacji; współpracowałem z Product Ownerami, QA i zespołami DevOps; uczestniczyłem w zbieraniu wymagań i rozmowach technicznych z klientami. Stack: Kotlin coroutines · MockWebServer · Docker · Kubernetes.",
-                    ),
-                ),
-            ),
+private val experience = listOf(
+    CvRole(
+        "Software Developer", "01.2023 — present", "GFT Poland Sp. z o. o. · Warsaw",
+        listOf(
+            "Develop and maintain backend solutions using Java",
+            "Conduct code reviews and mentor team members",
+            "Participate in deployment and release processes",
+            "Collaborate closely with Product Owners, Architects, QA and frontend teams",
+            "Support onboarding of new team members",
+            "Participate in client meetings to refine requirements",
+            "Client project running on OpenShift — hands-on Kubernetes-based deployment and orchestration",
         ),
-        CvSection(
-            heading = BilingualString(en = "Own Projects", pl = "Własne projekty"),
-            entries = listOf(
-                BilingualTimelineItem(
-                    date = BilingualString(en = "", pl = ""),
-                    title = BilingualString(en = "SW Wiki", pl = "SW Wiki"),
-                    description = BilingualString(
-                        en = "Mobile app fetching Star Wars data from external APIs, including image search by keywords. On Google Play. Stack: Apollo · Jetpack Compose · Gradle · Kotlin.",
-                        pl = "Aplikacja mobilna pobierająca dane o Gwiezdnych Wojnach z zewnętrznych API, wraz z wyszukiwaniem obrazów po słowach kluczowych. Dostępna w Google Play. Stack: Apollo · Jetpack Compose · Gradle · Kotlin.",
-                    ),
-                ),
-                BilingualTimelineItem(
-                    date = BilingualString(en = "", pl = ""),
-                    title = BilingualString(en = "DatabaseSchedulerExecutor", pl = "DatabaseSchedulerExecutor"),
-                    description = BilingualString(
-                        en = "Kotlin app that executes SQLite queries at scheduled times based on CRON expressions, configurable via a properties file. Stack: Kotlin · JDBC SQLite · CRON.",
-                        pl = "Aplikacja w Kotlinie wykonująca zapytania SQLite według harmonogramu z wyrażeń CRON, konfigurowalna przez plik properties. Stack: Kotlin · JDBC SQLite · CRON.",
-                    ),
-                ),
-            ),
+        "Java · GraphQL · JUnit · Mockito · Jenkins · OpenShift",
+    ),
+    CvRole(
+        "Junior Software Developer", "10.2021 — 12.2022", "GFT Poland Sp. z o. o. · Warsaw",
+        listOf(
+            "Designed and implemented microservices in Kotlin for Kubernetes",
+            "Built RESTful APIs and maintained technical documentation",
+            "Supported application deployment processes",
+            "Collaborated with Product Owners, QA and DevOps teams",
+            "Participated in requirements gathering and technical discussions with clients",
         ),
-        CvSection(
-            heading = BilingualString(en = "Skills", pl = "Umiejętności"),
-            entries = listOf(
-                BilingualTimelineItem(
-                    date = BilingualString(en = "", pl = ""),
-                    title = BilingualString(en = "Backend", pl = "Backend"),
-                    description = BilingualString(en = "Kotlin, Java, Spring, GraphQL, Coroutines", pl = "Kotlin, Java, Spring, GraphQL, Coroutines"),
-                ),
-                BilingualTimelineItem(
-                    date = BilingualString(en = "", pl = ""),
-                    title = BilingualString(en = "Testing", pl = "Testowanie"),
-                    description = BilingualString(en = "JUnit, Mockito, MockWebServer, Cucumber", pl = "JUnit, Mockito, MockWebServer, Cucumber"),
-                ),
-                BilingualTimelineItem(
-                    date = BilingualString(en = "", pl = ""),
-                    title = BilingualString(en = "DevOps / Cloud", pl = "DevOps / Chmura"),
-                    description = BilingualString(en = "Docker, Kubernetes, OpenShift, Jenkins", pl = "Docker, Kubernetes, OpenShift, Jenkins"),
-                ),
-                BilingualTimelineItem(
-                    date = BilingualString(en = "", pl = ""),
-                    title = BilingualString(en = "Other", pl = "Inne"),
-                    description = BilingualString(
-                        en = "RESTful API design, microservices architecture",
-                        pl = "Projektowanie API RESTful, architektura mikroserwisów",
-                    ),
-                ),
-            ),
-        ),
-        CvSection(
-            heading = BilingualString(en = "Profile", pl = "Profil"),
-            entries = listOf(
-                BilingualTimelineItem(
-                    date = BilingualString(en = "", pl = ""),
-                    title = BilingualString(en = "Languages", pl = "Języki"),
-                    description = BilingualString(
-                        en = "Polish — native, English — professional",
-                        pl = "Polski — ojczysty, Angielski — profesjonalny",
-                    ),
-                ),
-                BilingualTimelineItem(
-                    date = BilingualString(en = "", pl = ""),
-                    title = BilingualString(en = "Interests", pl = "Zainteresowania"),
-                    description = BilingualString(
-                        en = "History of video games, Motorcycles, Cooking",
-                        pl = "Historia gier wideo, Motocykle, Gotowanie",
-                    ),
-                ),
-            ),
-        ),
+        "Kotlin coroutines · MockWebServer · Docker · Kubernetes",
+        soft = true,
     ),
 )
+
+private data class CvProject(val name: String, val description: String, val stack: String)
+
+private val ownProjects = listOf(
+    CvProject(
+        "SW Wiki",
+        "Mobile app fetching Star Wars data from external APIs, including image search by keywords. On Google Play.",
+        "Apollo · Jetpack Compose · Gradle · Kotlin",
+    ),
+    CvProject(
+        "DatabaseSchedulerExecutor",
+        "Kotlin app that executes SQLite queries at scheduled times based on CRON expressions, configurable via a properties file.",
+        "Kotlin · JDBC SQLite · CRON",
+    ),
+)
+
+private val skillGroups = listOf(
+    "BACKEND" to "Kotlin, Java, Spring, GraphQL, Coroutines",
+    "TESTING" to "JUnit, Mockito, MockWebServer, Cucumber",
+    "DEVOPS / CLOUD" to "Docker, Kubernetes, OpenShift, Jenkins",
+    "OTHER" to "RESTful API design, microservices architecture",
+)
+
+private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
 @InitRoute
 fun initCvPage(ctx: InitRouteContext) {
@@ -142,35 +89,71 @@ fun initCvPage(ctx: InitRouteContext) {
 @Layout(".components.layouts.PageLayout")
 @Composable
 fun CvPage() {
-    val lang = LocalLang.current
-
-    Column(Modifier.gap(2.cssRem)) {
-        SpanText(
-            "ADRIAN JAGIEŁO",
-            Modifier
-                .fontFamily("Archivo", "system-ui", "sans-serif")
-                .fontWeight(900)
-                .fontSize(clamp(1.75.cssRem, 4.vw, 3.cssRem)),
-        )
-        SpanText("Kotlin | Java Developer", Modifier.fontSize(1.125.cssRem))
-        Row(Modifier.gap(1.cssRem).flexWrap(FlexWrap.Wrap)) {
-            Link("mailto:jagielo.adrian@gmail.com", "jagielo.adrian@gmail.com", modifier = TouchTargetStyle.toModifier())
-            Link("https://www.linkedin.com/in/jagieloadrian/", "linkedin.com/in/jagieloadrian ↗", modifier = TouchTargetStyle.toModifier())
-            Link("https://github.com/jagieloadrian", "github.com/jagieloadrian ↗", modifier = TouchTargetStyle.toModifier())
-            SpanText("Warsaw, Poland")
+    Section(attrs = { classes("band", "band--strong", "cv-head") }) {
+        Div {
+            Div(attrs = { classes("kicker"); style { property("margin-bottom", "18px") } }) { Text("CURRICULUM VITAE") }
+            H1(attrs = { classes("display"); style { property("font-size", "clamp(38px, 5.5vw, 80px)") } }) {
+                Text("ADRIAN JAGIEŁO")
+                Br()
+                Em(attrs = { classes("red") }) { Text("KOTLIN | JAVA DEVELOPER") }
+            }
         }
+        Div(attrs = { classes("cv-contact") }) {
+            Link("mailto:jagielo.adrian@gmail.com", "jagielo.adrian@gmail.com", Modifier, variant = navLinkVariant)
+            Link("https://www.linkedin.com/in/jagieloadrian/", "linkedin.com/in/jagieloadrian ↗", Modifier, variant = navLinkVariant)
+            Link("https://github.com/jagieloadrian", "github.com/jagieloadrian ↗", Modifier, variant = navLinkVariant)
+            Span { Text("Warsaw, Poland") }
+        }
+    }
 
-        cvContent.sections.forEach { section ->
-            Column(Modifier.gap(1.cssRem)) {
-                SpanText(
-                    section.heading(lang),
-                    Modifier.fontFamily("JetBrains Mono", "monospace").fontSize(0.875.cssRem),
-                )
-                Column(Modifier.gap(1.25.cssRem)) {
-                    section.entries.forEach { entry ->
-                        TimelineEntry(entry.resolve(lang))
+    Section(attrs = { classes("band", "band--strong", "split") }) {
+        Div {
+            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "20px") } }) { Text("EXPERIENCE") }
+            experience.forEach { role ->
+                Div(attrs = { classes(buildList { add("tl"); if (role.soft) add("tl--soft") }); style { property("margin-bottom", "32px") } }) {
+                    Div(attrs = { classes("tags"); style { property("align-items", "baseline"); property("gap", "12px") } }) {
+                        Span(attrs = { style { property("font-size", "22px"); property("font-weight", "800") } }) { Text(role.title) }
+                        Span(attrs = { classes("tl-when") }) { Text(role.date) }
                     }
+                    Div(attrs = { classes("tl-where") }) { Text(role.where) }
+                    Ul(attrs = { classes("bullets") }) {
+                        role.bullets.forEach { bullet -> Li { Text(bullet) } }
+                    }
+                    Div(attrs = { classes("tl-stack") }) { Text(role.stack) }
                 }
+            }
+            Div(attrs = { classes("rule", "rule--soft"); style { property("margin", "36px 0 28px") } })
+            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "18px") } }) { Text("OWN PROJECTS") }
+            ownProjects.forEach { project ->
+                Div(attrs = { style { property("margin-bottom", "22px") } }) {
+                    Div(attrs = { style { property("font-size", "19px"); property("font-weight", "800") } }) { Text(project.name) }
+                    P(attrs = { classes("body", "body--sm"); style { property("max-width", "70ch"); property("margin", "8px 0 0") } }) {
+                        Text(project.description)
+                    }
+                    Div(attrs = { classes("tl-stack") }) { Text(project.stack) }
+                }
+            }
+            Link("/projects", "all projects →", Modifier.classNames("btn", "btn--link"), variant = navLinkVariant)
+        }
+        Div {
+            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "18px") } }) { Text("SKILLS") }
+            skillGroups.forEach { (label, text) ->
+                Div(attrs = { style { property("margin-bottom", "20px") } }) {
+                    Div(attrs = { classes("label", "label--sm", "label--red"); style { property("letter-spacing", "0.16em"); property("margin-bottom", "8px") } }) {
+                        Text(label)
+                    }
+                    Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.7"); property("color", "#e6e4e3") } }) { Text(text) }
+                }
+            }
+            Div(attrs = { classes("rule", "rule--soft"); style { property("margin-bottom", "24px") } })
+            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "12px") } }) { Text("LANGUAGES") }
+            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "#e6e4e3") } }) {
+                Text("Polish — native"); Br(); Text("English — professional")
+            }
+            Div(attrs = { classes("rule", "rule--soft"); style { property("margin", "24px 0") } })
+            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "12px") } }) { Text("INTERESTS") }
+            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "#e6e4e3") } }) {
+                Text("History of video games"); Br(); Text("Motorcycles"); Br(); Text("Cooking")
             }
         }
     }

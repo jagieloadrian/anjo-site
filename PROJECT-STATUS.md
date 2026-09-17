@@ -6,40 +6,66 @@
 - Faza 3 — Strony (specs/004-pages): all six routes real (`/`, `/about`, `/projects` + per-project
   `/projects/{slug}`, `/trophies`, `/contact`, `/cv`). `kobweb export -PkobwebExportLayout=STATIC`
   verified green — static file exists for every route including all 4 project slugs.
-- Real-browser verification pass (Playwright) against `docs/handoff/mobile-check.html`'s 390/430/768
-  widths and the `/cv` print preview — found and fixed two bugs (see decisions below): sub-48px
-  touch targets on bare `Link`/`TextInput`/`Button` elements, and unreadable print-preview colors.
+- **Visual rewrite (this session, post-Faza-3 correction)**: the site now renders the mock
+  (`docs/handoff/index.html`/`styles.css`/`app.js`) faithfully. The original Faza 3 implementation
+  approximated the mock's look with hand-rolled Silk `CssStyle`s and dropped most of Home's content
+  (only shipped the hero, not the About/Stack/Trophies/Contact teaser bands the mock's
+  `data-screen="home"` also contains) — caught when the user actually looked at it in a browser and
+  it didn't resemble the mock at all. See decisions below for the fix.
 
 ## Important decisions
 
+- **Styling now comes from the mock's own stylesheet, not reinvented Kotlin CSS.**
+  `docs/handoff/styles.css` is copied verbatim (plus one added `@media print` block, the mock has
+  none) to `site/src/jsMain/resources/public/styles.css` and linked in `<head>`
+  (`site/build.gradle.kts`). Every page is built with raw `org.jetbrains.compose.web.dom.*` tags
+  (`Div`, `Section`, `H1`, `Link`, …) carrying the mock's exact class names (`.band`, `.split`,
+  `.term`, `.card`, `.tl`, `.stat`, `.tag`, …), not Silk `CssStyle`. This replaced almost all of
+  `AppStyles.kt`/`SiteTheme.kt` (both deleted — dead code once nothing read `SitePalette`/
+  `ColorMode` anymore) and every Phase 2 shared component's internals (`Tag`, `StatRow`→
+  `StatCell`/`Fact`, `GameCover`, `TrophyRow`, `ProjectCard`, `TimelineEntry`, `Terminal`,
+  `ContactPrompt`, `NavHeader`, `Footer`) — same public shape where reasonable, markup rewritten.
+  **Why**: reinventing the mock's design tokens/spacing/borders by hand in Kotlin was the direct
+  cause of three separate bugs this session (a `Box`-vs-grid overlap on `/projects`, invisible
+  print text, sub-48px touch targets) and still didn't look like the mock. The mock's own CSS is
+  the single source of truth for visual design; Kotlin now only owns routing, state, i18n and
+  fetch — matching what `app.js`'s own top comment says the port should do ("three things only:
+  route switching, the boot typing effect, the contact prompt").
+- Mock's `<button data-route="...">` client-side "SPA" navigation is real Kobweb multi-page routing
+  instead (decided back in specs/002-layout-routing, unchanged) — every internal nav element is a
+  real `<a>` via Kobweb's `Link`. One consequence found this session: the mock's `.btn` relies on a
+  bare `<button>`'s default `display: inline-block`; a bare `<a>` defaults to `display: inline`,
+  which silently drops `margin-top`/`margin-bottom` and caused a real overlap bug. Fixed with one
+  added rule, `.btn, .btn--link { display: inline-block; }`, in our copy of the stylesheet.
 - Project detail = real Kobweb dynamic route (`@Page("{}")` on `pages/projects/Slug.kt`), **plus**
   `site/build.gradle.kts`'s `export { addExtraRoute(...) }` for each slug — Kobweb's exporter
   silently skips any route containing `{}` otherwise. Slug list is duplicated (by hand) between
   `Projects.kt`'s `projectEntries` and `build.gradle.kts`; keep them in sync when adding a project.
-- Bilingual content in in-source lists (Projects/About/CV) uses `BilingualString` fields resolved
-  to plain `String` via a `toXxx(lang)`/`.resolve(lang)` mapper at render time — Phase 2 components
-  only ever take pre-resolved strings. `trophies.json`'s game/trophy names are an intentional
-  bilingual exception (proper nouns from an external PSN automation); only its stat *labels* are
-  translated, page-side.
-- `ContactPrompt` (new shared component) built on Silk's native `TextInput`/`Button` — zero new
-  Gradle dependencies this phase.
-- Deleted the leftover Kobweb template's demo `resources/markdown/About.md` — it collided with the
-  real `/about` route (duplicate-route KSP error).
-- Touch targets: bare `<a>`/`<input>`/`<button>` are `display: inline`, so `min-height` alone does
-  nothing below the 720px breakpoint. Fixed with one shared `TouchTargetStyle` (AppStyles.kt) — sets
-  `inline-flex` + `align-items: center` + `min-height: 48px` under `max-width: 720px` — applied via
-  `.toModifier()` at the 8 bare-widget call sites this phase introduced.
-  Pre-existing NavHeader icon buttons (45px) and Footer credit links (20px) are still under 48px but
-  out of this phase's diff — left alone.
-- Print colors: Kobweb's CssStyle DSL has no `!important` (throws `IllegalStateException` at runtime
-  if you try) so a plain `html, body` print rule can't beat Silk's `Surface`/`SmoothColorStyle` dark
-  background, and any inline `.color(...)` modifier chain (e.g. `TimelineEntry`'s description text)
-  can't be beaten by any external rule at all. Fixed by (a) giving the root `Surface` an
-  `id("site-surface")` — an id always outranks a class regardless of registration order — with a
-  print rule forcing white/black on it, and (b) moving `TimelineDescriptionStyle`'s alpha-ink color
-  into the CssStyle itself (not a chained modifier) so its own print `cssRule` can override it.
+  Per an earlier clarification, every project gets its own detail page (the mock only gives its one
+  "featured" project a detail page and points the rest at their repo) — kept as-is, just re-skinned
+  to the mock's `.card`/`.sheet`/`.slot` look.
+- Bilingual content: `BilingualString` fields resolved to plain `String` at render time, same as
+  before. Nav/page prose is bilingual; tag/skill/timeline/CV labels stay English-only in both
+  languages, matching the mock's own `data-lang-block` usage (it never wraps those).
+- `ContactPrompt` rewritten on raw `<input>`/`<button>` (no Silk `TextInput`/`Button` — nothing
+  needs Silk's theming anymore) inside the mock's `.term`/`.term-input` chat-log markup.
+- Deleted dead code as a consequence of the pivot: `AppStyles.kt`, `SiteTheme.kt`, `IconButton.kt`
+  (NavHeader's old hamburger/color-mode/design-notes chrome is gone — the mock has none of that,
+  one dark theme, no toggle), `MarkdownLayout.kt` (already-unused Kobweb template leftover).
+- `PageLayout.kt` no longer centers content in a `max-width` column — the mock's bands are
+  full-width with internal grid-gap dividers touching the viewport edge; a centered column never
+  matched it.
+
+## Verified (this session, real browser + real export)
+
+- All 6 pages + project detail screenshotted against the mock's own rendered sections — matches.
+- `docs/handoff/mobile-check.html` widths (390/430/768): no horizontal overflow on any page.
+- `/cv` print preview: white background, dark text, nav/footer/decorative overlays hidden.
+- `kobweb export -PkobwebExportLayout=STATIC`: all 10 pages export, `styles.css` included.
 
 ## Next steps
 
 - Faza 4 — Dane: nightly GitHub Action generating the real `trophies.json` via `psn-api`
   (ROADMAP F025); externalize `projects.json`/`skills.json` if desired (F026).
+- Print-preview contrast on CV's bullet lists/skills values is a bit low (mock's `--dim`/`--mut`
+  grays, not fully overridden by the added print block) — legible but could be darkened further.

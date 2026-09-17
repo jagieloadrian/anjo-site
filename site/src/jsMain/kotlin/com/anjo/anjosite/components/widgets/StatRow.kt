@@ -1,42 +1,41 @@
 package com.anjo.anjosite.components.widgets
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.css.*
-import com.varabyte.kobweb.compose.css.functions.clamp
-import com.varabyte.kobweb.compose.foundation.layout.Row
-import com.varabyte.kobweb.compose.ui.Alignment
-import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.silk.components.text.SpanText
-import com.varabyte.kobweb.silk.style.CssStyle
-import com.varabyte.kobweb.silk.style.base
-import com.varabyte.kobweb.silk.style.toModifier
-import com.varabyte.kobweb.silk.theme.colors.ColorMode
-import org.jetbrains.compose.web.css.*
-import com.anjo.anjosite.toSitePalette
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Text
 
-data class StatItem(val label: String, val value: String)
+enum class StatColor { PLAIN, CYAN, RED }
 
-val StatLabelStyle = CssStyle.base {
-    Modifier
-        .fontFamily("JetBrains Mono", "monospace")
-        .fontSize(clamp(0.625.cssRem, 1.vw, 0.75.cssRem))
-        .letterSpacing(0.1.em)
-        .textTransform(TextTransform.Uppercase)
-}
+data class StatItem(val label: String, val value: String, val color: StatColor = StatColor.PLAIN)
 
-val StatValueStyle = CssStyle.base {
-    Modifier
-        .fontFamily("Archivo", "system-ui", "sans-serif")
-        .fontWeight(900)
-        .fontSize(clamp(1.25.cssRem, 3.vw, 1.75.cssRem))
-}
-
+// Literal port of docs/handoff/index.html's <div class="stat"> — caller wraps a list of these in
+// a `<div class="stats">` (bordered) or `<div class="stats stats--bare">` (borderless) container.
 @Composable
-fun StatRow(item: StatItem) {
-    val sitePalette = ColorMode.current.toSitePalette()
-    Row(Modifier.fillMaxWidth().gap(0.75.cssRem), verticalAlignment = Alignment.CenterVertically) {
-        SpanText(item.label, StatLabelStyle.toModifier().color(sitePalette.ink.toRgb().copyf(alpha = 0.7f)))
-        SpanText(item.value, StatValueStyle.toModifier().color(sitePalette.pink))
+fun StatCell(item: StatItem, large: Boolean = false) {
+    Div(attrs = { classes("stat") }) {
+        Div(attrs = { classes("stat-key") }) { Text(item.label) }
+        Div(attrs = {
+            classes(buildList {
+                add("stat-num")
+                if (large) add("stat-num--lg")
+                when (item.color) {
+                    StatColor.PLAIN -> {}
+                    StatColor.CYAN -> add("stat-num--cyan")
+                    StatColor.RED -> add("stat-num--red")
+                }
+            })
+        }) { Text(item.value) }
+    }
+}
+
+// Literal port of docs/handoff/index.html's <div class="fact"> — caller wraps a list of these in
+// a `<div class="facts">` container. Two shapes the mock uses: a labelled fact (hero: SINCE/
+// EMPLOYER/BASE) and a bare one with an optional meta line underneath (About's "off the clock").
+@Composable
+fun Fact(value: String, label: String? = null, meta: String? = null) {
+    Div(attrs = { classes("fact") }) {
+        label?.let { Div(attrs = { classes("stat-key") }) { Text(it) } }
+        Div(attrs = { classes("fact-val") }) { Text(value) }
+        meta?.let { Div(attrs = { classes("meta") }) { Text(it) } }
     }
 }

@@ -41,6 +41,8 @@ Status na 2026-09-16: świeży Kobweb template (`site/`), bez custom kodu. Makie
 - **F022** — Trophies (UI + `trophies.json` fetch)
 - **F023** — Contact (mailto: build; opcjonalnie Formspree/Web3Forms)
 - **F024** — CV (print-friendly, osobne źródło danych)
+- **F024a** — Mobile check: każda strona przeglądnięta w `docs/handoff/mobile-check.html`
+  (390 / 430 / 768) po zbudowaniu — dotąd nigdzie nie egzekwowane, mimo że plik istnieje w handoffie
 
 ### Faza 4 — Dane
 - **F025** — `trophies.json`: nocny GitHub Action z `psn-api`, `NPSSO` jako repo secret

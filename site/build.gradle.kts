@@ -1,4 +1,5 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import kotlinx.html.link
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -14,6 +15,17 @@ kobweb {
     app {
         index {
             description.set("Powered by Kobweb")
+            // Archivo + JetBrains Mono, matching docs/handoff/index.html (research.md §2).
+            head.add {
+                link(rel = "preconnect", href = "https://fonts.googleapis.com")
+                link(rel = "preconnect", href = "https://fonts.gstatic.com") {
+                    attributes["crossorigin"] = ""
+                }
+                link(
+                    rel = "stylesheet",
+                    href = "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+                )
+            }
         }
     }
 }

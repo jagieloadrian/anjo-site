@@ -10,11 +10,11 @@ Status na 2026-09-16: świeży Kobweb template (`site/`), bez custom kodu. Makie
 
 ## Fazy i features
 
-### Faza 0 — Fundament
-- **F001** — `configAsKobwebApplication`: ustalić `basePath` (project page `/anjo-site/` vs `username.github.io` root)
-- **F002** — `SiteTheme.kt`: przenieść tokeny `--pink/--cyan/--red/--bg/--ink` z `styles.css`
-- **F003** — Google Fonts Archivo + JetBrains Mono (link albo self-host `.woff2`)
-- **F004** — `AppStyles.kt`: reset, scanline/vignette/grid fx jako global CSS
+### Faza 0 — Fundament ✅ (specs/001-foundation-setup)
+- [x] **F001** — `configAsKobwebApplication`: ustalić `basePath` (project page `/anjo-site/` vs `username.github.io` root) — root, `.kobweb/conf.yaml` bez `basePath` (default `""`)
+- [x] **F002** — `SiteTheme.kt`: przenieść tokeny `--pink/--cyan/--red/--bg/--ink` z `styles.css`
+- [x] **F003** — Google Fonts Archivo + JetBrains Mono (link albo self-host `.woff2`) — CDN link via `kobweb.app.index.head`
+- [x] **F004** — `AppStyles.kt`: reset, scanline/vignette/grid fx jako global CSS
 
 ### Faza 1 — Layout i routing
 - **F005** — Potwierdzić: Kobweb static export = SSG per-page, routing file-based automatyczny → hash routing z `app.js` zbędny

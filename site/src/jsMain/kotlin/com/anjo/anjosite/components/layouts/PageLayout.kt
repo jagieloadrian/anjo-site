@@ -24,7 +24,7 @@ fun PageLayout(ctx: PageContext, content: @Composable () -> Unit) {
     }
 
     NavHeader()
-    Main(attrs = { classes("screen") }) {
+    Main(attrs = { classes("screen"); style { property("flex", "1 0 auto") } }) {
         content()
     }
     Footer()

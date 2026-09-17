@@ -2,29 +2,47 @@ package com.anjo.anjosite.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.Row
+import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.silk.components.text.SpanText
-import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.dom.Div
-import com.anjo.anjosite.HeadlineTextStyle
-import com.anjo.anjosite.SubheadlineTextStyle
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.toSitePalette
 
-// Foundation-phase placeholder (spec 001-foundation-setup, FR-010): demonstrates the ported design
-// tokens/typefaces/overlays on a real page. No real copy, no navigation, no interactive elements —
-// those land in later phases per ROADMAP.md.
+// Foundation-phase placeholder (spec 001-foundation-setup, FR-010): proves the ported tokens and
+// typefaces render, using only technical labels (token/font names), never narrative prose — this
+// keeps it exempt from bilingual parity per constitution Principle III ("Technical labels, stack
+// names, and tags stay English in both languages"). A descriptive sentence would NOT be exempt;
+// see specs/001-foundation-setup/tasks.md T007/D1 for why this shape was chosen over one.
 @InitRoute
 fun initHomePage(ctx: InitRouteContext) {
     ctx.data.add(PageLayoutData("Home"))
+}
+
+@Composable
+private fun Swatch(color: Color, label: String) {
+    Column(Modifier.gap(0.5.cssRem), horizontalAlignment = Alignment.CenterHorizontally) {
+        Div(
+            Modifier
+                .width(3.cssRem)
+                .height(3.cssRem)
+                .backgroundColor(color)
+                .borderRadius(0.5.cssRem)
+                .toAttrs()
+        )
+        SpanText(label, Modifier.fontFamily("JetBrains Mono", "monospace").fontSize(0.75.cssRem))
+    }
 }
 
 @Page
@@ -33,12 +51,15 @@ fun initHomePage(ctx: InitRouteContext) {
 fun HomePage() {
     val sitePalette = ColorMode.current.toSitePalette()
 
-    Column(Modifier.gap(1.cssRem)) {
-        Div(HeadlineTextStyle.toAttrs()) {
-            SpanText("anjo-site", Modifier.color(sitePalette.pink))
+    Column(Modifier.gap(2.cssRem)) {
+        Row(Modifier.gap(1.cssRem)) {
+            Swatch(sitePalette.background, "bg")
+            Swatch(sitePalette.ink, "ink")
+            Swatch(sitePalette.pink, "pink")
+            Swatch(sitePalette.cyan, "cyan")
+            Swatch(sitePalette.red, "red")
         }
-        Div(SubheadlineTextStyle.toAttrs()) {
-            SpanText("Foundation in place — tokens, type, and overlays are live.")
-        }
+        SpanText("Archivo", Modifier.fontFamily("Archivo", "system-ui", "sans-serif").fontSize(2.cssRem))
+        SpanText("JetBrains Mono", Modifier.fontFamily("JetBrains Mono", "monospace").fontSize(1.cssRem))
     }
 }

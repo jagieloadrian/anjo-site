@@ -1,0 +1,51 @@
+{
+  "groups": [
+    {
+      "label": "BACKEND",
+      "labelColor": "PLAIN",
+      "tags": [
+        { "text": "Kotlin", "color": "PINK" },
+        { "text": "Java", "color": "PINK" },
+        { "text": "Spring Boot", "color": "PLAIN" },
+        { "text": "Coroutines", "color": "PLAIN" },
+        { "text": "GraphQL / Apollo", "color": "PLAIN" },
+        { "text": "REST", "color": "PLAIN" }
+      ]
+    },
+    {
+      "label": "PLATFORM",
+      "labelColor": "CYAN",
+      "tags": [
+        { "text": "Docker", "color": "CYAN" },
+        { "text": "Kubernetes", "color": "CYAN" },
+        { "text": "OpenShift", "color": "PLAIN" },
+        { "text": "Jenkins", "color": "PLAIN" },
+        { "text": "GitHub Actions", "color": "PLAIN" },
+        { "text": "SQL / PostgreSQL", "color": "PLAIN" },
+        { "text": "JDBC SQLite", "color": "PLAIN" }
+      ]
+    },
+    {
+      "label": "TESTING",
+      "labelColor": "RED",
+      "tags": [
+        { "text": "JUnit", "color": "RED" },
+        { "text": "Kotest", "color": "PLAIN" },
+        { "text": "Mockito", "color": "PLAIN" },
+        { "text": "MockWebServer", "color": "PLAIN" },
+        { "text": "Cucumber", "color": "PLAIN" }
+      ]
+    },
+    {
+      "label": "CLIENT & TOOLING",
+      "labelColor": "CYAN",
+      "tags": [
+        { "text": "Jetpack Compose", "color": "PLAIN" },
+        { "text": "Kotlin Multiplatform", "color": "PLAIN" },
+        { "text": "Kotlin/JS + React", "color": "PLAIN" },
+        { "text": "Gradle", "color": "PLAIN" },
+        { "text": "IntelliJ Platform SDK", "color": "PLAIN" }
+      ]
+    }
+  ]
+}

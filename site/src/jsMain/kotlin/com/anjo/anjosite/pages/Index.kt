@@ -1,6 +1,11 @@
 package com.anjo.anjosite.pages
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
@@ -11,6 +16,8 @@ import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.navigation.UndecoratedLinkVariant
+import kotlinx.browser.window
+import kotlinx.coroutines.await
 import org.jetbrains.compose.web.dom.Br
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Em
@@ -78,31 +85,32 @@ private fun bootLines(lang: Lang): List<TerminalLine> = when (lang) {
 
 // Stack groups: labels/tag text are English-only in both languages in the mock (same rationale
 // as data-model.md's trophies-name exception — halves the translation surface for proper nouns
-// and tool names).
+// and tool names). Fetched at runtime from stack.json (request #4) so the skill list — and which
+// tags get a colored border — can change without touching Kotlin, same manual
+// JSON.parse<dynamic> pattern as trophies.json/projects.json.
 private data class StackGroup(val label: String, val labelColor: TagColor, val tags: List<Pair<String, TagColor>>)
 
-private val stackGroups = listOf(
-    StackGroup(
-        "BACKEND", TagColor.PLAIN,
-        listOf("Kotlin" to TagColor.PINK, "Java" to TagColor.PINK, "Spring Boot" to TagColor.PLAIN,
-            "Coroutines" to TagColor.PLAIN, "GraphQL / Apollo" to TagColor.PLAIN, "REST" to TagColor.PLAIN),
-    ),
-    StackGroup(
-        "PLATFORM", TagColor.CYAN,
-        listOf("Docker" to TagColor.CYAN, "Kubernetes" to TagColor.CYAN, "OpenShift" to TagColor.PLAIN,
-            "Jenkins" to TagColor.PLAIN, "GitHub Actions" to TagColor.PLAIN, "SQL / PostgreSQL" to TagColor.PLAIN,
-            "JDBC SQLite" to TagColor.PLAIN),
-    ),
-    StackGroup(
-        "TESTING", TagColor.RED,
-        listOf("JUnit" to TagColor.RED, "Kotest" to TagColor.PLAIN, "Mockito" to TagColor.PLAIN,
-            "MockWebServer" to TagColor.PLAIN, "Cucumber" to TagColor.PLAIN),
-    ),
-    StackGroup(
-        "CLIENT & TOOLING", TagColor.CYAN,
-        listOf("Jetpack Compose" to TagColor.PLAIN, "Kotlin Multiplatform" to TagColor.PLAIN,
-            "Kotlin/JS + React" to TagColor.PLAIN, "Gradle" to TagColor.PLAIN, "IntelliJ Platform SDK" to TagColor.PLAIN),
-    ),
+private sealed interface StackFetchState {
+    data object Loading : StackFetchState
+    data class Loaded(val groups: List<StackGroup>) : StackFetchState
+    data object Failed : StackFetchState
+}
+
+private fun parseStackGroups(text: String): List<StackGroup> {
+    val json = kotlin.js.JSON.parse<dynamic>(text)
+    return (json.groups as Array<dynamic>).map { group ->
+        StackGroup(
+            label = group.label as String,
+            labelColor = TagColor.valueOf(group.labelColor as String),
+            tags = (group.tags as Array<dynamic>).map { it.text as String to TagColor.valueOf(it.color as String) },
+        )
+    }
+}
+
+private val StackLoadingLabel = BilingualString(en = "Loading stack…", pl = "Wczytywanie stacku…")
+private val StackErrorLabel = BilingualString(
+    en = "Stack couldn't be loaded right now.",
+    pl = "Nie udało się teraz wczytać stacku.",
 )
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
@@ -117,6 +125,16 @@ fun initHomePage(ctx: InitRouteContext) {
 @Composable
 fun HomePage() {
     val lang = LocalLang.current
+    var stackState by remember { mutableStateOf<StackFetchState>(StackFetchState.Loading) }
+    LaunchedEffect(Unit) {
+        stackState = try {
+            val response = window.fetch("/stack.json").await()
+            if (!response.ok) throw Exception("HTTP ${response.status}")
+            StackFetchState.Loaded(parseStackGroups(response.text().await()))
+        } catch (t: Throwable) {
+            StackFetchState.Failed
+        }
+    }
 
     Section(attrs = { classes("band", "band--strong", "split") }) {
         Div {
@@ -167,19 +185,25 @@ fun HomePage() {
                 Text("repos + own projects")
             }
         }
-        Div(attrs = { classes("stack-groups") }) {
-            stackGroups.forEach { group ->
-                Div {
-                    Div(attrs = {
-                        classes(buildList {
-                            add("label"); add("label--sm")
-                            if (group.labelColor == TagColor.CYAN) add("label--cyan")
-                            if (group.labelColor == TagColor.RED) add("label--red")
-                        })
-                        style { property("margin-bottom", "12px") }
-                    }) { Text(group.label) }
-                    Div(attrs = { classes("tags") }) {
-                        group.tags.forEach { (text, color) -> Tag(text, color) }
+        when (val state = stackState) {
+            is StackFetchState.Loading -> P(attrs = { classes("body") }) { Text(StackLoadingLabel(lang)) }
+            is StackFetchState.Failed -> P(attrs = { classes("body") }) { Text(StackErrorLabel(lang)) }
+            is StackFetchState.Loaded -> {
+                Div(attrs = { classes("stack-groups") }) {
+                    state.groups.forEach { group ->
+                        Div {
+                            Div(attrs = {
+                                classes(buildList {
+                                    add("label"); add("label--sm")
+                                    if (group.labelColor == TagColor.CYAN) add("label--cyan")
+                                    if (group.labelColor == TagColor.RED) add("label--red")
+                                })
+                                style { property("margin-bottom", "12px") }
+                            }) { Text(group.label) }
+                            Div(attrs = { classes("tags") }) {
+                                group.tags.forEach { (text, color) -> Tag(text, color) }
+                            }
+                        }
                     }
                 }
             }

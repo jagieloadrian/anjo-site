@@ -2,6 +2,10 @@ package com.anjo.anjosite.pages.projects
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
@@ -23,17 +27,26 @@ import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Ul
+import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.LocalLang
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.Tag
-import com.anjo.anjosite.pages.projectEntries
+import com.anjo.anjosite.pages.ProjectsFetchState
+import com.anjo.anjosite.pages.fetchProjectEntries
 
 // Dynamic detail route (@Page("{}") -> /projects/{slug}, research.md §1/§2): one static page per
 // project slug once site/build.gradle.kts's extraRoutes registers each one (T003) — otherwise
 // `kobweb export` silently skips this route entirely for every project. Literal port of
-// docs/handoff/index.html's data-screen="project" template.
+// docs/handoff/index.html's data-screen="project" template. Content is fetched from
+// projects.json (request #2), same as the grid in pages/Projects.kt.
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
+
+private val LoadingLabel = BilingualString(en = "Loading project…", pl = "Wczytywanie projektu…")
+private val ErrorLabel = BilingualString(
+    en = "This project couldn't be loaded right now.",
+    pl = "Nie udało się teraz wczytać tego projektu.",
+)
 
 @InitRoute
 fun initProjectSlugPage(ctx: InitRouteContext) {
@@ -47,7 +60,26 @@ fun SlugPage() {
     val ctx = rememberPageContext()
     val lang = LocalLang.current
     val slug = ctx.route.params["slug"]
-    val project = projectEntries.find { it.slug == slug }
+    var fetchState by remember { mutableStateOf<ProjectsFetchState>(ProjectsFetchState.Loading) }
+
+    LaunchedEffect(Unit) {
+        fetchState = fetchProjectEntries()
+    }
+
+    val state = fetchState
+    if (state is ProjectsFetchState.Loading) {
+        Section(attrs = { classes("band", "band--pad") }) {
+            P(attrs = { classes("body") }) { Text(LoadingLabel(lang)) }
+        }
+        return
+    }
+    if (state is ProjectsFetchState.Failed) {
+        Section(attrs = { classes("band", "band--pad") }) {
+            P(attrs = { classes("body") }) { Text(ErrorLabel(lang)) }
+        }
+        return
+    }
+    val project = (state as ProjectsFetchState.Loaded).entries.find { it.slug == slug }
 
     if (project == null) {
         LaunchedEffect(slug) {

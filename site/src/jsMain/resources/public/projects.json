@@ -1,0 +1,88 @@
+{
+  "projects": [
+    {
+      "slug": "star-wars-wiki-compose",
+      "kind": "ANDROID",
+      "title": { "en": "Star Wars Wiki Compose", "pl": "Star Wars Wiki Compose" },
+      "shortDescription": {
+        "en": "My first project shipped to the world: Star Wars data from external APIs plus keyword image search, on Google Play.",
+        "pl": "Mój pierwszy projekt udostępniony światu: dane o Gwiezdnych Wojnach z zewnętrznych API oraz wyszukiwanie obrazów po słowach kluczowych, na Google Play."
+      },
+      "fullDescription": {
+        "en": "My first big project, and the first one I put in front of strangers. It pulls Star Wars data from public APIs and adds keyword image search on top, so a character page arrives with pictures instead of a blank slot. The UI is Jetpack Compose end to end; data comes through Apollo, so the schema drives the models rather than hand-written DTOs. Published on the Play Store under the diether18 developer account.",
+        "pl": "Mój pierwszy duży projekt i pierwszy, który pokazałem obcym ludziom. Pobiera dane o Gwiezdnych Wojnach z publicznych API i dodaje do tego wyszukiwanie obrazów po słowach kluczowych, więc strona postaci ma zdjęcia zamiast pustego miejsca. Interfejs to Jetpack Compose od początku do końca; dane płyną przez Apollo, więc to schema napędza modele, a nie ręcznie pisane DTO. Opublikowany w Play Store na koncie deweloperskim diether18."
+      },
+      "tags": ["Kotlin", "Compose", "Apollo"],
+      "coverImageUrl": null,
+      "coverImageAlt": { "en": "Star Wars Wiki Compose app icon", "pl": "Ikona aplikacji Star Wars Wiki Compose" },
+      "repoUrl": "https://play.google.com/store/apps/details?id=com.anjo.starwarswikicompose",
+      "platform": "Android",
+      "status": { "en": "live on Play Store", "pl": "dostępne na Play Store" },
+      "role": "solo",
+      "packageOrRepo": "com.anjo.starwarswikicompose"
+    },
+    {
+      "slug": "filebrowser-api",
+      "kind": "BACKEND",
+      "title": { "en": "Filebrowser API", "pl": "Filebrowser API" },
+      "shortDescription": {
+        "en": "A private project born from needing a container to manage files for another service. Spring and Kotlin.",
+        "pl": "Prywatny projekt powstały z potrzeby kontenera do zarządzania plikami dla innej usługi. Spring i Kotlin."
+      },
+      "fullDescription": {
+        "en": "A private project born from needing a container to manage files for another service — a small Spring Boot service in Kotlin, packaged as a Docker container, exposing a minimal file-management API.",
+        "pl": "Prywatny projekt powstały z potrzeby kontenera do zarządzania plikami dla innej usługi — mała usługa Spring Boot w Kotlinie, spakowana jako kontener Docker, udostępniająca minimalne API do zarządzania plikami."
+      },
+      "tags": ["Kotlin", "Spring", "Docker"],
+      "coverImageUrl": null,
+      "coverImageAlt": { "en": "Filebrowser API", "pl": "Filebrowser API" },
+      "repoUrl": "https://github.com/jagieloadrian",
+      "platform": "Backend",
+      "status": { "en": "private", "pl": "prywatne" },
+      "role": "solo",
+      "packageOrRepo": "github.com/jagieloadrian"
+    },
+    {
+      "slug": "database-scheduler-executor",
+      "kind": "TOOL",
+      "title": { "en": "Database Scheduler Executor", "pl": "Database Scheduler Executor" },
+      "shortDescription": {
+        "en": "Kotlin app that runs SQLite statements on a schedule from CRON expressions, configured in a properties file.",
+        "pl": "Aplikacja w Kotlinie uruchamiająca zapytania SQLite według harmonogramu z wyrażeń CRON, konfigurowana w pliku properties."
+      },
+      "fullDescription": {
+        "en": "A Kotlin app that executes SQLite statements on a schedule driven by CRON expressions, with the schedule and queries configured entirely through a properties file — no code changes needed to add a new scheduled job.",
+        "pl": "Aplikacja w Kotlinie wykonująca zapytania SQLite według harmonogramu opartego na wyrażeniach CRON, gdzie harmonogram i zapytania konfiguruje się w całości przez plik properties — dodanie nowego zaplanowanego zadania nie wymaga zmian w kodzie."
+      },
+      "tags": ["Kotlin", "JDBC SQLite", "CRON"],
+      "coverImageUrl": null,
+      "coverImageAlt": { "en": "Database Scheduler Executor", "pl": "Database Scheduler Executor" },
+      "repoUrl": "https://github.com/jagieloadrian",
+      "platform": "JVM",
+      "status": { "en": "open source", "pl": "open source" },
+      "role": "solo",
+      "packageOrRepo": "github.com/jagieloadrian"
+    },
+    {
+      "slug": "tuya-key-extractor-kt",
+      "kind": "TOOL",
+      "title": { "en": "Tuya Key Extractor KT", "pl": "Tuya Key Extractor KT" },
+      "shortDescription": {
+        "en": "Local key extractor for Tuya devices. Written because I needed it to run somewhere other than Windows.",
+        "pl": "Lokalny ekstraktor kluczy dla urządzeń Tuya. Napisany, bo potrzebowałem, żeby działał gdzieś poza Windowsem."
+      },
+      "fullDescription": {
+        "en": "A local key extractor for Tuya smart-home devices, written because I needed it to run somewhere other than Windows — the JVM is the most universal engine for that, so a small Kotlin/JVM tool it is.",
+        "pl": "Lokalny ekstraktor kluczy dla urządzeń Tuya smart-home, napisany dlatego, że potrzebowałem, żeby działał gdzieś poza Windowsem — JVM jest do tego najbardziej uniwersalnym silnikiem, więc powstało małe narzędzie w Kotlin/JVM."
+      },
+      "tags": ["Kotlin", "JVM"],
+      "coverImageUrl": null,
+      "coverImageAlt": { "en": "Tuya Key Extractor KT", "pl": "Tuya Key Extractor KT" },
+      "repoUrl": "https://github.com/jagieloadrian",
+      "platform": "JVM",
+      "status": { "en": "open source", "pl": "open source" },
+      "role": "solo",
+      "packageOrRepo": "github.com/jagieloadrian"
+    }
+  ]
+}

@@ -19,7 +19,9 @@ import org.jetbrains.compose.web.css.vw
 import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.BilingualTimelineItem
 import com.anjo.anjosite.LocalLang
+import com.anjo.anjosite.TouchTargetStyle
 import com.anjo.anjosite.resolve
+import com.varabyte.kobweb.silk.style.toModifier
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.TimelineEntry
 
@@ -152,9 +154,9 @@ fun CvPage() {
         )
         SpanText("Kotlin | Java Developer", Modifier.fontSize(1.125.cssRem))
         Row(Modifier.gap(1.cssRem).flexWrap(FlexWrap.Wrap)) {
-            Link("mailto:jagielo.adrian@gmail.com", "jagielo.adrian@gmail.com")
-            Link("https://www.linkedin.com/in/jagieloadrian/", "linkedin.com/in/jagieloadrian ↗")
-            Link("https://github.com/jagieloadrian", "github.com/jagieloadrian ↗")
+            Link("mailto:jagielo.adrian@gmail.com", "jagielo.adrian@gmail.com", modifier = TouchTargetStyle.toModifier())
+            Link("https://www.linkedin.com/in/jagieloadrian/", "linkedin.com/in/jagieloadrian ↗", modifier = TouchTargetStyle.toModifier())
+            Link("https://github.com/jagieloadrian", "github.com/jagieloadrian ↗", modifier = TouchTargetStyle.toModifier())
             SpanText("Warsaw, Poland")
         }
 

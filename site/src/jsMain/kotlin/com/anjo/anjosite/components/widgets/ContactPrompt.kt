@@ -18,7 +18,9 @@ import org.jetbrains.compose.web.css.cssRem
 import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.LocalLang
 import com.anjo.anjosite.SitePalette
+import com.anjo.anjosite.TouchTargetStyle
 import com.anjo.anjosite.toSitePalette
+import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 
 // The one new shared component this phase introduces (FR-014 exception, specs/004-pages
@@ -65,8 +67,9 @@ fun ContactPrompt(recipientEmail: String, subject: String) {
                     showRequiredError = false
                 },
                 placeholder = MessagePlaceholder(lang),
+                modifier = TouchTargetStyle.toModifier(),
             )
-            Button(onClick = { send() }) {
+            Button(onClick = { send() }, modifier = TouchTargetStyle.toModifier()) {
                 SpanText(SendLabel(lang))
             }
         }

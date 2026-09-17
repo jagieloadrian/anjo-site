@@ -17,10 +17,12 @@ import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.css.*
 import com.anjo.anjosite.LocalLang
+import com.anjo.anjosite.TouchTargetStyle
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.Tag
 import com.anjo.anjosite.components.widgets.TagVariant
 import com.anjo.anjosite.pages.projectEntries
+import com.varabyte.kobweb.silk.style.toModifier
 
 // Dynamic detail route (@Page("{}") -> /projects/{slug}, research.md §1/§2): one static page per
 // project slug once site/build.gradle.kts's extraRoutes registers each one (T003) — otherwise
@@ -48,7 +50,7 @@ fun SlugPage() {
     }
 
     Column(Modifier.gap(1.5.cssRem)) {
-        Link("/projects", "← projects")
+        Link("/projects", "← projects", modifier = TouchTargetStyle.toModifier())
         SpanText(
             project.title(lang),
             Modifier.fontFamily("Archivo", "system-ui", "sans-serif")
@@ -62,7 +64,7 @@ fun SlugPage() {
             }
         }
         project.repoUrl?.let { url ->
-            Link(url, "view ↗")
+            Link(url, "view ↗", modifier = TouchTargetStyle.toModifier())
         }
     }
 }

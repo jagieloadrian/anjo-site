@@ -9,6 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.varabyte.kobweb.compose.css.ScrollBehavior
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.minHeight
 import com.varabyte.kobweb.compose.ui.modifiers.position
 import com.varabyte.kobweb.compose.ui.modifiers.scrollBehavior
@@ -55,7 +56,12 @@ fun AppEntry(content: @Composable () -> Unit) {
         // this phase — in-memory only, re-detected fresh on every page load (spec Edge Cases).
         var lang by remember { mutableStateOf(detectInitialLang()) }
         CompositionLocalProvider(LocalLang provides lang, LocalLangSetter provides { lang = it }) {
-            Surface(SmoothColorStyle.toModifier().minHeight(100.vh).position(Position.Relative)) {
+            Surface(
+                SmoothColorStyle.toModifier()
+                    .id("site-surface")
+                    .minHeight(100.vh)
+                    .position(Position.Relative)
+            ) {
                 // Decorative overlay chrome (docs/handoff/index.html .fx-scan/.fx-vignette/.fx-grid),
                 // styled in AppStyles.kt — rendered once here so every page gets it (T006).
                 Div(attrs = { classes("fx-scan") })

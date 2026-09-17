@@ -18,10 +18,12 @@ import org.jetbrains.compose.web.css.vw
 import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.Lang
 import com.anjo.anjosite.LocalLang
+import com.anjo.anjosite.TouchTargetStyle
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.Terminal
 import com.anjo.anjosite.components.widgets.TerminalLine
 import com.anjo.anjosite.components.widgets.TerminalLineStyle
+import com.varabyte.kobweb.silk.style.toModifier
 
 // Real Home content ported from docs/handoff/index.html's HOME screen + app.js's BOOT.en/pl
 // (specs/004-pages FR-001/FR-002), replacing the Phase 0/1 token-swatch + language-demo
@@ -85,8 +87,8 @@ fun HomePage() {
         )
         SpanText(HeroLede(lang), Modifier.fontSize(1.0625.cssRem).maxWidth(46.cssRem))
         Row(Modifier.gap(0.75.cssRem)) {
-            Link("/projects", ViewProjectsLabel(lang))
-            Link("/cv", ReadCvLabel(lang))
+            Link("/projects", ViewProjectsLabel(lang), modifier = TouchTargetStyle.toModifier())
+            Link("/cv", ReadCvLabel(lang), modifier = TouchTargetStyle.toModifier())
         }
         Terminal(bootLines(lang))
     }

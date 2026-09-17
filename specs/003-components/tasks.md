@@ -52,8 +52,10 @@ built before user story work can start — proceed directly to Phase 3.
 correctly and (except `StatRow`) are each a self-contained clickable container, per FR-001,
 FR-004, FR-006, FR-007, FR-008, FR-009, FR-010–FR-015.
 
-**Independent Test**: `quickstart.md` scenarios 1-6 — render each component against
-representative sample data with no Phase 3 (site pages) or Phase 4 (JSON data) work in place.
+**Independent Test**: These five components build and compile with zero dependency on Phase 3
+(site pages) or Phase 4 (JSON data) — none references another component, a page, or a data
+source. `quickstart.md` scenarios 1-6 confirm their actual rendered output once Phase 3 wires
+them into a real page, not via standalone scratch-page wiring.
 
 ### Implementation for User Story 1
 

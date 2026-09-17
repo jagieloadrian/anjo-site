@@ -85,8 +85,9 @@ representative sample data with no Phase 3 (site pages) or Phase 4 (JSON data) w
       page-building instead of throwaway scratch-page wiring — verify these five components as
       used by their real pages (Projects, Trophies, CV), not in isolation first.
 
-**Checkpoint**: User Story 1 fully functional and testable independently — Phase 3 pages will
-have every content-bearing component they need.
+**Checkpoint**: User Story 1's five components are built, compiled, and ready — Phase 3 pages will
+have every content-bearing component they need. Their rendered output is confirmed once Phase 3
+actually wires them in (T006), not before.
 
 ---
 
@@ -109,7 +110,8 @@ and reduced-motion toggled mid-animation.
       reviewed; verify normal-motion typing + reduced-motion behavior once `Terminal` is wired
       into its real host page (Home), not via scratch wiring.
 
-**Checkpoint**: User Stories 1 AND 2 both work independently.
+**Checkpoint**: `Terminal` is built and compiled — its typing/reduced-motion behavior is confirmed
+once Phase 3 wires it into its real host page (T008), not before.
 
 ---
 
@@ -127,7 +129,8 @@ and reduced-motion toggled mid-animation.
 - [ ] T010 [US3] Verify `quickstart.md` scenario 10, deferred to Phase 3: T009 compiled and
       reviewed; verify once wired into its real host page (CV/About), not via scratch wiring.
 
-**Checkpoint**: All three user stories independently functional — all seven components exist.
+**Checkpoint**: All seven components are built and compiled. Visual verification for all of them
+(T006/T008/T010) happens once during Phase 3's page-building pass, not standalone.
 
 ---
 
@@ -189,16 +192,19 @@ Task: "Create TrophyEntry + TrophyTier + TrophyRow composable in .../components/
 
 ### MVP First (User Story 1 Only)
 
-1. Complete Phase 3 (US1) — five content-bearing components.
-2. **STOP and VALIDATE**: run `quickstart.md` scenarios 1-6 (T006).
-3. That alone unblocks every Phase 3 (site) page except ones needing `Terminal`/`TimelineEntry`.
+1. Complete Phase 3 (US1) — five content-bearing components, built and compiled.
+2. That alone unblocks every Phase 3 (site) page except ones needing `Terminal`/`TimelineEntry`.
+3. Their rendered output is confirmed (T006) once a real Phase 3 page wires them in — not a
+   standalone gate before moving on.
 
 ### Incremental Delivery
 
-1. Phase 3 (US1) → validate (T006) → five components ready.
-2. Phase 4 (US2) → validate (T008) → `Terminal` ready.
-3. Phase 5 (US3) → validate (T010) → `TimelineEntry` ready.
-4. Phase 6 → full cross-cutting pass (T011) + dependency check (T012).
+1. Phase 3 (US1) → five components built.
+2. Phase 4 (US2) → `Terminal` built.
+3. Phase 5 (US3) → `TimelineEntry` built.
+4. Phase 6 → static cross-cutting checks now (T011 partial) + dependency check (T012).
+5. T006/T008/T010/T011's remaining visual checks confirm once Phase 3 pages exist and use these
+   components for real.
 
 ---
 

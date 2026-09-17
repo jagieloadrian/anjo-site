@@ -56,10 +56,11 @@ components every content-bearing page (Projects, CV, Trophies) depends on. Witho
 has nothing to build pages out of. They carry no animation or timing logic, making them the
 lowest-risk, highest-leverage slice to ship first.
 
-**Independent Test**: Render each component in isolation with representative sample data (a
-project entry, a stat pair, a game cover, a trophy entry, a tag in each variant) and confirm each
-displays its content correctly and matches the design tokens from `SiteTheme.kt` — independent of
-any real page or JSON data source existing yet.
+**Independent Test**: Each of these five components can be built, code-reviewed, and shipped
+without any of the others or without Phase 3/4 existing — none references another component, a
+page, or a JSON data source. Visual/browser verification against representative sample data is
+done once, when a real Phase 3 page first wires a given component in, rather than through
+throwaway scratch-page wiring created solely to preview it in isolation first.
 
 **Acceptance Scenarios**:
 
@@ -117,8 +118,9 @@ consistent format.
 components (primarily CV/About) and has no dependents within this phase, so it can slot in last
 without blocking anything else.
 
-**Independent Test**: Render `TimelineEntry` in isolation with a sample date, title, and
-description, and confirm all three render legibly as one entry.
+**Independent Test**: `TimelineEntry` can be built and shipped with zero dependency on any other
+component or page. Its actual rendered output is confirmed the first time a real Phase 3 page
+wires it in, not via standalone scratch-page wiring.
 
 **Acceptance Scenarios**:
 
@@ -208,8 +210,10 @@ description, and confirm all three render legibly as one entry.
 ### Measurable Outcomes
 
 - **SC-001**: All seven components (Terminal, ProjectCard, TimelineEntry, StatRow, GameCover,
-  TrophyRow, Tag) render correctly against representative sample data before any Phase 3 page
-  exists to consume them.
+  TrophyRow, Tag) are buildable and shippable with zero dependency on any other component, on a
+  Phase 3 page, or on a Phase 4 data source — none references another. Each one's actual rendered
+  output is confirmed correct the first time a real Phase 3 page wires it in, not via standalone
+  scratch-page wiring built solely to preview it first.
 - **SC-002**: A visitor with `prefers-reduced-motion: reduce` sees zero animation frames from
   `Terminal` — full content is visible on first paint.
 - **SC-003**: 100% of interactive elements across all components meet the 48px minimum touch

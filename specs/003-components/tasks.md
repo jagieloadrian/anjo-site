@@ -80,11 +80,10 @@ representative sample data with no Phase 3 (site pages) or Phase 4 (JSON data) w
       `Link`, tier→icon mapping owned internally, nullable `earnedAt` renders a locked/unearned
       state (data-model.md `TrophyEntry`), 48px touch target under 720px (research.md §2),
       `clamp()` typography, tokens from `SiteTheme.kt` only
-- [ ] T006 [US1] Manually verify `quickstart.md` scenarios 1-6 (depends on T001-T005): render each
-      of the five components with sample data on a temporary placeholder-page call site, confirm
-      content visibility, placeholder fallback, and whole-component clickability. Partial:
-      compiled successfully against real sample data (T001-T005 verified this way); the visual
-      checks themselves need `kobweb run` + a browser, not done in this session.
+- [ ] T006 [US1] Verify `quickstart.md` scenarios 1-6, deferred to Phase 3: compiled successfully
+      against real sample data (T001-T005), but visual/browser checks are folded into Phase 3
+      page-building instead of throwaway scratch-page wiring — verify these five components as
+      used by their real pages (Projects, Trophies, CV), not in isolation first.
 
 **Checkpoint**: User Story 1 fully functional and testable independently — Phase 3 pages will
 have every content-bearing component they need.
@@ -106,10 +105,9 @@ and reduced-motion toggled mid-animation.
       char-by-char reveal with mock-ported timings (research.md §5), `matchMedia` +
       `"change"`-listener-driven reduced-motion state gating the effect (research.md §1),
       `clamp()` typography, tokens from `SiteTheme.kt` only
-- [ ] T008 [US2] Manually verify `quickstart.md` scenarios 7-9 (depends on T007): normal-motion
-      typing, devtools reduced-motion emulation from load, and toggling emulation mid-animation.
-      Not done — needs a browser + devtools; T007 compiled and reviewed but its actual runtime
-      typing/reduced-motion behavior is unverified.
+- [ ] T008 [US2] Verify `quickstart.md` scenarios 7-9, deferred to Phase 3: T007 compiled and
+      reviewed; verify normal-motion typing + reduced-motion behavior once `Terminal` is wired
+      into its real host page (Home), not via scratch wiring.
 
 **Checkpoint**: User Stories 1 AND 2 both work independently.
 
@@ -126,8 +124,8 @@ and reduced-motion toggled mid-animation.
 - [X] T009 [US3] Create `TimelineItem` + `TimelineEntry` composable in
       `site/src/jsMain/kotlin/com/anjo/anjosite/components/widgets/TimelineEntry.kt` — static
       display, `clamp()` typography, tokens from `SiteTheme.kt` only
-- [ ] T010 [US3] Manually verify `quickstart.md` scenario 10 (depends on T009). Not done — needs a
-      browser; T009 compiled and reviewed only.
+- [ ] T010 [US3] Verify `quickstart.md` scenario 10, deferred to Phase 3: T009 compiled and
+      reviewed; verify once wired into its real host page (CV/About), not via scratch wiring.
 
 **Checkpoint**: All three user stories independently functional — all seven components exist.
 
@@ -137,13 +135,12 @@ and reduced-motion toggled mid-animation.
 
 **Purpose**: Verify the requirements that cut across every component, now that all seven exist.
 
-- [ ] T011 Manually verify `quickstart.md` cross-cutting checks 11-16 (depends on T001-T005, T007,
-      T009). Partial: check 13 (zero hardcoded colors/spacing outside `SiteTheme.kt`) confirmed by
-      source grep — no `Color.rgb`/hex literals outside `SiteTheme.kt` in any of the 7 files; check
-      14 (compile-time `alt`/`href` enforcement) confirmed — both are non-nullable constructor
-      params, verified by the scratch-page compile. Checks 11 (719px touch target), 12 (fluid
-      scaling as rendered), 15 (screen-reader accessible name), 16 (bilingual visual render) need
-      `kobweb run` + a browser — not done.
+- [ ] T011 Verify `quickstart.md` cross-cutting checks 11-16, deferred to Phase 3. Already confirmed
+      statically: check 13 (zero hardcoded colors/spacing outside `SiteTheme.kt`, source grep) and
+      check 14 (compile-time `alt`/`href` enforcement, non-nullable constructor params). Remaining
+      (719px touch target, fluid scaling as rendered, screen-reader accessible name, bilingual
+      visual render) verified once during Phase 3's real-page pass instead of a throwaway
+      scratch-page pass now.
 - [X] T012 Confirm zero new Gradle dependencies were introduced (`git diff site/build.gradle.kts
       gradle/libs.versions.toml` — constitution Principle VIII, plan.md Constraints)
 

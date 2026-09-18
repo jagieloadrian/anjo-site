@@ -15,6 +15,7 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.events.Event
+import kotlin.time.Duration.Companion.milliseconds
 
 enum class TerminalLineStyle { COMMAND, OUTPUT, ACCENT_PINK, ACCENT_CYAN }
 
@@ -60,9 +61,9 @@ fun Terminal(lines: List<TerminalLine>, title: String = "adrian@d18: ~/boot") {
             val perCharDelay = if (line.text.startsWith("$")) 26L else 16L
             for (charCount in 1..line.text.length) {
                 visibleCharCount = charCount
-                delay(perCharDelay)
+                delay(perCharDelay.milliseconds)
             }
-            delay(240)
+            delay(240.milliseconds)
         }
         visibleLineCount = lines.size
         visibleCharCount = 0

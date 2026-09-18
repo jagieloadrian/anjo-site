@@ -11,16 +11,22 @@ import com.varabyte.kobweb.core.App
 import com.varabyte.kobweb.silk.SilkApp
 import kotlinx.browser.document
 import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Style
 
-// Visual styling for the whole site comes from the mock's own stylesheet
-// (docs/handoff/styles.css, served as /styles.css — see build.gradle.kts), applied via literal
-// class names, not Silk CssStyle/ColorMode. SilkApp is kept only because a couple of Silk widgets
-// (TextInput/Button in ContactPrompt) still need SilkTheme present; there is no light/dark toggle
-// or Silk-driven palette in the mock, so none of that plumbing exists here anymore.
+// Visual styling for the whole site is now the SiteStyles.kt object (mechanically transcribed
+// from docs/handoff/styles.css — request: move CSS into Kotlin, no more mock changes planned),
+// mounted here via plain Compose HTML `Style()`, applied via literal class names, not Silk
+// CssStyle/ColorMode. Deliberately not Silk's `@InitSilk`/`CssStyle` machinery: Kobweb wraps that
+// output in `@layer general-styles`, and CSS gives any unlayered rule priority over any layered
+// one regardless of specificity — a real bug we hit with a hover style earlier this session. A
+// plain `StyleSheet()` mounted via `Style()` stays unlayered, exactly like the external stylesheet
+// it replaces. SilkApp is kept only because a couple of Silk widgets (TextInput/Button in
+// ContactPrompt) still need SilkTheme present.
 @App
 @Composable
 fun AppEntry(content: @Composable () -> Unit) {
     SilkApp {
+        Style(cssRules = SiteStyles.cssRules)
         // Single app-wide LocalLang provider (spec 002-layout-routing FR-008, data-model.md's
         // Lang validation rule: exactly one provider must exist). No localStorage persistence
         // this phase — in-memory only, re-detected fresh on every page load (spec Edge Cases).

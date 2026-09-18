@@ -63,7 +63,47 @@
 - `/cv` print preview: white background, dark text, nav/footer/decorative overlays hidden.
 - `kobweb export -PkobwebExportLayout=STATIC`: all 10 pages export, `styles.css` included.
 
-## Completed work (this session, post-pivot refinements)
+## Completed work (this session, CSS-in-Kotlin migration)
+
+Per explicit user request ("move CSS to Kotlin code, no more [design] changes planned"): the
+site's entire stylesheet now lives in `site/src/jsMain/kotlin/com/anjo/anjosite/SiteStyles.kt`, a
+plain Compose HTML `StyleSheet()` object mounted via `Style(cssRules = SiteStyles.cssRules)` in
+`AppEntry.kt`. `site/src/jsMain/resources/public/styles.css` is deleted; the `<link rel="stylesheet">`
+in `build.gradle.kts` is gone.
+
+- **Mechanically generated, not hand-ported.** Wrote a one-off Python script
+  (`css2kt.py`, not checked in — mentioned here so it can be redone if ever needed) that parses
+  `styles.css` (selectors, declarations, `@media`, `@keyframes`, comments) and emits literal
+  `"selector" style { property("prop", "value") }` calls — every declaration transcribed
+  byte-for-byte via the raw `property(name, value)` escape hatch already used throughout this
+  codebase, not reinterpreted through typed Compose modifiers. This was deliberate: a 500-line,
+  ~150-rule hand-port had far higher odds of a silent value typo than a generator run once and
+  diffed against the rule count (228 braces in source vs. 214 `style{}` + 5 `media{}` + 2
+  `keyframes` + 7 keyframe-frames = 228, confirmed no rules dropped).
+- **Why plain `StyleSheet()`, not Silk's `@InitSilk`/`CssStyle`**: Kobweb wraps `CssStyle` output
+  in `@layer general-styles`, and CSS gives any unlayered rule priority over any layered one
+  regardless of specificity — the exact bug hit earlier this session with the brand hover
+  background. A plain Compose HTML `StyleSheet()` mounted via `Style()` stays unlayered, exactly
+  like the external stylesheet it replaces, so every existing selector/specificity relationship
+  (e.g. `.btn` vs `.btn--ghost`, media-query overrides) keeps working unchanged.
+- **Two keyframes** (`glitch-shift`, `caret-blink`) are declared as `by keyframes {}` properties on
+  `SiteStyles` (Compose HTML auto-names these, e.g. `SiteStyles-glitchShift`) and referenced via
+  `${glitchShift.name}`/`${caretBlink.name}` inside the `animation` declarations that use them —
+  the one place the transcription isn't a literal string copy, since the literal mock name
+  `glitch-shift` no longer exists as an identifier.
+- **`docs/handoff/styles.css` is untouched** — it's still the mock's own reference file, unrelated
+  to how the Kobweb site itself is built now. If the mock ever changes again despite "no more
+  changes planned," re-running `css2kt.py` against it regenerates `SiteStyles.kt`.
+- Verified: clean compile, zero console/page errors across all 7 routes, theme toggle + brand
+  hover/glitch + sticky footer + Stack/Projects JSON fetch all re-verified working post-migration,
+  no horizontal overflow at 390/430/720px, print media (`/cv`) still hides nav/footer and flips to
+  a white background, and a full `kobweb export -PkobwebExportLayout=STATIC` succeeds with no
+  `styles.css` in the output — CSS ships embedded in the exported HTML's `<style>` tags instead.
+- Footer color: an earlier request this session to brighten it (`#ff6b52`) was explicitly reverted
+  back to the mock's plain `--red` per follow-up user feedback — the migration preserves that
+  reverted (plain) state.
+
+## Completed work (earlier this session, post-pivot refinements)
 
 Eight user-reported items, all implemented and verified in-browser (Playwright) + against a real
 `kobwebExport -PkobwebExportLayout=STATIC` (all 10 pages + `projects.json`/`stack.json`/
@@ -106,13 +146,11 @@ Eight user-reported items, all implemented and verified in-browser (Playwright) 
    instead of a minimal one and dropped the `min-height: 48px` touch target its sibling buttons get
    there.
 8. User asked whether styling can live in Kotlin (`CssStyle`) instead of the raw stylesheet.
-   Decision: **kept the raw `styles.css` as the resync source** for anything mock-derived (tokens,
-   light/dark theme, `.theme-btn` chrome) — it's what stays in lockstep with the user's own edits
-   to `docs/handoff/`, and item 6 above is a concrete demonstration of why mixing Silk `CssStyle`
-   with that raw stylesheet is actively risky (the `@layer` interaction). Everything genuinely new
-   and site-specific (footer color, sticky footer, brand hover) is written directly in Kotlin via
-   inline `style{}`/modifiers — already this codebase's established convention for one-off styling,
-   satisfies the literal ask without the `@layer` footgun.
+   Decision at the time: **kept the raw `styles.css` as the resync source** for anything
+   mock-derived, since it was still expected to change in lockstep with `docs/handoff/`; only new
+   site-specific rules moved to inline `style{}`/modifiers. **Superseded later this session**: once
+   the user confirmed no more design changes were planned, the whole stylesheet was migrated into
+   `SiteStyles.kt` (see "CSS-in-Kotlin migration" above) — the resync argument no longer applied.
 
 ## Next steps
 

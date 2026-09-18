@@ -47,12 +47,8 @@ kobweb {
                     rel = "stylesheet",
                     href = "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
                 )
-                // The mock's own hand-authored stylesheet (docs/handoff/styles.css), served
-                // verbatim (plus a print block it doesn't have) — pages are built with its exact
-                // class names so the site actually matches the mock instead of a Kotlin
-                // approximation of it (see PROJECT-STATUS.md for why this replaced the earlier
-                // Silk-CssStyle-only approach).
-                link(rel = "stylesheet", href = "/styles.css")
+                // Site's own CSS is now SiteStyles.kt (mounted in AppEntry.kt via `Style()`), not
+                // an external stylesheet — no `/styles.css` link needed anymore.
             }
         }
         export {

@@ -5,7 +5,8 @@
   "description": "Fetches the maintainer's PSN trophy data and regenerates site/src/jsMain/resources/public/trophies.json",
   "main": "index.mjs",
   "scripts": {
-    "start": "node index.mjs"
+    "start": "node index.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "psn-api": "^2.17.0"

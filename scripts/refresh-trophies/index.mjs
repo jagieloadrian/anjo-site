@@ -39,7 +39,7 @@ async function fetchAllTitles(authorization) {
   return { titles, totalItemCount };
 }
 
-function buildStats(allTitles, totalItemCount, summary) {
+export function buildStats(allTitles, totalItemCount, summary) {
   const { bronze, silver, gold, platinum } = summary.earnedTrophies;
   const total = bronze + silver + gold + platinum;
   const avgCompletion = allTitles.length
@@ -61,7 +61,7 @@ function buildStats(allTitles, totalItemCount, summary) {
   ];
 }
 
-function pickRecentTitles(allTitles) {
+export function pickRecentTitles(allTitles) {
   return [...allTitles]
     .sort(
       (a, b) =>
@@ -70,7 +70,7 @@ function pickRecentTitles(allTitles) {
     .slice(0, RECENT_GAMES_COUNT);
 }
 
-function buildGames(recentTitles) {
+export function buildGames(recentTitles) {
   return recentTitles.map((title) => {
     const hasPlatinum = title.definedTrophies.platinum === 1;
     const percentText = hasPlatinum
@@ -91,6 +91,22 @@ function buildGames(recentTitles) {
       muted: !hasPlatinum,
     };
   });
+}
+
+export function mapEarnedTrophy(title, earned, detail) {
+  return {
+    tier: earned.trophyType.toUpperCase(),
+    name: detail?.trophyName ?? "Unknown Trophy",
+    gameName: title.trophyTitleName,
+    rarityPercent: earned.trophyEarnedRate ?? "0",
+    earnedAt: earned.earnedDateTime ?? null,
+  };
+}
+
+export function rankTrophies(earnedPool) {
+  return [...earnedPool]
+    .sort((a, b) => new Date(b.earnedAt ?? 0) - new Date(a.earnedAt ?? 0))
+    .slice(0, RECENT_TROPHIES_COUNT);
 }
 
 async function fetchRecentTrophies(authorization, recentTitles) {
@@ -119,20 +135,13 @@ async function fetchRecentTrophies(authorization, recentTitles) {
 
     for (const earned of userTrophies.trophies) {
       if (!earned.earned) continue;
-      const detail = trophyById.get(earned.trophyId);
-      earnedPool.push({
-        tier: earned.trophyType.toUpperCase(),
-        name: detail?.trophyName ?? "Unknown Trophy",
-        gameName: title.trophyTitleName,
-        rarityPercent: earned.trophyEarnedRate ?? "0",
-        earnedAt: earned.earnedDateTime ?? null,
-      });
+      earnedPool.push(
+        mapEarnedTrophy(title, earned, trophyById.get(earned.trophyId)),
+      );
     }
   }
 
-  return earnedPool
-    .sort((a, b) => new Date(b.earnedAt ?? 0) - new Date(a.earnedAt ?? 0))
-    .slice(0, RECENT_TROPHIES_COUNT);
+  return rankTrophies(earnedPool);
 }
 
 async function main() {
@@ -161,7 +170,10 @@ async function main() {
   console.log(`Wrote ${OUTPUT_PATH}`);
 }
 
-main().catch((error) => {
-  console.error(`refresh-trophies failed: ${error.message}`);
-  process.exit(1);
-});
+const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
+if (isMainModule) {
+  main().catch((error) => {
+    console.error(`refresh-trophies failed: ${error.message}`);
+    process.exit(1);
+  });
+}

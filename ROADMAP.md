@@ -59,11 +59,21 @@ Status na 2026-09-17: Fazy 0–2 gotowe (fundament, layout/routing, komponenty).
 - **F028** — Decyzja: project page vs user page (wpływa na `basePath`)
 - **F029** — Osobny nocny workflow na `trophies.json`
 
-### Faza 6 — Polish
-- **F030** — SEO: per-page meta/OG (bazowy `description.set()` już w build.gradle)
-- **F031** — A11y pass: alt teksty, reduced-motion pełne pokrycie, kontrast
-- **F032** — (opcjonalnie) privacy-friendly analytics (Plausible/GoatCounter)
-- **F033** — (opcjonalnie) self-hosted fonty zamiast Google Fonts CDN
+### Faza 6 — Polish (specs/007-tests-polishing)
+- [x] **F030** — SEO: per-page meta/OG (bazowy `description.set()` już w build.gradle)
+- [x] **F031** — A11y pass: alt teksty, reduced-motion pełne pokrycie, kontrast
+- **F032** — (opcjonalnie) privacy-friendly analytics (Plausible/GoatCounter) — odłożone, patrz
+  specs/007-tests-polishing/research.md §10 (YAGNI: brak obecnej potrzeby na dane o ruchu)
+- [x] **F033** — (opcjonalnie) self-hosted fonty zamiast Google Fonts CDN — zaimplementowane
+  (`latin`+`latin-ext` warianty Archivo/JetBrains Mono w `site/src/jsMain/resources/public/fonts/`)
+- [x] **F034** — Testy jednostkowe: Kotlin/JS (`kotlin.test`, `jsTest` source set) dla czystej logiki
+  (detekcja języka i `BilingualString`/`BilingualTimelineItem.resolve()` w `Lang.kt`, mapowanie
+  JSON w `Trophies.kt`/`Projects.kt`, slug lookup w `pages/projects/Slug.kt` łącznie z fallbackiem
+  na `/404`) + podpięcie do CI
+- [x] **F035** — Testy E2E: Playwright na realnym eksporcie statycznym (`kobwebExport --layout
+  static`, serwowanym lokalnie) — 7 tras, dynamiczny `/projects/{slug}` + fallback `/404`,
+  przełącznik EN/PL, `prefers-reduced-motion`, breakpointy 390/430/768 (zastępuje ręczny przegląd
+  `docs/handoff/mobile-check.html` z F024a) + podpięcie do CI
 
 ## Draft `/speckit.constitution`
 

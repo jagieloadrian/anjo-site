@@ -203,3 +203,83 @@ obecnej skali kilku projektów; przy większej skali warto wygenerować listę z
 filtrowania po tagach — nie zbudowane w tej fazie). Wszystkie sześć route'ów wymaga ręcznej
 weryfikacji na 390/430/768px (`docs/handoff/mobile-check.html`) — brak automatycznych testów w
 projekcie na żadnym etapie (świadoma decyzja, konsekwentna przez wszystkie cztery fazy).
+
+---
+
+## Faza 007 — Polish + Automated Test Suite
+
+**Cel**: Domknąć Fazę 6 ROADMAP.md (F030-F033: SEO/OG, pełny a11y pass, decyzja analytics/fontów)
+i wprowadzić pierwszy automatyczny zestaw testów wykraczający poza `scripts/refresh-trophies`:
+`kotlin.test` (jsTest) dla czystej logiki oraz Playwright dla realnego eksportu statycznego,
+podpięte do CI.
+
+**Kluczowe decyzje techniczne**
+
+- **SEO/OG jako rozszerzenie istniejącego `PageLayout.kt`, nie nowy mechanizm**: zweryfikowano
+  empirycznie, że `kobwebExport --layout static` robi realny, przeglądarkowy snapshot DOM **po**
+  wykonaniu klienckiego JS/Compose — więc `LaunchedEffect`-owe mutacje `<head>` (title, meta,
+  OG tagi) trafiają do finalnego wyeksportowanego HTML. `updatePageMeta(title, description,
+  ogImage)` to jedna współdzielona funkcja w `PageLayout.kt`, wywoływana raz statycznie (z
+  `PageLayoutData`) i — dla `/projects/{slug}`, jedynej trasy z realnie dynamiczną treścią — drugi
+  raz z `Slug.kt`'s `LaunchedEffect(project)` po rozwiązaniu fetcha `projects.json`.
+- **Self-hosted fonty (F033, implement-now)**: Archivo i JetBrains Mono są fontami zmiennymi po
+  stronie Google — te same bajty pliku są serwowane dla każdej deklarowanej wagi w ramach jednego
+  subsetu (`latin`/`latin-ext`), więc zawodowane są tylko 4 unikalne pliki `.woff2`
+  (`resources/public/fonts/`), z 18 regułami `@font-face` (6 wag × 2 subsety dla Archivo, 3 × 2
+  dla JetBrains Mono) wskazującymi na nie. Oba subsety (`latin` **i** `latin-ext`) są wymagane —
+  polskie znaki diakrytyczne (ą/ę/ł/ń/ó/ś/ź/ż) leżą w bloku Unicode Latin Extended-A, poza
+  `latin`-only. Reguły `@font-face` żyją jako surowy `<style>` wstrzyknięty przez `head.add` w
+  `build.gradle.kts`, nie w `SiteTokenStyles.kt` — typowany DSL `StyleSheet()` Compose HTML nie
+  wspiera `@font-face`. Analytics (F032) — odłożone (YAGNI, research.md §10).
+- **Kolejność konkatenacji arkuszy stylów ma znaczenie**: `SiteStyles.kt` łączy kilkanaście
+  osobnych `object : StyleSheet()` w jedną listę `cssRules` — przy równej specyficzności
+  selektora (np. `.caret { animation: ... }` w `SiteGlitchStyles.kt` vs `@media
+  (prefers-reduced-motion: reduce) { .caret { animation: none } }` w `SiteOverlayStyles.kt`)
+  wygrywa reguła **później** w tej liście, niezależnie od warunku media query. Bug znaleziony
+  dopiero przez realny test Playwright z `reducedMotion: "reduce"` — wcześniejsze audyty czysto
+  wzrokowe/manualne go nie złapały. `SiteOverlayStyles.cssRules` przeniesione na koniec listy.
+- **Kontrast WCAG AA — token, nie ad hoc kolor**: `axe-core` (realne uruchomienie, nie tylko
+  ręczne wyliczenie ratio) znalazł błędy niewidoczne przy liczeniu kontrastu samych tokenów
+  względem płaskiego `--bg` — kilka komponentów renderuje tekst na barwionych tłach (`--tint-*`,
+  `--panel`), gdzie faktyczny kontrast jest niższy niż token-vs-bg. Naprawione podniesieniem
+  wartości tokenów (`--faint` w obu motywach, `--red` i `--pink` w jasnym) z marginesem powyżej
+  4.5:1 względem najgorszego zaobserwowanego tła, nigdy przez nowy jednorazowy kolor. Osobno:
+  `Cv.kt` miał trzy miejsca z twardo wpisanym `color: #e6e4e3` (wartość `--ink-2` **ciemnego**
+  motywu) zamiast `var(--ink-2)` — nigdy się nie przemotywowywały, złamane w jasnym motywie;
+  naprawione na token.
+- **Serwowanie eksportu dla Playwright**: `python3 -m http.server` (zero nowej zależności) nie ma
+  fallbacku w stylu GitHub Pages dla nieznanych ścieżek — a `/projects/{nieznany-slug}` (tylko 4
+  slugi zarejestrowane przez `addExtraRoute`) jest trasą czysto kliencką. `e2e/serve-static.py`,
+  ~20-liniowy `http.server.SimpleHTTPRequestHandler`, dokłada fallback do `404.html` (wciąż zero
+  nowej zależności — czysty stdlib), odzwierciedlając realne zachowanie GitHub Pages.
+- **Test suite jako trzecia, niezależna warstwa**: `node:test` (`scripts/refresh-trophies`,
+  bez zmian), `kotlin.test` w nowym `jsTest` source set (bez nowej zależności Gradle — dołączony
+  do pluginu Kotlin), Playwright + `@axe-core/playwright` w nowym workspace `e2e/` (jedyne dwie
+  nowe zależności całej fazy, uzasadnione Constitution Principle VIII — żadne istniejące
+  narzędzie w repo nie potrafi sterować realną przeglądarką ani skanować a11y). Wszystkie trzy
+  podpięte do `.github/workflows/ci.yml` — `site-export` rozszerzony o `:site:jsTest`, nowy job
+  `e2e` konsumujący eksport przez `actions/upload-artifact`/`download-artifact`.
+- **Funkcje wydzielone tylko dla testowalności**: `langForLocale(locale): Lang` z `Lang.kt`
+  (`detectInitialLang()` czyta `window.navigator.language`, którego test na realnej przeglądarce
+  Karma nie kontroluje) i `findProjectBySlug(entries, slug): ProjectEntry?` z `Slug.kt` (zamiast
+  `.find{}` inline) — ten sam wzorzec co `parseTrophiesData` (`private` → `internal`).
+
+**Zaimplementowane pliki**: `PageLayout.kt` (`updatePageMeta` + rozszerzone `PageLayoutData`),
+siedem stron `pages/*.kt` + `pages/projects/Slug.kt` (własny `description`/`ogImage` per strona),
+`Lang.kt` (+ `langForLocale`), `Trophies.kt` (`parseTrophiesData` → `internal`), `SiteTokenStyles.kt`
+(poprawki kontrastu), `SiteStyles.kt` (kolejność `cssRules`), `SiteNavStyles.kt` (touch targets
+48px), `Cv.kt` (token zamiast hex), `build.gradle.kts` (`jsTest` source set, self-hosted
+`@font-face`), `resources/public/fonts/*.woff2` (nowe), `resources/public/og-banner.png` (nowy,
+ręcznie wyrenderowany), cztery pliki `site/src/jsTest/kotlin/...` (nowe), workspace `e2e/` (nowy:
+`package.json`, `playwright.config.ts`, `serve-static.py`, pięć plików `tests/*.spec.ts`),
+`.github/workflows/ci.yml` (rozszerzony).
+
+**Gotchas**: Eksportowany bundle Kobweb (`anjosite.js`) zawsze zawiera wbudowany widget
+live-reload (`new EventSource("/api/kobweb-status", ...)`) niezależnie od layoutu eksportu —
+na statycznym hoście ten endpoint nigdy nie istnieje, więc generuje powtarzalny
+`console.error`/nieudane żądanie sieciowe co kilka sekund (nieszkodliwe wizualnie, ale blokuje
+`page.waitForLoadState("networkidle")` w testach i psuje naiwny "brak console.error" check) — to
+zachowanie frameworka, nie coś kontrolowane z poziomu kodu aplikacji; testy Playwright świadomie
+filtrują tę jedną, konkretną wiadomość. `og:image` dla stron innych niż detale projektu to zawsze
+statyczny `/og-banner.png` (fallback) — realny per-projektowy `og:image` działa tylko dla stron z
+ustawionym `coverImageUrl` w `projects.json`.

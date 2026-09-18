@@ -1,6 +1,7 @@
 package com.anjo.anjosite.pages
 
 import androidx.compose.runtime.Composable
+import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
@@ -11,7 +12,6 @@ import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.css.cssRem
-import com.anjo.anjosite.components.layouts.PageLayoutData
 
 private const val NotFoundMessage = "Page not found"
 private const val Description = "Page not found"

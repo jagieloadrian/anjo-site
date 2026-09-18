@@ -5,6 +5,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.LocalTheme
+import com.anjo.anjosite.LocalThemeSetter
+import com.anjo.anjosite.Theme
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.dataAttr
@@ -19,9 +22,6 @@ import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.I
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.LocalTheme
-import com.anjo.anjosite.LocalThemeSetter
-import com.anjo.anjosite.Theme
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 

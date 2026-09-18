@@ -6,6 +6,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.components.layouts.PageLayoutData
+import com.anjo.anjosite.components.widgets.ProjectCard
+import com.anjo.anjosite.components.widgets.ProjectSummary
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
@@ -20,9 +23,6 @@ import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.anjo.anjosite.components.widgets.ProjectCard
-import com.anjo.anjosite.components.widgets.ProjectSummary
 
 data class ProjectEntry(
     val slug: String,
@@ -56,7 +56,7 @@ sealed interface ProjectsFetchState {
 }
 
 fun parseProjectEntries(text: String): List<ProjectEntry> {
-    val json = kotlin.js.JSON.parse<dynamic>(text)
+    val json = JSON.parse<dynamic>(text)
     return (json.projects as Array<dynamic>).map {
         ProjectEntry(
             slug = it.slug as String,
@@ -81,6 +81,7 @@ suspend fun fetchProjectEntries(): ProjectsFetchState = try {
     if (!response.ok) throw Exception("HTTP ${response.status}")
     ProjectsFetchState.Loaded(parseProjectEntries(response.text().await()))
 } catch (t: Throwable) {
+    console.error(t)
     ProjectsFetchState.Failed
 }
 

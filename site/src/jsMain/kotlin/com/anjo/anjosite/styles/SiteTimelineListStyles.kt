@@ -1,6 +1,6 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
 
 object SiteTimelineListStyles : StyleSheet() {
     init {

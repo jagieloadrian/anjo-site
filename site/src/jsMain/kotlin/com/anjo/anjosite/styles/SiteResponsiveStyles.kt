@@ -1,6 +1,7 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
+import org.jetbrains.compose.web.css.media
 
 object SiteResponsiveStyles : StyleSheet() {
     init {

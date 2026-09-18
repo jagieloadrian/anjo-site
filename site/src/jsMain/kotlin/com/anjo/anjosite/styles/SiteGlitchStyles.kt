@@ -1,6 +1,7 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
+import org.jetbrains.compose.web.css.percent
 
 object SiteGlitchStyles : StyleSheet() {
     val glitchShift by keyframes {

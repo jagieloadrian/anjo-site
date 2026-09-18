@@ -6,6 +6,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.components.layouts.PageLayoutData
+import com.anjo.anjosite.components.widgets.Fact
+import com.anjo.anjosite.components.widgets.GameCover
+import com.anjo.anjosite.components.widgets.GameCoverImage
+import com.anjo.anjosite.components.widgets.StatCell
+import com.anjo.anjosite.components.widgets.StatColor
+import com.anjo.anjosite.components.widgets.StatItem
+import com.anjo.anjosite.components.widgets.TrophyEntry
+import com.anjo.anjosite.components.widgets.TrophyRow
+import com.anjo.anjosite.components.widgets.TrophyTier
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.styleModifier
@@ -26,16 +36,6 @@ import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.anjo.anjosite.components.widgets.Fact
-import com.anjo.anjosite.components.widgets.GameCover
-import com.anjo.anjosite.components.widgets.GameCoverImage
-import com.anjo.anjosite.components.widgets.StatCell
-import com.anjo.anjosite.components.widgets.StatColor
-import com.anjo.anjosite.components.widgets.StatItem
-import com.anjo.anjosite.components.widgets.TrophyEntry
-import com.anjo.anjosite.components.widgets.TrophyRow
-import com.anjo.anjosite.components.widgets.TrophyTier
 
 data class TrophiesStat(val key: String, val value: String)
 data class TrophiesData(
@@ -64,7 +64,7 @@ private val statColors = mapOf(
 )
 
 internal fun parseTrophiesData(text: String): TrophiesData {
-    val json = kotlin.js.JSON.parse<dynamic>(text)
+    val json = JSON.parse<dynamic>(text)
 
     val stats = (json.stats as Array<dynamic>).map { TrophiesStat(it.key as String, it.value as String) }
     val games = (json.games as Array<dynamic>).map {
@@ -113,6 +113,7 @@ fun TrophiesPage() {
             if (!response.ok) throw Exception("HTTP ${response.status}")
             TrophiesFetchState.Loaded(parseTrophiesData(response.text().await()))
         } catch (t: Throwable) {
+            console.error(t)
             TrophiesFetchState.Failed
         }
     }

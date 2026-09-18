@@ -2,13 +2,13 @@ package com.anjo.anjosite.components.layouts
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import com.anjo.anjosite.components.sections.Footer
+import com.anjo.anjosite.components.sections.NavHeader
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.data.getValue
 import com.varabyte.kobweb.core.layout.Layout
 import kotlinx.browser.document
 import org.jetbrains.compose.web.dom.Main
-import com.anjo.anjosite.components.sections.Footer
-import com.anjo.anjosite.components.sections.NavHeader
 
 class PageLayoutData(
     val title: String,

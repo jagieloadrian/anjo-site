@@ -6,6 +6,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.components.layouts.PageLayoutData
+import com.anjo.anjosite.components.widgets.Fact
+import com.anjo.anjosite.components.widgets.LinkCell
+import com.anjo.anjosite.components.widgets.StatCell
+import com.anjo.anjosite.components.widgets.StatColor
+import com.anjo.anjosite.components.widgets.StatItem
+import com.anjo.anjosite.components.widgets.Tag
+import com.anjo.anjosite.components.widgets.TagColor
+import com.anjo.anjosite.components.widgets.Terminal
+import com.anjo.anjosite.components.widgets.TerminalLine
+import com.anjo.anjosite.components.widgets.TerminalLineStyle
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
@@ -27,17 +38,6 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.anjo.anjosite.components.widgets.Fact
-import com.anjo.anjosite.components.widgets.LinkCell
-import com.anjo.anjosite.components.widgets.StatCell
-import com.anjo.anjosite.components.widgets.StatColor
-import com.anjo.anjosite.components.widgets.StatItem
-import com.anjo.anjosite.components.widgets.Tag
-import com.anjo.anjosite.components.widgets.TagColor
-import com.anjo.anjosite.components.widgets.Terminal
-import com.anjo.anjosite.components.widgets.TerminalLine
-import com.anjo.anjosite.components.widgets.TerminalLineStyle
 
 private const val HeroLede = "Software developer specializing in Kotlin and JVM backend development. I mentor team members, turn complex technical topics into material other developers can actually use, and build things for fun on the side."
 private const val AboutTeaserLead = "I design and maintain backend services in Kotlin and Java — microservices on Kubernetes and OpenShift, REST and GraphQL APIs, and the documentation and release processes around them. I review code, onboard new developers, and sit in client meetings where requirements get shaped."
@@ -64,7 +64,7 @@ private sealed interface StackFetchState {
 }
 
 private fun parseStackGroups(text: String): List<StackGroup> {
-    val json = kotlin.js.JSON.parse<dynamic>(text)
+    val json = JSON.parse<dynamic>(text)
     return (json.groups as Array<dynamic>).map { group ->
         StackGroup(
             label = group.label as String,
@@ -97,6 +97,7 @@ fun HomePage() {
             if (!response.ok) throw Exception("HTTP ${response.status}")
             StackFetchState.Loaded(parseStackGroups(response.text().await()))
         } catch (t: Throwable) {
+            console.log(t)
             StackFetchState.Failed
         }
     }

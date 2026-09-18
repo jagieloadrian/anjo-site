@@ -1,8 +1,13 @@
 package com.anjo.anjosite.pages
 
 import androidx.compose.runtime.Composable
+import com.anjo.anjosite.components.layouts.PageLayoutData
+import com.anjo.anjosite.components.widgets.Fact
+import com.anjo.anjosite.components.widgets.TimelineEntry
+import com.anjo.anjosite.components.widgets.TimelineItem
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
@@ -11,7 +16,6 @@ import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.navigation.UndecoratedLinkVariant
-import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.dom.Br
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Em
@@ -19,10 +23,6 @@ import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.anjo.anjosite.components.widgets.Fact
-import com.anjo.anjosite.components.widgets.TimelineEntry
-import com.anjo.anjosite.components.widgets.TimelineItem
 
 private const val Lead = "I build backend systems in Kotlin and Java and I like the part of the job most people skip: making the thing understandable afterwards. Documentation, code review, onboarding, explaining a design to a product owner in language they can act on."
 private const val Body1 = "Day to day that means microservices deployed on Kubernetes and OpenShift, REST and GraphQL APIs, and release processes I help keep boring. Currently on a client project at GFT Poland, where I also mentor team members and help new developers get productive."

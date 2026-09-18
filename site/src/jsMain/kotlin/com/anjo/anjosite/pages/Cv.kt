@@ -1,6 +1,7 @@
 package com.anjo.anjosite.pages
 
 import androidx.compose.runtime.Composable
+import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
@@ -21,7 +22,6 @@ import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Ul
-import com.anjo.anjosite.components.layouts.PageLayoutData
 
 private data class CvRole(val title: String, val date: String, val where: String, val bullets: List<String>, val stack: String, val soft: Boolean = false)
 

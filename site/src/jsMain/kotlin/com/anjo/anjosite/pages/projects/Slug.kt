@@ -6,6 +6,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.components.layouts.PageLayoutData
+import com.anjo.anjosite.components.layouts.updatePageMeta
+import com.anjo.anjosite.components.widgets.Tag
+import com.anjo.anjosite.pages.ProjectEntry
+import com.anjo.anjosite.pages.ProjectsFetchState
+import com.anjo.anjosite.pages.fetchProjectEntries
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
@@ -21,18 +27,10 @@ import org.jetbrains.compose.web.dom.Br
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Em
 import org.jetbrains.compose.web.dom.H1
-import org.jetbrains.compose.web.dom.Li
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
-import org.jetbrains.compose.web.dom.Ul
-import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.anjo.anjosite.components.layouts.updatePageMeta
-import com.anjo.anjosite.components.widgets.Tag
-import com.anjo.anjosite.pages.ProjectEntry
-import com.anjo.anjosite.pages.ProjectsFetchState
-import com.anjo.anjosite.pages.fetchProjectEntries
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 

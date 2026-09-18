@@ -21,8 +21,13 @@ val LocalLangSetter: ProvidableCompositionLocal<(Lang) -> Unit> = staticComposit
 // Browser-language detection (spec 002-layout-routing FR-008, research.md §4): Polish if
 // navigator.language starts with "pl" (case-insensitive), else English. Read once at app start;
 // not re-evaluated on navigator.language changes (there are none within a single page load).
-fun detectInitialLang(): Lang =
-    if (window.navigator.language.startsWith("pl", ignoreCase = true)) Lang.PL else Lang.EN
+fun detectInitialLang(): Lang = langForLocale(window.navigator.language)
+
+// specs/007-tests-polishing research.md §1b: extracted as a pure function because Kotlin/JS
+// browser-target tests run in a real Karma browser, so `window.navigator.language` reflects the
+// test runner's own locale and isn't controllable from a test.
+internal fun langForLocale(locale: String): Lang =
+    if (locale.startsWith("pl", ignoreCase = true)) Lang.PL else Lang.EN
 
 class BilingualString(private val en: String, private val pl: String) {
     operator fun invoke(lang: Lang): String = if (lang == Lang.EN) en else pl

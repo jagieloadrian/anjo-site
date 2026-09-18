@@ -62,7 +62,7 @@ private val statLabels = mapOf(
 )
 private val statColors = mapOf("games" to StatColor.CYAN, "completion" to StatColor.RED)
 
-private fun parseTrophiesData(text: String): TrophiesData {
+internal fun parseTrophiesData(text: String): TrophiesData {
     val json = kotlin.js.JSON.parse<dynamic>(text)
 
     val stats = (json.stats as Array<dynamic>).map { TrophiesStat(it.key as String, it.value as String) }

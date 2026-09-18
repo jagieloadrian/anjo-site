@@ -111,6 +111,13 @@ kotlin {
             implementation(libs.kobwebx.markdown)
         }
 
+        // specs/007-tests-polishing: first automated test suite in this project (research.md §1)
+        // — kotlin.test ships with the Kotlin Multiplatform plugin already applied, no new
+        // version-catalog entry needed.
+        jsTest.dependencies {
+            implementation(kotlin("test"))
+        }
+
         // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.
 //        jvmMain.dependencies {
 //            compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime

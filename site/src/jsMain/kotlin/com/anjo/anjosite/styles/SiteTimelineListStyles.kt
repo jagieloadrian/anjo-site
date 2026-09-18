@@ -131,8 +131,8 @@ object SiteTimelineListStyles : StyleSheet() {
         }
         ".covers" style {
             property("display", "grid")
-            property("grid-template-columns", "repeat(auto-fit, minmax(170px, 1fr))")
-            property("gap", "10px")
+            property("grid-template-columns", "repeat(auto-fit, minmax(120px, 1fr))")
+            property("gap", "8px")
         }
         ".cover" style {
             property("padding", "18px")

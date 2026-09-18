@@ -114,7 +114,18 @@ test("mapEarnedTrophy uppercases tier and falls back when trophy detail is missi
     gameName: "Elden Ring",
     rarityPercent: "4.2",
     earnedAt: "2024-03-12T00:00:00Z",
+    iconUrl: null,
   });
+});
+
+test("mapEarnedTrophy passes through the trophy detail's icon URL when present", () => {
+  const entry = mapEarnedTrophy(
+    title({ trophyTitleName: "Elden Ring" }),
+    { trophyType: "gold", trophyEarnedRate: "12.5", earnedDateTime: "2024-05-01T00:00:00Z" },
+    { trophyName: "Shardbearer", trophyIconUrl: "https://example.com/icon.png" },
+  );
+
+  assert.equal(entry.iconUrl, "https://example.com/icon.png");
 });
 
 test("rankTrophies sorts newest-earned first and caps at 10", () => {

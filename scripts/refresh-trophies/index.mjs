@@ -100,6 +100,7 @@ export function mapEarnedTrophy(title, earned, detail) {
     gameName: title.trophyTitleName,
     rarityPercent: earned.trophyEarnedRate ?? "0",
     earnedAt: earned.earnedDateTime ?? null,
+    iconUrl: detail?.trophyIconUrl ?? null,
   };
 }
 
@@ -164,7 +165,6 @@ async function main() {
   const games = buildGames(recentTitles);
   const trophies = await fetchRecentTrophies(authorization, recentTitles);
 
-  // Single write, only after every fetch above has succeeded (FR-005).
   const output = { stats, games, trophies };
   await writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf-8");
   console.log(`Wrote ${OUTPUT_PATH}`);

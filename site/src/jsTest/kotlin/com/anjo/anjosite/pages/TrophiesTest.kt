@@ -50,4 +50,10 @@ class TrophiesTest {
         assertEquals("2024-01-01", data.trophies[0].earnedAt)
         assertNull(data.trophies[1].earnedAt)
     }
+
+    @Test
+    fun parseTrophiesData_missingIconUrlDefaultsToNull() {
+        val data = parseTrophiesData(fixture)
+        assertNull(data.trophies[0].iconUrl)
+    }
 }

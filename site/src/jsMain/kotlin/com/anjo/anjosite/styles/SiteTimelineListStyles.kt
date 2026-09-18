@@ -2,15 +2,8 @@ package com.anjo.anjosite.styles
 
 import org.jetbrains.compose.web.css.*
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// Timeline entries, link lists, fact sheets, game covers and the trophy feed.
 object SiteTimelineListStyles : StyleSheet() {
     init {
-        // ── lists, timeline, links ─────────────────────────────
         ".tl" style {
             property("border-left", "2px solid var(--pink)")
             property("padding-left", "20px")
@@ -155,9 +148,16 @@ object SiteTimelineListStyles : StyleSheet() {
             property("display", "flex")
             property("align-items", "center")
             property("justify-content", "center")
+            property("overflow", "hidden")
             property("font-family", "var(--mono)")
             property("font-size", "10px")
             property("color", "var(--faint)")
+        }
+        ".cover-img img" style {
+            property("width", "100%")
+            property("height", "100%")
+            property("object-fit", "cover")
+            property("display", "block")
         }
         ".cover-name" style {
             property("font-size", "15px")
@@ -190,10 +190,29 @@ object SiteTimelineListStyles : StyleSheet() {
             property("width", "42px")
             property("height", "42px")
             property("flex", "none")
+            property("overflow", "hidden")
             property("border", "2px solid var(--rule-ink-mid)")
         }
-        ".feed-icon--pink" style {
-            property("border-color", "var(--pink)")
+        ".feed-icon img" style {
+            property("width", "100%")
+            property("height", "100%")
+            property("object-fit", "cover")
+            property("display", "block")
+        }
+        ".feed-icon--bronze" style {
+            property("border-color", "var(--bronze)")
+            property("background", "var(--tint-2)")
+        }
+        ".feed-icon--silver" style {
+            property("border-color", "var(--silver)")
+            property("background", "var(--tint-2)")
+        }
+        ".feed-icon--gold" style {
+            property("border-color", "var(--gold)")
+            property("background", "var(--tint-2)")
+        }
+        ".feed-icon--platinum" style {
+            property("border-color", "var(--platinum)")
             property("background", "var(--tint-2)")
         }
         ".feed-name" style {

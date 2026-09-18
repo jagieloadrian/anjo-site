@@ -1,22 +1,180 @@
 {
   "stats": [
-    { "key": "level", "value": "—" },
-    { "key": "platinums", "value": "—" },
-    { "key": "games", "value": "6" },
-    { "key": "completion", "value": "—" }
+    {
+      "key": "level",
+      "value": "459"
+    },
+    {
+      "key": "games",
+      "value": "346"
+    },
+    {
+      "key": "completion",
+      "value": "47%"
+    },
+    {
+      "key": "platinums",
+      "value": "152"
+    },
+    {
+      "key": "total",
+      "value": "7258"
+    },
+    {
+      "key": "gold",
+      "value": "719"
+    },
+    {
+      "key": "silver",
+      "value": "1620"
+    },
+    {
+      "key": "bronze",
+      "value": "4767"
+    }
   ],
   "games": [
-    { "imageUrl": null, "alt": "Elden Ring cover", "name": "Elden Ring", "percentText": "— % · platinum —", "muted": false },
-    { "imageUrl": null, "alt": "Dark Souls cover", "name": "Dark Souls", "percentText": "— % · platinum —", "muted": false },
-    { "imageUrl": null, "alt": "Dark Souls II cover", "name": "Dark Souls II", "percentText": "— % · platinum —", "muted": false },
-    { "imageUrl": null, "alt": "Dark Souls III cover", "name": "Dark Souls III", "percentText": "— % · platinum —", "muted": false },
-    { "imageUrl": null, "alt": "Call of Duty: Ghosts cover", "name": "CoD: Ghosts", "percentText": "— % · trophies —", "muted": true },
-    { "imageUrl": null, "alt": "Call of Duty: Black Ops cover", "name": "Black Ops", "percentText": "— % · trophies —", "muted": true }
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59811_00/c3f7e132-d92c-4066-9995-059bbc4485c7.png",
+      "alt": "Call of Duty®: Black Ops cover",
+      "name": "Call of Duty®: Black Ops",
+      "percentText": "68% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/89085106-3159-4d46-95cb-2dabdcae5bec.png",
+      "alt": "Moving Out 2 cover",
+      "name": "Moving Out 2",
+      "percentText": "15% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
+      "alt": "Ride 2 cover",
+      "name": "Ride 2",
+      "percentText": "0% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR08059_00_00DD2D35385D51D82654F2372F2F39571ADD0AC539/9E77400016E7D77833941466A1A8F4D9DA85905A.PNG",
+      "alt": "Ride cover",
+      "name": "Ride",
+      "percentText": "100% · platinum earned",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR05659_00_00E860F5334098230AE4381F20597847411D67981E/D9BBA0E08F3AC5104AA00346C8B3462A15F4322D.PNG",
+      "alt": "Dying Light cover",
+      "name": "Dying Light",
+      "percentText": "13% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR12775_00_00F56E29745426F087A7492133386576D884799699/C198EFF55E0A1F72E039424804CB1D49E99023F3.PNG",
+      "alt": "RIDE 3 cover",
+      "name": "RIDE 3",
+      "percentText": "0% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR59944_00_00B94EF69FAD0E20B4CBC73E4EF8D0C7F2ED0B29FB/FB28038C970AAF1B914B945BCAB98BF0E9044D11.PNG",
+      "alt": "Call of Duty®: Black Ops cover",
+      "name": "Call of Duty®: Black Ops",
+      "percentText": "69% · platinum earned",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR59723_00_000A8C7D1C330B3E861AC6D351730742D53636A40A/C8C1F21683913FDF70AC7D7A491B9CB772509F67.PNG",
+      "alt": "Call of Duty®: Black Ops II cover",
+      "name": "Call of Duty®: Black Ops II",
+      "percentText": "9% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/ce5b85d0-9672-4f3e-8b51-f26df36b85c3.png",
+      "alt": "Call of Duty®: Black Ops II cover",
+      "name": "Call of Duty®: Black Ops II",
+      "percentText": "9% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR50656_00/5886a741-0f5c-4993-9ac0-ab82791fa528.png",
+      "alt": "Battlefield™ 6 cover",
+      "name": "Battlefield™ 6",
+      "percentText": "86% · platinum earned",
+      "muted": false
+    }
   ],
   "trophies": [
-    { "tier": "PLATINUM", "name": "The Lands Between", "gameName": "Elden Ring", "rarityPercent": "4.2", "earnedAt": "2024-03-12" },
-    { "tier": "GOLD", "name": "Lord of Cinder", "gameName": "Dark Souls III", "rarityPercent": "11.8", "earnedAt": "2023-11-02" },
-    { "tier": "SILVER", "name": "Prepare to Die", "gameName": "Dark Souls", "rarityPercent": "28.5", "earnedAt": "2023-10-20" },
-    { "tier": "BRONZE", "name": "First Steps", "gameName": "Dark Souls II", "rarityPercent": "62.0", "earnedAt": null }
+    {
+      "tier": "BRONZE",
+      "name": "Russian bar-b-q",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "1.7",
+      "earnedAt": "2026-09-17T23:45:12Z"
+    },
+    {
+      "tier": "SILVER",
+      "name": "With extreme prejudice",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "1.3",
+      "earnedAt": "2026-09-17T23:42:03Z"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Double Whammy",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "1.2",
+      "earnedAt": "2026-09-17T23:18:46Z"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Double Trouble",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "1.7",
+      "earnedAt": "2026-09-17T23:08:00Z"
+    },
+    {
+      "tier": "SILVER",
+      "name": "No Leaks",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "2.4",
+      "earnedAt": "2026-09-17T22:55:11Z"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Closer Analysis",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "1.1",
+      "earnedAt": "2026-09-17T22:43:58Z"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Stand Down",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "10.9",
+      "earnedAt": "2026-09-17T21:54:51Z"
+    },
+    {
+      "tier": "GOLD",
+      "name": "BLACK OP MASTER",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "2.7",
+      "earnedAt": "2026-09-17T21:54:51Z"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Burn Notice",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "1.6",
+      "earnedAt": "2026-09-17T21:54:51Z"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Clarity",
+      "gameName": "Call of Duty®: Black Ops",
+      "rarityPercent": "11.4",
+      "earnedAt": "2026-09-17T21:06:01Z"
+    }
   ]
 }

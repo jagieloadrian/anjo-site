@@ -1,13 +1,8 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
+import org.jetbrains.compose.web.css.percent
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// The hover-shake glitch effect and blinking terminal caret, plus their keyframes.
 object SiteGlitchStyles : StyleSheet() {
     val glitchShift by keyframes {
         each(0.percent, 100.percent) {
@@ -36,7 +31,6 @@ object SiteGlitchStyles : StyleSheet() {
     }
 
     init {
-        // ── glitch + caret ─────────────────────────────────────
         ".glitch" style {
             property("position", "relative")
             property("display", "inline-block")

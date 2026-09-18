@@ -1,16 +1,9 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// Header/nav bar: brand, nav links, language switch, theme toggle.
 object SiteNavStyles : StyleSheet() {
     init {
-        // ── header ─────────────────────────────────────────────
         ".nav" style {
             property("position", "sticky")
             property("top", "0")
@@ -54,6 +47,8 @@ object SiteNavStyles : StyleSheet() {
         ".nav-btn" style {
             property("display", "flex")
             property("align-items", "center")
+            property("justify-content", "center")
+            property("min-width", "48px")
             property("padding", "18px")
             property("border", "none")
             property("border-left", "2px solid var(--rule)")
@@ -72,29 +67,6 @@ object SiteNavStyles : StyleSheet() {
         ".nav-btn.is-active" style {
             property("color", "var(--pink)")
             property("background", "var(--tint-3)")
-        }
-        ".lang" style {
-            property("display", "flex")
-            property("align-items", "center")
-            property("border-left", "2px solid var(--rule)")
-            property("padding", "0 12px")
-        }
-        ".lang-btn" style {
-            property("padding", "8px 10px")
-            property("border", "2px solid var(--pink)")
-            property("background", "transparent")
-            property("color", "var(--pink)")
-            property("cursor", "pointer")
-            property("font-family", "var(--mono)")
-            property("font-size", "11px")
-            property("letter-spacing", "0.14em")
-        }
-        ".lang-btn + .lang-btn" style {
-            property("border-left", "none")
-        }
-        ".lang-btn.is-active" style {
-            property("background", "var(--pink)")
-            property("color", "var(--bg)")
         }
         ".theme-btn" style {
             property("display", "flex")

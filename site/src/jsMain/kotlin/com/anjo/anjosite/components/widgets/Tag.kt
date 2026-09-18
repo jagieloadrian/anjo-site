@@ -6,9 +6,6 @@ import org.jetbrains.compose.web.dom.Text
 
 enum class TagColor { PLAIN, PINK, CYAN, RED }
 
-// Literal port of docs/handoff/index.html's <span class="tag ...">. The mock's tags are plain,
-// non-interactive spans (not links) everywhere they appear (Stack groups, CV skills, project
-// cards) — an earlier phase made these clickable Links, which the mock never does.
 @Composable
 fun Tag(text: String, color: TagColor = TagColor.PLAIN, small: Boolean = false) {
     Span(attrs = {

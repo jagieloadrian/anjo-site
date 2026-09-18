@@ -6,6 +6,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.FetchFailedException
+import com.anjo.anjosite.Log
+import com.anjo.anjosite.components.layouts.PageLayoutData
+import com.anjo.anjosite.components.widgets.Fact
+import com.anjo.anjosite.components.widgets.LinkCell
+import com.anjo.anjosite.components.widgets.StatCell
+import com.anjo.anjosite.components.widgets.StatColor
+import com.anjo.anjosite.components.widgets.StatItem
+import com.anjo.anjosite.components.widgets.Tag
+import com.anjo.anjosite.components.widgets.TagColor
+import com.anjo.anjosite.components.widgets.Terminal
+import com.anjo.anjosite.components.widgets.TerminalLine
+import com.anjo.anjosite.components.widgets.TerminalLineStyle
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
@@ -27,67 +40,23 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.BilingualString
-import com.anjo.anjosite.Lang
-import com.anjo.anjosite.LocalLang
-import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.anjo.anjosite.components.widgets.Fact
-import com.anjo.anjosite.components.widgets.LinkCell
-import com.anjo.anjosite.components.widgets.StatCell
-import com.anjo.anjosite.components.widgets.StatColor
-import com.anjo.anjosite.components.widgets.StatItem
-import com.anjo.anjosite.components.widgets.Tag
-import com.anjo.anjosite.components.widgets.TagColor
-import com.anjo.anjosite.components.widgets.Terminal
-import com.anjo.anjosite.components.widgets.TerminalLine
-import com.anjo.anjosite.components.widgets.TerminalLineStyle
 
-// Literal port of docs/handoff/index.html's data-screen="home" — five bands: hero, an About
-// teaser, the Stack (skills), a Trophies teaser, and a Contact band. The "NOTE / ..." design-notes
-// boxes are intentionally dropped: app.js's own comment says to drop that block on the live site.
-private val HeroLede = BilingualString(
-    en = "Software developer specializing in Kotlin and JVM backend development. I mentor team members, turn complex technical topics into material other developers can actually use, and build things for fun on the side.",
-    pl = "Software developer specjalizujący się w Kotlinie i backendzie na JVM. Mentoruję zespół, tłumaczę złożone tematy techniczne na materiał przydatny innym programistom i buduję własne projekty dla przyjemności.",
-)
-private val AboutTeaserLead = BilingualString(
-    en = "I design and maintain backend services in Kotlin and Java — microservices on Kubernetes and OpenShift, REST and GraphQL APIs, and the documentation and release processes around them. I review code, onboard new developers, and sit in client meetings where requirements get shaped.",
-    pl = "Projektuję i utrzymuję usługi backendowe w Kotlinie i Javie — mikroserwisy na Kubernetesie i OpenShifcie, API REST i GraphQL oraz dokumentację i procesy wydawnicze wokół nich. Robię code review, wdrażam nowych programistów i biorę udział w spotkaniach z klientem, na których powstają wymagania.",
-)
-private val AboutTeaserOutside = BilingualString(
-    en = "Outside work: the history of video games, motorcycles, cooking.",
-    pl = "Po godzinach: historia gier wideo, motocykle, gotowanie.",
+private const val HeroLede = "Software developer specializing in Kotlin and JVM backend development. I mentor team members, turn complex technical topics into material other developers can actually use, and build things for fun on the side."
+private const val AboutTeaserLead = "I design and maintain backend services in Kotlin and Java — microservices on Kubernetes and OpenShift, REST and GraphQL APIs, and the documentation and release processes around them. I review code, onboard new developers, and sit in client meetings where requirements get shaped."
+private const val AboutTeaserOutside = "Outside work: the history of video games, motorcycles, cooking."
+
+private val bootLines: List<TerminalLine> = listOf(
+    TerminalLine("$ whoami", TerminalLineStyle.COMMAND),
+    TerminalLine("adrian.jagielo :: software developer", TerminalLineStyle.OUTPUT),
+    TerminalLine("$ cat stack.kt", TerminalLineStyle.COMMAND),
+    TerminalLine("""val core = listOf("Kotlin", "Java", "Spring Boot")""", TerminalLineStyle.ACCENT_PINK),
+    TerminalLine("$ systemctl status career", TerminalLineStyle.COMMAND),
+    TerminalLine("● gft-poland.service — active (running) since 10.2021", TerminalLineStyle.OUTPUT),
+    TerminalLine($$"$ echo $INTERESTS", TerminalLineStyle.COMMAND),
+    TerminalLine("video games / motorcycles / cooking", TerminalLineStyle.ACCENT_CYAN),
+    TerminalLine("$ ./open --projects", TerminalLineStyle.COMMAND),
 )
 
-private fun bootLines(lang: Lang): List<TerminalLine> = when (lang) {
-    Lang.EN -> listOf(
-        TerminalLine("$ whoami", TerminalLineStyle.COMMAND),
-        TerminalLine("adrian.jagielo :: software developer", TerminalLineStyle.OUTPUT),
-        TerminalLine("$ cat stack.kt", TerminalLineStyle.COMMAND),
-        TerminalLine("""val core = listOf("Kotlin", "Java", "Spring Boot")""", TerminalLineStyle.ACCENT_PINK),
-        TerminalLine("$ systemctl status career", TerminalLineStyle.COMMAND),
-        TerminalLine("● gft-poland.service — active (running) since 10.2021", TerminalLineStyle.OUTPUT),
-        TerminalLine("$ echo \$INTERESTS", TerminalLineStyle.COMMAND),
-        TerminalLine("video games / motorcycles / cooking", TerminalLineStyle.ACCENT_CYAN),
-        TerminalLine("$ ./open --projects", TerminalLineStyle.COMMAND),
-    )
-    Lang.PL -> listOf(
-        TerminalLine("$ whoami", TerminalLineStyle.COMMAND),
-        TerminalLine("adrian.jagielo :: software developer", TerminalLineStyle.OUTPUT),
-        TerminalLine("$ cat stack.kt", TerminalLineStyle.COMMAND),
-        TerminalLine("""val core = listOf("Kotlin", "Java", "Spring Boot")""", TerminalLineStyle.ACCENT_PINK),
-        TerminalLine("$ systemctl status kariera", TerminalLineStyle.COMMAND),
-        TerminalLine("● gft-poland.service — aktywny (działa) od 10.2021", TerminalLineStyle.OUTPUT),
-        TerminalLine("$ echo \$ZAINTERESOWANIA", TerminalLineStyle.COMMAND),
-        TerminalLine("gry / motocykle / gotowanie", TerminalLineStyle.ACCENT_CYAN),
-        TerminalLine("$ ./open --projekty", TerminalLineStyle.COMMAND),
-    )
-}
-
-// Stack groups: labels/tag text are English-only in both languages in the mock (same rationale
-// as data-model.md's trophies-name exception — halves the translation surface for proper nouns
-// and tool names). Fetched at runtime from stack.json (request #4) so the skill list — and which
-// tags get a colored border — can change without touching Kotlin, same manual
-// JSON.parse<dynamic> pattern as trophies.json/projects.json.
 private data class StackGroup(val label: String, val labelColor: TagColor, val tags: List<Pair<String, TagColor>>)
 
 private sealed interface StackFetchState {
@@ -97,7 +66,7 @@ private sealed interface StackFetchState {
 }
 
 private fun parseStackGroups(text: String): List<StackGroup> {
-    val json = kotlin.js.JSON.parse<dynamic>(text)
+    val json = JSON.parse<dynamic>(text)
     return (json.groups as Array<dynamic>).map { group ->
         StackGroup(
             label = group.label as String,
@@ -107,32 +76,47 @@ private fun parseStackGroups(text: String): List<StackGroup> {
     }
 }
 
-private val StackLoadingLabel = BilingualString(en = "Loading stack…", pl = "Wczytywanie stacku…")
-private val StackErrorLabel = BilingualString(
-    en = "Stack couldn't be loaded right now.",
-    pl = "Nie udało się teraz wczytać stacku.",
-)
+private const val StackLoadingLabel = "Loading stack…"
+private const val StackErrorLabel = "Stack couldn't be loaded right now."
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
+private const val Description = "Adrian Jagieło — software developer specializing in Kotlin and JVM backend development."
+
 @InitRoute
 fun initHomePage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("Home"))
+    ctx.data.add(PageLayoutData("Home", Description))
 }
 
 @Page
 @Layout(".components.layouts.PageLayout")
 @Composable
 fun HomePage() {
-    val lang = LocalLang.current
     var stackState by remember { mutableStateOf<StackFetchState>(StackFetchState.Loading) }
     LaunchedEffect(Unit) {
         stackState = try {
             val response = window.fetch("/stack.json").await()
-            if (!response.ok) throw Exception("HTTP ${response.status}")
-            StackFetchState.Loaded(parseStackGroups(response.text().await()))
+            if (!response.ok) throw FetchFailedException("/stack.json", response.status.toInt())
+            val groups = parseStackGroups(response.text().await())
+            Log.info("Home", "loaded ${groups.size} stack groups")
+            StackFetchState.Loaded(groups)
         } catch (t: Throwable) {
+            Log.error("Home", "failed to load /stack.json", t)
             StackFetchState.Failed
+        }
+    }
+
+    var trophyStats by remember { mutableStateOf<Map<String, String>?>(null) }
+    LaunchedEffect(Unit) {
+        trophyStats = try {
+            val response = window.fetch("/trophies.json").await()
+            if (!response.ok) throw FetchFailedException("/trophies.json", response.status.toInt())
+            val data = parseTrophiesData(response.text().await())
+            Log.info("Home", "loaded trophy stats")
+            data.stats.associate { it.key to it.value }
+        } catch (t: Throwable) {
+            Log.error("Home", "failed to load /trophies.json", t)
+            null
         }
     }
 
@@ -146,7 +130,7 @@ fun HomePage() {
             }
             Div(attrs = { classes("rule") })
             P(attrs = { classes("body"); style { property("max-width", "46ch"); property("font-size", "17px"); property("color", "var(--dim)") } }) {
-                Text(HeroLede(lang))
+                Text(HeroLede)
             }
             Div(attrs = { classes("tags"); style { property("gap", "12px"); property("margin-top", "32px") } }) {
                 Link("/projects", "view projects →", Modifier.classNames("btn"), variant = navLinkVariant)
@@ -154,7 +138,7 @@ fun HomePage() {
             }
         }
         Div {
-            Terminal(bootLines(lang))
+            Terminal(bootLines)
             Div(attrs = { classes("facts"); style { property("margin-top", "24px") } }) {
                 Fact(label = "SINCE", value = "10.2021")
                 Fact(label = "EMPLOYER", value = "GFT")
@@ -169,9 +153,9 @@ fun HomePage() {
             Link("/about", "full page →", Modifier.classNames("btn", "btn--link"), variant = navLinkVariant)
         }
         Div {
-            P(attrs = { classes("lead"); style { property("font-size", "18px") } }) { Text(AboutTeaserLead(lang)) }
+            P(attrs = { classes("lead"); style { property("font-size", "18px") } }) { Text(AboutTeaserLead) }
             P(attrs = { classes("body", "body--sm"); style { property("color", "var(--mut)"); property("margin", "0") } }) {
-                Text(AboutTeaserOutside(lang))
+                Text(AboutTeaserOutside)
             }
         }
     }
@@ -186,8 +170,8 @@ fun HomePage() {
             }
         }
         when (val state = stackState) {
-            is StackFetchState.Loading -> P(attrs = { classes("body") }) { Text(StackLoadingLabel(lang)) }
-            is StackFetchState.Failed -> P(attrs = { classes("body") }) { Text(StackErrorLabel(lang)) }
+            is StackFetchState.Loading -> P(attrs = { classes("body") }) { Text(StackLoadingLabel) }
+            is StackFetchState.Failed -> P(attrs = { classes("body") }) { Text(StackErrorLabel) }
             is StackFetchState.Loaded -> {
                 Div(attrs = { classes("stack-groups") }) {
                     state.groups.forEach { group ->
@@ -217,13 +201,13 @@ fun HomePage() {
         }
         Div {
             Div(attrs = { classes("stats") }) {
-                StatCell(StatItem("PSN LEVEL", "—"))
-                StatCell(StatItem("PLATINUMS", "—"))
-                StatCell(StatItem("GAMES", "—", StatColor.CYAN))
-                StatCell(StatItem("COMPLETION", "—", StatColor.RED))
+                StatCell(StatItem("PSN LEVEL", trophyStats?.get("level") ?: "—"))
+                StatCell(StatItem("PLATINUMS", trophyStats?.get("platinums") ?: "—", StatColor.PLATINUM))
+                StatCell(StatItem("GAMES", trophyStats?.get("games") ?: "—", StatColor.CYAN))
+                StatCell(StatItem("COMPLETION", trophyStats?.get("completion") ?: "—", StatColor.RED))
             }
             P(attrs = { classes("meta"); style { property("margin", "16px 0 0") } }) {
-                Text("values load from trophies.json — placeholders until the pipeline is wired")
+                Text("source: trophies.json")
             }
         }
     }

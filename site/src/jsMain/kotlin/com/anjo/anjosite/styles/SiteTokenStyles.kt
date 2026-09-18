@@ -1,13 +1,7 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// Design tokens (:root + light theme custom properties) and the global element reset.
 object SiteTokenStyles : StyleSheet() {
     init {
         ":root" style {
@@ -15,12 +9,16 @@ object SiteTokenStyles : StyleSheet() {
             property("--ink", "#f2f0ef")
             property("--dim", "#cfcdcc")
             property("--mut", "#9b9a99")
-            property("--faint", "#6f6e6d")
+            property("--faint", "#7c7c7a")
             property("--pink", "#ff2d95")
             property("--cyan", "#00e5ff")
             property("--red", "#ec3013")
             property("--red-lt", "#ff6b52")
             property("--note", "#d9ff00")
+            property("--gold", "#e8c547")
+            property("--silver", "#c8ccd1")
+            property("--bronze", "#d98a4e")
+            property("--platinum", "#9fe8ff")
             property("--rule", "rgba(255, 45, 149, 0.35)")
             property("--rule-soft", "rgba(242, 240, 239, 0.18)")
             property("--mono", "'JetBrains Mono', ui-monospace, monospace")
@@ -50,7 +48,6 @@ object SiteTokenStyles : StyleSheet() {
             property("--scan-op", "0.55")
             property("--vignette-edge", "rgba(0, 0, 0, 0.55)")
         }
-        // ── light theme ────────────────────────────────────────── Same token names, re-pointed. Neon pink and cyan fail contrast on a light ground, so they move to deeper steps; the Modernist red is the one hue that holds on both. Glows and scanlines nearly vanish — on white they read as dirt, not light.
         "[data-theme=\"light\"]" style {
             property("color-scheme", "light")
             property("--bg", "#f3f2f2")
@@ -58,12 +55,16 @@ object SiteTokenStyles : StyleSheet() {
             property("--ink-2", "#2c2a28")
             property("--dim", "#3f3c3a")
             property("--mut", "#625f5c")
-            property("--faint", "#837f7c")
-            property("--pink", "#d6006e")
+            property("--faint", "#6b6967")
+            property("--pink", "#c20064")
             property("--cyan", "#00657f")
-            property("--red", "#ec3013")
+            property("--red", "#c9280f")
             property("--red-lt", "#b8280f")
             property("--note", "#566300")
+            property("--gold", "#7d6200")
+            property("--silver", "#5b5e63")
+            property("--bronze", "#944e17")
+            property("--platinum", "#006b85")
             property("--rule", "rgba(214, 0, 110, 0.45)")
             property("--rule-mid", "rgba(214, 0, 110, 0.65)")
             property("--rule-soft", "rgba(32, 30, 29, 0.2)")

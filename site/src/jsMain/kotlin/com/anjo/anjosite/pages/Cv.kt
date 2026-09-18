@@ -1,6 +1,7 @@
 package com.anjo.anjosite.pages
 
 import androidx.compose.runtime.Composable
+import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
@@ -16,15 +17,10 @@ import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Em
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.Li
-import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Ul
-import com.anjo.anjosite.components.layouts.PageLayoutData
-
-// Literal port of docs/handoff/index.html's data-screen="cv" — print-friendly, own content
-// source (FR-012), real bullet lists (verbatim from the PDF), distinct from Projects/About.
 
 private data class CvRole(val title: String, val date: String, val where: String, val bullets: List<String>, val stack: String, val soft: Boolean = false)
 
@@ -56,21 +52,6 @@ private val experience = listOf(
     ),
 )
 
-private data class CvProject(val name: String, val description: String, val stack: String)
-
-private val ownProjects = listOf(
-    CvProject(
-        "SW Wiki",
-        "Mobile app fetching Star Wars data from external APIs, including image search by keywords. On Google Play.",
-        "Apollo · Jetpack Compose · Gradle · Kotlin",
-    ),
-    CvProject(
-        "DatabaseSchedulerExecutor",
-        "Kotlin app that executes SQLite queries at scheduled times based on CRON expressions, configurable via a properties file.",
-        "Kotlin · JDBC SQLite · CRON",
-    ),
-)
-
 private val skillGroups = listOf(
     "BACKEND" to "Kotlin, Java, Spring, GraphQL, Coroutines",
     "TESTING" to "JUnit, Mockito, MockWebServer, Cucumber",
@@ -80,9 +61,11 @@ private val skillGroups = listOf(
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
+private const val Description = "Adrian Jagieło's CV — Kotlin and JVM backend experience, Kubernetes, OpenShift, REST and GraphQL APIs."
+
 @InitRoute
 fun initCvPage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("CV"))
+    ctx.data.add(PageLayoutData("CV", Description))
 }
 
 @Page
@@ -123,17 +106,7 @@ fun CvPage() {
                 }
             }
             Div(attrs = { classes("rule", "rule--soft"); style { property("margin", "36px 0 28px") } })
-            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "18px") } }) { Text("OWN PROJECTS") }
-            ownProjects.forEach { project ->
-                Div(attrs = { style { property("margin-bottom", "22px") } }) {
-                    Div(attrs = { style { property("font-size", "19px"); property("font-weight", "800") } }) { Text(project.name) }
-                    P(attrs = { classes("body", "body--sm"); style { property("max-width", "70ch"); property("margin", "8px 0 0") } }) {
-                        Text(project.description)
-                    }
-                    Div(attrs = { classes("tl-stack") }) { Text(project.stack) }
-                }
-            }
-            Link("/projects", "all projects →", Modifier.classNames("btn", "btn--link"), variant = navLinkVariant)
+            Link("/projects", "own projects →", Modifier.classNames("btn", "btn--link"), variant = navLinkVariant)
         }
         Div {
             Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "18px") } }) { Text("SKILLS") }
@@ -142,17 +115,17 @@ fun CvPage() {
                     Div(attrs = { classes("label", "label--sm", "label--red"); style { property("letter-spacing", "0.16em"); property("margin-bottom", "8px") } }) {
                         Text(label)
                     }
-                    Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.7"); property("color", "#e6e4e3") } }) { Text(text) }
+                    Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.7"); property("color", "var(--ink-2)") } }) { Text(text) }
                 }
             }
             Div(attrs = { classes("rule", "rule--soft"); style { property("margin-bottom", "24px") } })
             Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "12px") } }) { Text("LANGUAGES") }
-            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "#e6e4e3") } }) {
+            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "var(--ink-2)") } }) {
                 Text("Polish — native"); Br(); Text("English — professional")
             }
             Div(attrs = { classes("rule", "rule--soft"); style { property("margin", "24px 0") } })
             Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "12px") } }) { Text("INTERESTS") }
-            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "#e6e4e3") } }) {
+            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "var(--ink-2)") } }) {
                 Text("History of video games"); Br(); Text("Motorcycles"); Br(); Text("Cooking")
             }
         }

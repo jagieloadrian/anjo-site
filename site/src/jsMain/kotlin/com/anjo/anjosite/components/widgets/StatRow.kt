@@ -4,12 +4,10 @@ import androidx.compose.runtime.Composable
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 
-enum class StatColor { PLAIN, CYAN, RED }
+enum class StatColor { PLAIN, CYAN, RED, GOLD, SILVER, BRONZE, PLATINUM }
 
 data class StatItem(val label: String, val value: String, val color: StatColor = StatColor.PLAIN)
 
-// Literal port of docs/handoff/index.html's <div class="stat"> — caller wraps a list of these in
-// a `<div class="stats">` (bordered) or `<div class="stats stats--bare">` (borderless) container.
 @Composable
 fun StatCell(item: StatItem, large: Boolean = false) {
     Div(attrs = { classes("stat") }) {
@@ -22,15 +20,16 @@ fun StatCell(item: StatItem, large: Boolean = false) {
                     StatColor.PLAIN -> {}
                     StatColor.CYAN -> add("stat-num--cyan")
                     StatColor.RED -> add("stat-num--red")
+                    StatColor.GOLD -> add("stat-num--gold")
+                    StatColor.SILVER -> add("stat-num--silver")
+                    StatColor.BRONZE -> add("stat-num--bronze")
+                    StatColor.PLATINUM -> add("stat-num--platinum")
                 }
             })
         }) { Text(item.value) }
     }
 }
 
-// Literal port of docs/handoff/index.html's <div class="fact"> — caller wraps a list of these in
-// a `<div class="facts">` container. Two shapes the mock uses: a labelled fact (hero: SINCE/
-// EMPLOYER/BASE) and a bare one with an optional meta line underneath (About's "off the clock").
 @Composable
 fun Fact(value: String, label: String? = null, meta: String? = null) {
     Div(attrs = { classes("fact") }) {

@@ -13,8 +13,6 @@ data class GameCoverImage(
     val muted: Boolean = false,
 )
 
-// Literal port of docs/handoff/index.html's <div class="cover"> — a plain, non-interactive cell
-// (the mock never links these; an earlier phase wrapped it in a clickable Link).
 @Composable
 fun GameCover(cover: GameCoverImage) {
     Div(attrs = { classes("cover") }) {

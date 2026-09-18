@@ -15,6 +15,7 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.events.Event
+import kotlin.time.Duration.Companion.milliseconds
 
 enum class TerminalLineStyle { COMMAND, OUTPUT, ACCENT_PINK, ACCENT_CYAN }
 
@@ -29,8 +30,6 @@ private fun TerminalLineStyle.className() = when (this) {
 
 private const val REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
 
-// Live reduced-motion reactivity (FR-003, research.md §1): CSS media queries alone can gate
-// static styles but can't stop an in-flight coroutine, so this listens to matchMedia directly.
 @Composable
 private fun rememberReducedMotion(): Boolean {
     var reducedMotion by remember { mutableStateOf(window.matchMedia(REDUCED_MOTION_QUERY).matches) }
@@ -43,9 +42,6 @@ private fun rememberReducedMotion(): Boolean {
     return reducedMotion
 }
 
-// Literal port of docs/handoff/index.html's <div class="term"> boot terminal, including
-// app.js's runBoot() timings (26ms/char on "$"-prefixed command lines, 16ms/char otherwise,
-// 240ms pause between lines).
 @Composable
 fun Terminal(lines: List<TerminalLine>, title: String = "adrian@d18: ~/boot") {
     val reducedMotion = rememberReducedMotion()
@@ -65,9 +61,9 @@ fun Terminal(lines: List<TerminalLine>, title: String = "adrian@d18: ~/boot") {
             val perCharDelay = if (line.text.startsWith("$")) 26L else 16L
             for (charCount in 1..line.text.length) {
                 visibleCharCount = charCount
-                delay(perCharDelay)
+                delay(perCharDelay.milliseconds)
             }
-            delay(240)
+            delay(240.milliseconds)
         }
         visibleLineCount = lines.size
         visibleCharCount = 0

@@ -1,10 +1,8 @@
 package com.anjo.anjosite.styles
 
-// Single mount point for AppEntry.kt: combines every single-responsibility stylesheet above into
-// one list of CSS rules. Add a new file's `.cssRules` here when adding a new stylesheet.
 object SiteStyles {
+    // Order matters: equal-specificity rules resolve by source position, so SiteOverlayStyles must stay last.
     val cssRules = SiteTokenStyles.cssRules +
-        SiteOverlayStyles.cssRules +
         SiteGlitchStyles.cssRules +
         SiteNavStyles.cssRules +
         SiteLayoutStyles.cssRules +
@@ -18,5 +16,6 @@ object SiteStyles {
         SiteMiscStyles.cssRules +
         SiteFooterStyles.cssRules +
         SiteResponsiveStyles.cssRules +
-        SiteOverrideStyles.cssRules
+        SiteOverrideStyles.cssRules +
+        SiteOverlayStyles.cssRules
 }

@@ -19,10 +19,6 @@ data class ProjectSummary(
     val href: String,
 )
 
-// Literal port of docs/handoff/index.html's <div class="card">. Per specs/004-pages clarification
-// Q1, every project gets its own /projects/{slug} page (the mock only gives its featured project
-// a detail page and points the rest straight at their repo) — so every card here links to a
-// detail page and shows "open case →", not just the first one.
 @Composable
 fun ProjectCard(project: ProjectSummary) {
     Div(attrs = { classes("card") }) {

@@ -6,6 +6,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.Log
+import com.anjo.anjosite.components.layouts.PageLayoutData
+import com.anjo.anjosite.components.layouts.updatePageMeta
+import com.anjo.anjosite.components.widgets.Tag
+import com.anjo.anjosite.pages.ProjectEntry
+import com.anjo.anjosite.pages.ProjectsFetchState
+import com.anjo.anjosite.pages.fetchProjectEntries
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page
@@ -21,44 +28,30 @@ import org.jetbrains.compose.web.dom.Br
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Em
 import org.jetbrains.compose.web.dom.H1
-import org.jetbrains.compose.web.dom.Li
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
-import org.jetbrains.compose.web.dom.Ul
-import com.anjo.anjosite.BilingualString
-import com.anjo.anjosite.LocalLang
-import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.anjo.anjosite.components.widgets.Tag
-import com.anjo.anjosite.pages.ProjectsFetchState
-import com.anjo.anjosite.pages.fetchProjectEntries
-
-// Dynamic detail route (@Page("{}") -> /projects/{slug}, research.md §1/§2): one static page per
-// project slug once site/build.gradle.kts's extraRoutes registers each one (T003) — otherwise
-// `kobweb export` silently skips this route entirely for every project. Literal port of
-// docs/handoff/index.html's data-screen="project" template. Content is fetched from
-// projects.json (request #2), same as the grid in pages/Projects.kt.
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
-private val LoadingLabel = BilingualString(en = "Loading project…", pl = "Wczytywanie projektu…")
-private val ErrorLabel = BilingualString(
-    en = "This project couldn't be loaded right now.",
-    pl = "Nie udało się teraz wczytać tego projektu.",
-)
+private const val LoadingLabel = "Loading project…"
+private const val ErrorLabel = "This project couldn't be loaded right now."
+private const val Description = "A side project by Adrian Jagieło."
 
 @InitRoute
 fun initProjectSlugPage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("Project"))
+    ctx.data.add(PageLayoutData("Project", Description))
 }
+
+internal fun findProjectBySlug(entries: List<ProjectEntry>, slug: String?): ProjectEntry? =
+    entries.find { it.slug == slug }
 
 @Page("{}")
 @Layout(".components.layouts.PageLayout")
 @Composable
 fun SlugPage() {
     val ctx = rememberPageContext()
-    val lang = LocalLang.current
     val slug = ctx.route.params["slug"]
     var fetchState by remember { mutableStateOf<ProjectsFetchState>(ProjectsFetchState.Loading) }
 
@@ -69,40 +62,45 @@ fun SlugPage() {
     val state = fetchState
     if (state is ProjectsFetchState.Loading) {
         Section(attrs = { classes("band", "band--pad") }) {
-            P(attrs = { classes("body") }) { Text(LoadingLabel(lang)) }
+            P(attrs = { classes("body") }) { Text(LoadingLabel) }
         }
         return
     }
     if (state is ProjectsFetchState.Failed) {
         Section(attrs = { classes("band", "band--pad") }) {
-            P(attrs = { classes("body") }) { Text(ErrorLabel(lang)) }
+            P(attrs = { classes("body") }) { Text(ErrorLabel) }
         }
         return
     }
-    val project = (state as ProjectsFetchState.Loaded).entries.find { it.slug == slug }
+    val project = findProjectBySlug((state as ProjectsFetchState.Loaded).entries, slug)
 
     if (project == null) {
         LaunchedEffect(slug) {
+            Log.warn("ProjectSlug", "no project found for slug '$slug', redirecting to /404")
             ctx.router.navigateTo("/404")
         }
         return
     }
 
+    LaunchedEffect(project) {
+        updatePageMeta(project.title, project.shortDescription, project.coverImageUrl ?: "/og-banner.png")
+    }
+
     Section(attrs = { classes("band", "band--strong"); style { property("padding", "40px 24px") } }) {
         Link("/projects", "← projects", Modifier.classNames("btn", "btn--link"), variant = navLinkVariant)
         Div(attrs = { classes("kicker"); style { property("margin", "24px 0 16px") } }) {
-            Text("${project.kind} · ${project.status(lang).uppercase()}")
+            Text("${project.kind} · ${project.status.uppercase()}")
         }
         H1(attrs = { classes("display"); style { property("font-size", "clamp(36px, 5.5vw, 80px)"); property("line-height", "0.92") } }) {
-            Text(project.title(lang).substringBeforeLast(' ', ""))
+            Text(project.title.substringBeforeLast(' ', ""))
             Br()
-            Em(attrs = { classes("red") }) { Text(project.title(lang).substringAfterLast(' ')) }
+            Em(attrs = { classes("red") }) { Text(project.title.substringAfterLast(' ')) }
         }
     }
 
     Section(attrs = { classes("band", "split") }) {
         Div {
-            P(attrs = { classes("body") }) { Text(project.fullDescription(lang)) }
+            P(attrs = { classes("body") }) { Text(project.fullDescription) }
             Div(attrs = { classes("tags"); style { property("gap", "0.5rem"); property("margin-top", "1rem") } }) {
                 project.tags.forEach { tag -> Tag(tag) }
             }
@@ -124,7 +122,7 @@ fun SlugPage() {
                 Div(attrs = { classes("sheet-row") }) { Span { Text("platform") }; Span { Text(project.platform) } }
                 Div(attrs = { classes("sheet-row") }) {
                     Span { Text("status") }
-                    Span(attrs = { style { property("color", "var(--pink)") } }) { Text(project.status(lang)) }
+                    Span(attrs = { style { property("color", "var(--pink)") } }) { Text(project.status) }
                 }
                 Div(attrs = { classes("sheet-row") }) { Span { Text("role") }; Span { Text(project.role) } }
                 project.packageOrRepo?.let { pkg ->

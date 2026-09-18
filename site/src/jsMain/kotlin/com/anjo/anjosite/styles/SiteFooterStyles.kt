@@ -1,16 +1,9 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// Site footer.
 object SiteFooterStyles : StyleSheet() {
     init {
-        // ── footer ─────────────────────────────────────────────
         ".footer" style {
             property("position", "relative")
             property("z-index", "1")

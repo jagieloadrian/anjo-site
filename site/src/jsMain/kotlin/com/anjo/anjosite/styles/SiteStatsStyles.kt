@@ -1,16 +1,9 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// Stat grid cells (trophy counts, etc).
 object SiteStatsStyles : StyleSheet() {
     init {
-        // ── stats ──────────────────────────────────────────────
         ".stats" style {
             property("display", "grid")
             property("grid-template-columns", "repeat(auto-fit, minmax(150px, 1fr))")
@@ -43,6 +36,18 @@ object SiteStatsStyles : StyleSheet() {
         }
         ".stat-num--red" style {
             property("color", "var(--red-lt)")
+        }
+        ".stat-num--gold" style {
+            property("color", "var(--gold)")
+        }
+        ".stat-num--silver" style {
+            property("color", "var(--silver)")
+        }
+        ".stat-num--bronze" style {
+            property("color", "var(--bronze)")
+        }
+        ".stat-num--platinum" style {
+            property("color", "var(--platinum)")
         }
         ".stat-num--lg" style {
             property("font-size", "46px")

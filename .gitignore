@@ -29,8 +29,14 @@ kotlin-js-store
 # Kotlin ignores
 .kotlin
 
-# Node ignores (scripts/refresh-trophies/)
+# Node ignores (scripts/refresh-trophies/, e2e/)
 node_modules
+
+# Playwright ignores (e2e/)
+test-results
+playwright-report
+blob-report
+playwright/.cache
 
 .specify
 .claude

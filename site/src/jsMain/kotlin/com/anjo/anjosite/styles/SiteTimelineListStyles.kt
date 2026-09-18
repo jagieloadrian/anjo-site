@@ -1,16 +1,9 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// Timeline entries, link lists, fact sheets, game covers and the trophy feed.
 object SiteTimelineListStyles : StyleSheet() {
     init {
-        // ── lists, timeline, links ─────────────────────────────
         ".tl" style {
             property("border-left", "2px solid var(--pink)")
             property("padding-left", "20px")
@@ -138,31 +131,43 @@ object SiteTimelineListStyles : StyleSheet() {
         }
         ".covers" style {
             property("display", "grid")
-            property("grid-template-columns", "repeat(auto-fit, minmax(150px, 1fr))")
-            property("gap", "2px")
-            property("background", "var(--rule-soft)")
-            property("border", "2px solid var(--rule-soft)")
+            property("grid-template-columns", "repeat(5, 1fr)")
+            property("gap", "8px")
         }
         ".cover" style {
             property("padding", "18px")
             property("background", "var(--bg)")
+            property("border", "2px solid var(--rule-soft)")
         }
         ".cover-img" style {
             property("width", "100%")
             property("aspect-ratio", "1")
             property("margin-bottom", "12px")
             property("border", "2px dashed var(--rule-mid)")
+            property("background", "var(--tint-0)")
             property("display", "flex")
             property("align-items", "center")
             property("justify-content", "center")
+            property("overflow", "hidden")
             property("font-family", "var(--mono)")
             property("font-size", "10px")
             property("color", "var(--faint)")
+        }
+        ".cover-img img" style {
+            property("width", "100%")
+            property("height", "100%")
+            property("object-fit", "contain")
+            property("display", "block")
         }
         ".cover-name" style {
             property("font-size", "15px")
             property("font-weight", "700")
             property("line-height", "1.25")
+            property("overflow", "hidden")
+            property("text-overflow", "ellipsis")
+            property("display", "-webkit-box")
+            property("-webkit-line-clamp", "2")
+            property("-webkit-box-orient", "vertical")
         }
         ".cover-pct" style {
             property("font-family", "var(--mono)")
@@ -190,10 +195,29 @@ object SiteTimelineListStyles : StyleSheet() {
             property("width", "42px")
             property("height", "42px")
             property("flex", "none")
+            property("overflow", "hidden")
             property("border", "2px solid var(--rule-ink-mid)")
         }
-        ".feed-icon--pink" style {
-            property("border-color", "var(--pink)")
+        ".feed-icon img" style {
+            property("width", "100%")
+            property("height", "100%")
+            property("object-fit", "cover")
+            property("display", "block")
+        }
+        ".feed-icon--bronze" style {
+            property("border-color", "var(--bronze)")
+            property("background", "var(--tint-2)")
+        }
+        ".feed-icon--silver" style {
+            property("border-color", "var(--silver)")
+            property("background", "var(--tint-2)")
+        }
+        ".feed-icon--gold" style {
+            property("border-color", "var(--gold)")
+            property("background", "var(--tint-2)")
+        }
+        ".feed-icon--platinum" style {
+            property("border-color", "var(--platinum)")
             property("background", "var(--tint-2)")
         }
         ".feed-name" style {

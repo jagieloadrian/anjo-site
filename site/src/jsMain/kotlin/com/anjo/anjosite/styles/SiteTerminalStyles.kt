@@ -1,16 +1,9 @@
 package com.anjo.anjosite.styles
 
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.StyleSheet
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// The boot/contact terminal widget chrome.
 object SiteTerminalStyles : StyleSheet() {
     init {
-        // ── terminal ───────────────────────────────────────────
         ".term" style {
             property("border", "2px solid var(--pink)")
             property("background", "var(--panel)")
@@ -90,6 +83,9 @@ object SiteTerminalStyles : StyleSheet() {
             property("outline", "none")
             property("font-family", "var(--mono)")
             property("font-size", "14px")
+            property("color", "#ffffff")
+        }
+        "[data-theme=\"light\"] .term-input input" style {
             property("color", "var(--ink)")
         }
     }

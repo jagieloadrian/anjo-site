@@ -17,7 +17,6 @@ import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Em
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.Li
-import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
@@ -50,21 +49,6 @@ private val experience = listOf(
         ),
         "Kotlin coroutines · MockWebServer · Docker · Kubernetes",
         soft = true,
-    ),
-)
-
-private data class CvProject(val name: String, val description: String, val stack: String)
-
-private val ownProjects = listOf(
-    CvProject(
-        "SW Wiki",
-        "Mobile app fetching Star Wars data from external APIs, including image search by keywords. On Google Play.",
-        "Apollo · Jetpack Compose · Gradle · Kotlin",
-    ),
-    CvProject(
-        "DatabaseSchedulerExecutor",
-        "Kotlin app that executes SQLite queries at scheduled times based on CRON expressions, configurable via a properties file.",
-        "Kotlin · JDBC SQLite · CRON",
     ),
 )
 
@@ -122,17 +106,7 @@ fun CvPage() {
                 }
             }
             Div(attrs = { classes("rule", "rule--soft"); style { property("margin", "36px 0 28px") } })
-            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "18px") } }) { Text("OWN PROJECTS") }
-            ownProjects.forEach { project ->
-                Div(attrs = { style { property("margin-bottom", "22px") } }) {
-                    Div(attrs = { style { property("font-size", "19px"); property("font-weight", "800") } }) { Text(project.name) }
-                    P(attrs = { classes("body", "body--sm"); style { property("max-width", "70ch"); property("margin", "8px 0 0") } }) {
-                        Text(project.description)
-                    }
-                    Div(attrs = { classes("tl-stack") }) { Text(project.stack) }
-                }
-            }
-            Link("/projects", "all projects →", Modifier.classNames("btn", "btn--link"), variant = navLinkVariant)
+            Link("/projects", "own projects →", Modifier.classNames("btn", "btn--link"), variant = navLinkVariant)
         }
         Div {
             Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "18px") } }) { Text("SKILLS") }

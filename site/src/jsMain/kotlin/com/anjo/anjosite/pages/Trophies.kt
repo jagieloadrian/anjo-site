@@ -87,9 +87,14 @@ private fun parseTrophiesData(text: String): TrophiesData {
     return TrophiesData(stats, games, trophies)
 }
 
+private val Description = BilingualString(
+    en = "PlayStation trophy collection and gaming history, tracked by Adrian Jagieło.",
+    pl = "Kolekcja trofeów PlayStation i historia grania Adriana Jagieły.",
+)
+
 @InitRoute
 fun initTrophiesPage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("Trophies"))
+    ctx.data.add(PageLayoutData("Trophies", Description))
 }
 
 private val LoadingLabel = BilingualString(en = "Loading trophies…", pl = "Wczytywanie trofeów…")

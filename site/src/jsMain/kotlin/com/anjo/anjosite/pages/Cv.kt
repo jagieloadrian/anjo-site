@@ -21,6 +21,7 @@ import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Ul
+import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.components.layouts.PageLayoutData
 
 // Literal port of docs/handoff/index.html's data-screen="cv" — print-friendly, own content
@@ -80,9 +81,14 @@ private val skillGroups = listOf(
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
+private val Description = BilingualString(
+    en = "Adrian Jagieło's CV — Kotlin and JVM backend experience, Kubernetes, OpenShift, REST and GraphQL APIs.",
+    pl = "CV Adriana Jagieły — doświadczenie backendowe w Kotlinie i JVM, Kubernetes, OpenShift, API REST i GraphQL.",
+)
+
 @InitRoute
 fun initCvPage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("CV"))
+    ctx.data.add(PageLayoutData("CV", Description))
 }
 
 @Page

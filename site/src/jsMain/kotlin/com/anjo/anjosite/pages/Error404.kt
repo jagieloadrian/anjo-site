@@ -20,10 +20,11 @@ import com.anjo.anjosite.components.layouts.PageLayoutData
 // user-facing prose, so per constitution Principle III it must be bilingual — unlike the
 // technical-label-only placeholder pages (Projects.kt etc.), see spec.md Assumptions.
 private val NotFoundMessage = BilingualString(en = "Page not found", pl = "Strona nie znaleziona")
+private val Description = BilingualString(en = "Page not found", pl = "Strona nie znaleziona")
 
 @InitRoute
 fun init404Page(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("404"))
+    ctx.data.add(PageLayoutData("404", Description))
 }
 
 @Page("/404")

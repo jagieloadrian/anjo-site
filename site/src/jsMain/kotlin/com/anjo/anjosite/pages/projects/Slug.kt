@@ -30,7 +30,9 @@ import org.jetbrains.compose.web.dom.Ul
 import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.LocalLang
 import com.anjo.anjosite.components.layouts.PageLayoutData
+import com.anjo.anjosite.components.layouts.updatePageMeta
 import com.anjo.anjosite.components.widgets.Tag
+import com.anjo.anjosite.pages.ProjectEntry
 import com.anjo.anjosite.pages.ProjectsFetchState
 import com.anjo.anjosite.pages.fetchProjectEntries
 
@@ -47,11 +49,24 @@ private val ErrorLabel = BilingualString(
     en = "This project couldn't be loaded right now.",
     pl = "Nie udało się teraz wczytać tego projektu.",
 )
+private val Description = BilingualString(
+    en = "A side project by Adrian Jagieło.",
+    pl = "Własny projekt Adriana Jagieły.",
+)
 
+// specs/007-tests-polishing data-model.md: the real per-project title/description/og:image can't
+// be known at static @InitRoute time (it depends on the runtime projects.json fetch below) — this
+// static default is what a crawler sees if the export snapshot is somehow taken before the fetch
+// resolves; SlugPage()'s own LaunchedEffect(project) overrides it once the real data is in.
 @InitRoute
 fun initProjectSlugPage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("Project"))
+    ctx.data.add(PageLayoutData("Project", Description))
 }
+
+// specs/007-tests-polishing research.md §3: extracted so the unknown-slug -> /404 fallback is a
+// pure, testable function instead of inline .find{}.
+internal fun findProjectBySlug(entries: List<ProjectEntry>, slug: String?): ProjectEntry? =
+    entries.find { it.slug == slug }
 
 @Page("{}")
 @Layout(".components.layouts.PageLayout")
@@ -79,13 +94,17 @@ fun SlugPage() {
         }
         return
     }
-    val project = (state as ProjectsFetchState.Loaded).entries.find { it.slug == slug }
+    val project = findProjectBySlug((state as ProjectsFetchState.Loaded).entries, slug)
 
     if (project == null) {
         LaunchedEffect(slug) {
             ctx.router.navigateTo("/404")
         }
         return
+    }
+
+    LaunchedEffect(project) {
+        updatePageMeta(project.title(lang), project.shortDescription(lang), project.coverImageUrl ?: "/og-banner.png")
     }
 
     Section(attrs = { classes("band", "band--strong"); style { property("padding", "40px 24px") } }) {

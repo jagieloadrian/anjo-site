@@ -51,9 +51,14 @@ private val timelineEntries = listOf(
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
+private val Description = BilingualString(
+    en = "I build backend systems in Kotlin and Java, and care most about making them understandable afterwards.",
+    pl = "Buduję systemy backendowe w Kotlinie i Javie i najbardziej zależy mi, żeby potem były zrozumiałe.",
+)
+
 @InitRoute
 fun initAboutPage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("About"))
+    ctx.data.add(PageLayoutData("About", Description))
 }
 
 @Page

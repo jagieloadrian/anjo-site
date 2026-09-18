@@ -105,9 +105,14 @@ private val ErrorLabel = BilingualString(
     pl = "Nie udało się teraz wczytać projektów.",
 )
 
+private val Description = BilingualString(
+    en = "Side projects and tools by Adrian Jagieło — Kotlin, Compose Multiplatform, and small utilities.",
+    pl = "Własne projekty i narzędzia Adriana Jagieły — Kotlin, Compose Multiplatform i małe narzędzia.",
+)
+
 @InitRoute
 fun initProjectsPage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("Projects"))
+    ctx.data.add(PageLayoutData("Projects", Description))
 }
 
 @Page

@@ -115,9 +115,14 @@ private val StackErrorLabel = BilingualString(
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
+private val Description = BilingualString(
+    en = "Adrian Jagieło — software developer specializing in Kotlin and JVM backend development.",
+    pl = "Adrian Jagieło — software developer specjalizujący się w Kotlinie i backendzie na JVM.",
+)
+
 @InitRoute
 fun initHomePage(ctx: InitRouteContext) {
-    ctx.data.add(PageLayoutData("Home"))
+    ctx.data.add(PageLayoutData("Home", Description))
 }
 
 @Page

@@ -1,7 +1,5 @@
 import { test, expect } from "@playwright/test";
 
-// specs/007-tests-polishing FR-014: prefers-reduced-motion=reduce disables the two decorative
-// animations (glitch hover-shake, terminal caret blink) and the scanline overlay.
 test.use({ reducedMotion: "reduce" });
 
 test("caret has no animation under reduced motion", async ({ page }) => {

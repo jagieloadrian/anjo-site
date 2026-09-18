@@ -1,8 +1,5 @@
 import { test, expect } from "@playwright/test";
 
-// specs/007-tests-polishing FR-015 (replaces docs/handoff/mobile-check.html's manual review,
-// ROADMAP F024a): at each mobile breakpoint, no horizontal overflow and every interactive
-// element's smaller dimension is at least a 48px touch target.
 const breakpoints = [390, 430, 768];
 const routes = ["/", "/about", "/projects", "/trophies", "/contact", "/cv"];
 

@@ -29,8 +29,6 @@ private fun TerminalLineStyle.className() = when (this) {
 
 private const val REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
 
-// Live reduced-motion reactivity (FR-003, research.md §1): CSS media queries alone can gate
-// static styles but can't stop an in-flight coroutine, so this listens to matchMedia directly.
 @Composable
 private fun rememberReducedMotion(): Boolean {
     var reducedMotion by remember { mutableStateOf(window.matchMedia(REDUCED_MOTION_QUERY).matches) }
@@ -43,9 +41,6 @@ private fun rememberReducedMotion(): Boolean {
     return reducedMotion
 }
 
-// Literal port of docs/handoff/index.html's <div class="term"> boot terminal, including
-// app.js's runBoot() timings (26ms/char on "$"-prefixed command lines, 16ms/char otherwise,
-// 240ms pause between lines).
 @Composable
 fun Terminal(lines: List<TerminalLine>, title: String = "adrian@d18: ~/boot") {
     val reducedMotion = rememberReducedMotion()

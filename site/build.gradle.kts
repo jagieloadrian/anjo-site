@@ -17,12 +17,8 @@ kobweb {
     app {
         index {
             description.set("Powered by Kobweb")
-            // docs/favicon/README.md: browsers use the first matching `rel="icon"` link, so the
-            // SVG variants (which switch on prefers-color-scheme) must come before the .ico
-            // fallback. Kobweb's own `faviconPath` convenience always emits its link before our
-            // head.add block, which would put the .ico first — disabled here so we control order.
+            // Browsers pick the first matching rel="icon" link; order below is deliberate.
             faviconPath.set("")
-            // Archivo + JetBrains Mono, matching docs/handoff/index.html (research.md §2).
             head.add {
                 link(rel = "icon", href = "/favicon.svg") {
                     type = "image/svg+xml"
@@ -41,12 +37,6 @@ kobweb {
                     sizes = "180x180"
                 }
                 link(rel = "manifest", href = "/site.webmanifest")
-                // Self-hosted (specs/007-tests-polishing research.md §10/FR-007): replaces the
-                // Google Fonts CDN link. Vendored in resources/public/fonts/ — `latin` +
-                // `latin-ext` subsets per weight (Constitution Principle III: Polish diacritics
-                // live in the latin-ext Unicode block). Archivo/JetBrains Mono are variable fonts,
-                // so all declared weights of a subset share one file (unicode-range differs);
-                // Compose HTML's typed StyleSheet DSL has no @font-face support, hence the raw tag.
                 style {
                     unsafe {
                         +"""
@@ -71,17 +61,10 @@ kobweb {
                         """.trimIndent()
                     }
                 }
-                // Site's own CSS is now SiteStyles.kt (mounted in AppEntry.kt via `Style()`), not
-                // an external stylesheet — no `/styles.css` link needed anymore.
             }
         }
         export {
-            // Dynamic routes (/projects/{slug}) are skipped by default export discovery — register
-            // each real project slug explicitly, or its static page is silently never generated
-            // (specs/004-pages research.md §1). Project content itself lives in
-            // resources/public/projects.json (request #2) so day-to-day edits don't touch Kotlin —
-            // but adding a brand-new slug still needs one line added here too, since Kobweb can't
-            // discover dynamic routes from a runtime fetch at export time.
+            // Dynamic /projects/{slug} routes need each slug listed here, or export silently skips them.
             addExtraRoute("/projects/star-wars-wiki-compose")
             addExtraRoute("/projects/filebrowser-api")
             addExtraRoute("/projects/database-scheduler-executor")
@@ -91,36 +74,19 @@ kobweb {
 }
 
 kotlin {
-    // This example is frontend only. However, for a fullstack app, you can uncomment the includeServer parameter
-    // and the `jvmMain` source set below.
-    configAsKobwebApplication("anjosite" /*, includeServer = true*/)
+    configAsKobwebApplication("anjosite")
 
     sourceSets {
-//        commonMain.dependencies {
-//          // Add shared dependencies between JS and JVM here if building a fullstack app
-//        }
-
         jsMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.html.core)
             implementation(libs.kobweb.core)
             implementation(libs.kobweb.silk)
-            // This default template uses built-in SVG icons, but what's available is limited.
-            // Uncomment the following if you want access to a large set of font-awesome icons:
-            // implementation(libs.silk.icons.fa)
             implementation(libs.kobwebx.markdown)
         }
 
-        // specs/007-tests-polishing: first automated test suite in this project (research.md §1)
-        // — kotlin.test ships with the Kotlin Multiplatform plugin already applied, no new
-        // version-catalog entry needed.
         jsTest.dependencies {
             implementation(kotlin("test"))
         }
-
-        // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.
-//        jvmMain.dependencies {
-//            compileOnly(libs.kobweb.api) // Provided by Kobweb backend at runtime
-//        }
     }
 }

@@ -4,8 +4,6 @@ import androidx.compose.runtime.Composable
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 
-// Literal port of docs/handoff/index.html's <footer class="footer"> — back to the mock's own
-// --red (brighter-red override reverted per user feedback).
 @Composable
 fun Footer() {
     Div(attrs = { classes("footer") }) {

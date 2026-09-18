@@ -2,15 +2,8 @@ package com.anjo.anjosite.styles
 
 import org.jetbrains.compose.web.css.*
 
-// Mechanically split out of the original single-file transcription of docs/handoff/styles.css
-// (request: move CSS into Kotlin; then split that one 1200-line object into single-responsibility
-// files). Every declaration is a literal, unreordered transcription via the raw
-// property(name, value) escape hatch already used throughout this codebase — not a redesign.
-
-// Headings, body copy, labels and meta text.
 object SiteTypographyStyles : StyleSheet() {
     init {
-        // ── type ───────────────────────────────────────────────
         ".kicker" style {
             property("font-family", "var(--mono)")
             property("font-size", "12px")

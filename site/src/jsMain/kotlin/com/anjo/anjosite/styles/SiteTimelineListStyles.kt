@@ -129,6 +129,10 @@ object SiteTimelineListStyles : StyleSheet() {
             property("line-height", "1.5")
             property("color", "var(--dim)")
         }
+        ".slot img" style {
+            property("max-width", "100%")
+            property("display", "block")
+        }
         ".covers" style {
             property("display", "grid")
             property("grid-template-columns", "repeat(5, 1fr)")

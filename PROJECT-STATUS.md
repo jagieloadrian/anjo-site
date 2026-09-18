@@ -197,6 +197,49 @@ original phase artifacts in 5 ways. Appended as tasks.md Phase 8 (T018-T022), th
   a second authorized exception, plan.md's Storage section documents all three fetched JSON files,
   and spec.md's Assumptions note `Theme.kt`/brand-hover-glitch as out-of-FR-scope additions.
 
+## Completed work (this session, specs/007-tests-polishing — Faza 6 Polish + first test suite)
+
+All 33 tasks done, 7 atomic commits on `feature-7/tests-polishing`. Closes ROADMAP F030/F031/
+F033/F034/F035; F032 (analytics) explicitly deferred, not dropped.
+
+- **SEO/OG** (`842231f`): `PageLayout.kt`'s `updatePageMeta()` writes per-page `<title>`/meta
+  description/`og:*` tags, verified present in `kobwebExport`'s static snapshot (captured after
+  the `LaunchedEffect` head mutation runs). `Slug.kt` calls it twice — once at static time with a
+  generic fallback, again once the runtime `projects.json` fetch resolves with the real
+  title/description/cover image.
+- **Accessibility fixes** (`2e79431`, real bugs found by the new automated suite, not by manual
+  review): WCAG AA contrast fixes to 4 design tokens in `SiteTokenStyles.kt` (including light
+  `--pink` checked against real tinted panel backgrounds, not just flat `--bg`); `Cv.kt` had 3
+  hardcoded hex colors that never re-themed in light mode; a CSS cascade bug in `SiteStyles.kt`
+  where `SiteOverlayStyles`' `prefers-reduced-motion` override lost to `SiteGlitchStyles`'
+  unconditional animation despite the media guard, because same-specificity ties resolve by
+  source order, not media-query presence; `.nav-btn`/`.lang-btn` under the 48px touch-target
+  minimum at narrow viewports.
+- **Unit tests** (`85773fb`): `site/src/jsTest/`, `kotlin.test` via the Kotlin Multiplatform
+  plugin (no new Gradle dependency). Covers `langForLocale()` (extracted from `Lang.kt` as a pure
+  function — Kotlin/JS browser tests run in a real Karma browser, so `navigator.language` isn't
+  test-controllable directly), `Trophies.kt`/`Projects.kt` JSON mapping, and `Slug.kt`'s
+  `findProjectBySlug()` including the unknown-slug → `null` case.
+- **Self-hosted fonts** (`35159ca`): Google Fonts CDN replaced with 4 vendored `.woff2` files
+  (Archivo + JetBrains Mono, latin + latin-ext) driving 18 `@font-face` rules in
+  `build.gradle.kts` via `kotlinx.html`'s raw `style { unsafe { ... } }` escape hatch (Compose
+  HTML's typed `StyleSheet()` has no `@font-face` support). The 4 files are deduped from 18
+  originally-downloaded ones — Google serves byte-identical `.woff2`s per declared weight for a
+  variable font within the same subset, confirmed via `md5sum`.
+- **E2E suite** (`1112979`, `b2cc043`): new `e2e/` Playwright workspace, first browser-level
+  coverage in the project, run against a real `kobwebExport --layout static` output served by a
+  small stdlib `serve-static.py` (plain `http.server` 404s on every extension-less route; this
+  replicates GitHub Pages' `route` → `route.html` → `404.html` fallback). 5 spec files: routes
+  (console-error-free load + dynamic slug + 404 fallback), lang toggle, reduced-motion, viewport
+  breakpoints (replaces the old manual `docs/handoff/mobile-check.html` review), and `axe-core`
+  WCAG scan in both themes. Wired into CI (`site-export` now runs `:site:jsTest` and uploads the
+  export as an artifact; new `e2e` job downloads it and runs Playwright).
+- **Docs** (`778c898`): ROADMAP.md, `specs/SUMMARY.md`, full `specs/007-tests-polishing/` artifact
+  set.
+
+Full verification rerun at session end: `:site:jsTest` + `:site:kobwebExport` green, 48/48
+Playwright tests passing.
+
 ## Next steps
 
 - Faza 4 — Dane: nightly GitHub Action generating the real `trophies.json` via `psn-api`
@@ -206,3 +249,7 @@ original phase artifacts in 5 ways. Appended as tasks.md Phase 8 (T018-T022), th
 - If a brand-new project is added often enough that the `addExtraRoute` line becomes annoying, a
   small Gradle-time JSON read to auto-generate that list would remove the last manual step (not
   built now — YAGNI until it's actually a recurring pain point).
+- F032 (privacy-friendly analytics) remains deferred per research.md §10 — revisit only if actual
+  traffic-data need arises.
+- Consider opening the PR for `feature-7/tests-polishing` → `main` (not done this session — no
+  explicit request to push/open a PR).

@@ -7,21 +7,23 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.styles.SiteStyles
 import com.varabyte.kobweb.core.App
 import com.varabyte.kobweb.silk.SilkApp
 import kotlinx.browser.document
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Style
 
-// Visual styling for the whole site is now the SiteStyles.kt object (mechanically transcribed
-// from docs/handoff/styles.css — request: move CSS into Kotlin, no more mock changes planned),
-// mounted here via plain Compose HTML `Style()`, applied via literal class names, not Silk
-// CssStyle/ColorMode. Deliberately not Silk's `@InitSilk`/`CssStyle` machinery: Kobweb wraps that
-// output in `@layer general-styles`, and CSS gives any unlayered rule priority over any layered
-// one regardless of specificity — a real bug we hit with a hover style earlier this session. A
-// plain `StyleSheet()` mounted via `Style()` stays unlayered, exactly like the external stylesheet
-// it replaces. SilkApp is kept only because a couple of Silk widgets (TextInput/Button in
-// ContactPrompt) still need SilkTheme present.
+// Visual styling for the whole site is the `com.anjo.anjosite.styles` package (mechanically
+// transcribed from docs/handoff/styles.css, then split into one file per component — request:
+// move CSS into Kotlin, no more mock changes planned), mounted here via plain Compose HTML
+// `Style()`, applied via literal class names, not Silk CssStyle/ColorMode. Deliberately not
+// Silk's `@InitSilk`/`CssStyle` machinery: Kobweb wraps that output in `@layer general-styles`,
+// and CSS gives any unlayered rule priority over any layered one regardless of specificity — a
+// real bug we hit with a hover style earlier this session. Plain `StyleSheet()`s mounted via
+// `Style()` stay unlayered, exactly like the external stylesheet they replace. SilkApp is kept
+// only because a couple of Silk widgets (TextInput/Button in ContactPrompt) still need SilkTheme
+// present.
 @App
 @Composable
 fun AppEntry(content: @Composable () -> Unit) {

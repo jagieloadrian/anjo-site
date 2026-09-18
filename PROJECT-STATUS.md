@@ -103,6 +103,29 @@ in `build.gradle.kts` is gone.
   back to the mock's plain `--red` per follow-up user feedback — the migration preserves that
   reverted (plain) state.
 
+## Completed work (this session, SiteStyles SOLID split)
+
+Per explicit user feedback ("1200 lines in one class, split it, refactor per SOLID"): the single
+`SiteStyles.kt` object is deleted and replaced by 16 single-responsibility `StyleSheet()` objects
+in a new `com.anjo.anjosite.styles` package, plus a small aggregator:
+
+- `SiteTokenStyles`, `SiteOverlayStyles`, `SiteGlitchStyles` (owns the two `keyframes`),
+  `SiteNavStyles`, `SiteLayoutStyles`, `SiteTypographyStyles`, `SiteButtonStyles`, `SiteTagStyles`,
+  `SiteTerminalStyles`, `SiteStatsStyles`, `SiteCardStyles`, `SiteTimelineListStyles`,
+  `SiteMiscStyles`, `SiteFooterStyles`, `SiteResponsiveStyles` (720/460px breakpoints, kept
+  together as cross-cutting), `SiteOverrideStyles` (this codebase's own deviations: anchor-as-button
+  fixup + `@media print`).
+- `styles/SiteStyles.kt` is now just `object SiteStyles { val cssRules = A.cssRules + B.cssRules + ... }`
+  — the single mount point `AppEntry.kt` still calls via `Style(cssRules = SiteStyles.cssRules)`.
+- Split was mechanical (script-sliced on the same section-comment markers already present from the
+  original transcription), not a rewrite — no rule content changed.
+- Re-verified after the split: zero console/page errors across all 7 routes, theme toggle
+  (light↔dark), brand hover/glitch (`animationName` now `SiteGlitchStyles-glitchShift`, confirming
+  the right file owns it), sticky footer, Projects (4 cards)/Stack (23 tags) JSON fetch, no
+  horizontal overflow at 390/430/720px, `/cv` print media still hides nav/footer, and
+  `kobweb export -PkobwebExportLayout=STATIC` succeeds with all pages/JSON/favicon assets present
+  and no `styles.css`.
+
 ## Completed work (earlier this session, post-pivot refinements)
 
 Eight user-reported items, all implemented and verified in-browser (Playwright) + against a real

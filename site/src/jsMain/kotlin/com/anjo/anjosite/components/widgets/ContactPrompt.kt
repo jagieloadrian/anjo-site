@@ -21,6 +21,8 @@ import org.jetbrains.compose.web.dom.Input
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
+import com.anjo.anjosite.BilingualString
+import com.anjo.anjosite.LocalLang
 
 // Literal port of docs/handoff/index.html's <div class="term"> contact prompt (data-chat +
 // data-msg + data-send in the mock) and app.js's sendMessage(): types a message, appends the
@@ -36,15 +38,26 @@ private data class ChatLine(val text: String, val styleClass: String)
 
 private val fallbackLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
+// Bilingual chrome text (data-model.md, analyze finding B1) — internal, not parameters, since only
+// recipient/subject vary by call site (FR-011/FR-013).
+private val SendLabel = BilingualString(en = "Send", pl = "Wyślij")
+private val MessageRequiredLabel = BilingualString(en = "Message required", pl = "Wiadomość jest wymagana")
+
 @Composable
 fun ContactPrompt(recipientEmail: String, subject: String) {
+    val lang = LocalLang.current
     var message by remember { mutableStateOf("") }
     val log = remember { mutableStateListOf<ChatLine>() }
     var lastMailto by remember { mutableStateOf<String?>(null) }
+    var showRequired by remember { mutableStateOf(false) }
 
     fun send() {
         val trimmed = message.trim()
-        if (trimmed.isEmpty()) return
+        if (trimmed.isEmpty()) {
+            showRequired = true
+            return
+        }
+        showRequired = false
         log.add(ChatLine("> $trimmed", "t-out"))
         log.add(ChatLine("opening your mail client — mailto:$recipientEmail", "t-pink"))
         message = ""
@@ -63,6 +76,9 @@ fun ContactPrompt(recipientEmail: String, subject: String) {
         Div(attrs = { classes("term-body") }) {
             P(attrs = { classes("t-cmd") }) { Text("$ ./message --to adrian") }
             log.forEach { line -> P(attrs = { classes(line.styleClass) }) { Text(line.text) } }
+            if (showRequired) {
+                P(attrs = { classes("t-pink") }) { Text(MessageRequiredLabel(lang)) }
+            }
             lastMailto?.let { mailto ->
                 Link(mailto, "nothing happen? click here →", Modifier.classNames("btn", "btn--link"), variant = fallbackLinkVariant)
             }
@@ -72,13 +88,13 @@ fun ContactPrompt(recipientEmail: String, subject: String) {
             Input(InputType.Text, attrs = {
                 value(message)
                 placeholder("type your message, hit enter")
-                onInput { message = it.value }
+                onInput { message = it.value; if (showRequired) showRequired = false }
                 onKeyDown { if (it.key == "Enter") send() }
             })
             Button(attrs = {
                 classes("btn", "btn--sm", "btn--outline")
                 onClick { send() }
-            }) { Text("send") }
+            }) { Text(SendLabel(lang)) }
         }
     }
 }

@@ -292,3 +292,35 @@ Task: "Real CV content in pages/Cv.kt"
   else reuses the seven Phase 2 components as-is.
 - Commit after each task or logical group of parallel ones.
 - Stop at any Phase checkpoint to validate that story independently before continuing.
+
+---
+
+## Phase 8: Convergence
+
+**Purpose**: Close gaps found by `/speckit-converge` between spec.md/plan.md and the current
+codebase (post-implementation ad hoc changes drifted from the original phase artifacts).
+
+- [X] T018 CRITICAL: Restore bilingual send-button label and a visible "message required"
+      indication in `site/src/jsMain/kotlin/com/anjo/anjosite/components/widgets/ContactPrompt.kt`
+      per FR-011/FR-013 (contradicts) — currently `send()` silently returns on an empty message
+      with no user-facing indication, and every string in the component ("send", "type your
+      message, hit enter", "opening your mail client — mailto:…") is hardcoded English with no
+      `BilingualString`/`LocalLang` usage at all (regression from commit 7ab09f9, never restored).
+- [X] T019 Reconcile Projects' runtime `projects.json` fetch
+      (`site/src/jsMain/kotlin/com/anjo/anjosite/pages/Projects.kt`) with FR-006, which requires
+      an in-source `List` for this phase and explicitly defers external JSON sourcing to Phase 4
+      per FR-006 (contradicts) — either revert to an in-source list, or run a spec amendment
+      (`/speckit-specify`/`/speckit-clarify`) updating FR-006 and plan.md to accept the pulled-
+      forward JSON sourcing.
+- [X] T020 Reconcile the new shared component
+      `site/src/jsMain/kotlin/com/anjo/anjosite/components/widgets/LinkCell.kt` (used by Home and
+      Contact) against FR-014's single-exception rule (only `ContactPrompt` is authorized as a new
+      shared component this phase) per FR-014 (contradicts) — either fold `LinkCell` into an
+      existing component, or amend FR-014 to name it as a second authorized exception.
+- [X] T021 Update plan.md's Technical Context/Storage section (or scope the change under Phase 4)
+      to account for `site/src/jsMain/kotlin/com/anjo/anjosite/pages/Index.kt`'s Home "Stack" band
+      now fetching `stack.json` at runtime — plan.md currently states trophies.json is the one
+      fetched artifact for this phase per plan.md (contradicts).
+- [X] T022 Document `site/src/jsMain/kotlin/com/anjo/anjosite/Theme.kt` (dark/light theme toggle)
+      and the NavHeader brand hover/glitch effects as an explicit out-of-band addition in spec.md's
+      Assumptions, since neither is described by any FR in this spec (unrequested).

@@ -175,9 +175,12 @@ message) is produced, with no network request made.
   individually hardcoded cards), and MUST provide a detail view for a single selected project,
   reachable at its own dedicated URL via a Kobweb dynamic route segment (e.g. `/projects/{slug}`)
   rather than a client-side-only toggle.
-- **FR-006**: The Projects data list MUST be defined as an in-source data structure for this
-  phase — no external JSON fetch for project content (that data-sourcing change is out of scope,
-  deferred to Phase 4).
+- **FR-006**: The Projects data list MUST be sourced from a static, hand-authored `projects.json`
+  file fetched at runtime (same pattern as `trophies.json`, FR-007/FR-008), not hardcoded per-card
+  in the page — this lets project content be edited without touching Kotlin. *(Amended during
+  `/speckit-converge` T019: originally required an in-source `List` with JSON deferred to Phase 4;
+  superseded by an explicit user request to externalize Projects the same way Trophies already
+  was, made and shipped during this phase.)*
 - **FR-007**: The Trophies route MUST fetch `trophies.json` at runtime and render its contents
   through `StatRow`, `GameCover`, and `TrophyRow`, with none of that content hardcoded in the
   page.
@@ -203,9 +206,13 @@ message) is produced, with no network request made.
   the existing `LocalLang`/`BilingualString` mechanism — no page-specific translation logic.
 - **FR-014**: Every route in this phase MUST be composed from the seven existing Phase 2
   components (`Terminal`, `ProjectCard`, `TimelineEntry`, `StatRow`, `GameCover`, `TrophyRow`,
-  `Tag`) plus existing layout/nav infrastructure, with exactly one exception: Contact's
+  `Tag`) plus existing layout/nav infrastructure, with exactly two exceptions: Contact's
   message-input/send interaction ships as one new shared component introduced by this phase
-  (`ContactPrompt`, per FR-010) — no other new shared component may be introduced.
+  (`ContactPrompt`, per FR-010), and a small `LinkCell` component (a literal port of the mock's
+  `<a class="link-cell">`) used by both Home's Contact band and the dedicated Contact page's
+  channel list — no other new shared component may be introduced. *(Amended during
+  `/speckit-converge` T020: `LinkCell` shipped during this phase's Home implementation without
+  being named as an FR-014 exception at the time.)*
 - **FR-015**: Every route in this phase MUST be verified against `docs/handoff/mobile-check.html`'s
   390px, 430px, and 768px reference widths after its real content is in place.
 - **FR-016**: The Trophies route MUST render a skeleton-like loading state — reusing each
@@ -270,9 +277,13 @@ message) is produced, with no network request made.
 ## Assumptions
 
 - The seven Phase 2 components (specs/003-components) cover every content shape this phase needs
-  except Contact's message input/send interaction, which ships as one new shared component
-  (`ContactPrompt`, FR-014) — the sole planned addition to Phase 2's surface; no other page may
-  introduce a new component without flagging it during planning first.
+  except Contact's message input/send interaction (`ContactPrompt`) and the small `LinkCell` link-
+  row used by Home and Contact — the two FR-014 exceptions; no other page may introduce a new
+  component without flagging it during planning first.
+- Home's dark/light theme toggle (`Theme.kt`) and the brand hover/glitch effect in `NavHeader.kt`
+  were added during this phase at explicit user request but aren't described by any FR above —
+  they're app-wide chrome/mechanism additions (parallel to `Lang.kt`), not page content, and don't
+  affect any of this phase's acceptance criteria. *(Added during `/speckit-converge` T022.)*
 - `trophies.json`'s real, automatically-generated content (via the nightly PSN API job) is Phase
   4's responsibility (ROADMAP F025); this phase only needs the fetch-and-render behavior plus a
   static placeholder file that exercises it.

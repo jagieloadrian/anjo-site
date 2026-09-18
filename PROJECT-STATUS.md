@@ -175,6 +175,28 @@ Eight user-reported items, all implemented and verified in-browser (Playwright) 
    the user confirmed no more design changes were planned, the whole stylesheet was migrated into
    `SiteStyles.kt` (see "CSS-in-Kotlin migration" above) — the resync argument no longer applied.
 
+## Completed work (this session, /speckit-converge + /speckit-implement — Phase 8: Convergence)
+
+`/speckit-converge` compared specs/004-pages' spec/plan/tasks against the current codebase (after
+this session's ad hoc post-implementation changes) and found the code had drifted from the
+original phase artifacts in 5 ways. Appended as tasks.md Phase 8 (T018-T022), then implemented:
+
+- **T018 (CRITICAL, real bug fixed)**: `ContactPrompt.kt`'s empty-message send silently no-op'd
+  with zero user-facing indication, and every string in the component ("send", the placeholder,
+  the "opening your mail client" log line) was hardcoded English — a regression from the
+  mock-fidelity pivot (commit `7ab09f9`) that dropped the component's original `BilingualString`
+  constants entirely, violating FR-011/FR-013/constitution III. Restored `SendLabel`/
+  `MessageRequiredLabel` bilingual constants (data-model.md) plus a `showRequired` state that
+  renders a visible "Message required"/"Wiadomość jest wymagana" line and clears on next input.
+  Verified in-browser: EN and PL both correct, zero console errors.
+- **T019-T022 (spec/plan reconciliation, no code change)**: the rest of the drift was from
+  explicit user requests this session (Projects → `projects.json`, Home Stack → `stack.json`,
+  `LinkCell` component, `Theme.kt`/glitch effects) rather than mistakes, so spec.md/plan.md were
+  amended to match reality instead of reverting working features: FR-006 now requires the
+  `projects.json` fetch pattern (mirroring FR-007/008's trophies.json), FR-014 names `LinkCell` as
+  a second authorized exception, plan.md's Storage section documents all three fetched JSON files,
+  and spec.md's Assumptions note `Theme.kt`/brand-hover-glitch as out-of-FR-scope additions.
+
 ## Next steps
 
 - Faza 4 — Dane: nightly GitHub Action generating the real `trophies.json` via `psn-api`

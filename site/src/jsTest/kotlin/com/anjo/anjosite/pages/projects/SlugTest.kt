@@ -1,6 +1,5 @@
 package com.anjo.anjosite.pages.projects
 
-import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.pages.ProjectEntry
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -10,13 +9,13 @@ class SlugTest {
     private fun entry(slug: String) = ProjectEntry(
         slug = slug,
         kind = "App",
-        title = BilingualString(en = slug, pl = slug),
-        shortDescription = BilingualString(en = "", pl = ""),
-        fullDescription = BilingualString(en = "", pl = ""),
+        title = slug,
+        shortDescription = "",
+        fullDescription = "",
         tags = emptyList(),
-        coverImageAlt = BilingualString(en = "", pl = ""),
+        coverImageAlt = "",
         platform = "JVM",
-        status = BilingualString(en = "Active", pl = "Aktywny"),
+        status = "Active",
     )
 
     private val entries = listOf(entry("foo"), entry("bar"))

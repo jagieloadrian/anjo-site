@@ -21,11 +21,7 @@ import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Ul
-import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.components.layouts.PageLayoutData
-
-// Literal port of docs/handoff/index.html's data-screen="cv" — print-friendly, own content
-// source (FR-012), real bullet lists (verbatim from the PDF), distinct from Projects/About.
 
 private data class CvRole(val title: String, val date: String, val where: String, val bullets: List<String>, val stack: String, val soft: Boolean = false)
 
@@ -81,10 +77,7 @@ private val skillGroups = listOf(
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
-private val Description = BilingualString(
-    en = "Adrian Jagieło's CV — Kotlin and JVM backend experience, Kubernetes, OpenShift, REST and GraphQL APIs.",
-    pl = "CV Adriana Jagieły — doświadczenie backendowe w Kotlinie i JVM, Kubernetes, OpenShift, API REST i GraphQL.",
-)
+private const val Description = "Adrian Jagieło's CV — Kotlin and JVM backend experience, Kubernetes, OpenShift, REST and GraphQL APIs."
 
 @InitRoute
 fun initCvPage(ctx: InitRouteContext) {

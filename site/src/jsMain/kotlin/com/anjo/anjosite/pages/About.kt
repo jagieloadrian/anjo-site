@@ -19,29 +19,15 @@ import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.BilingualString
-import com.anjo.anjosite.LocalLang
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.Fact
 import com.anjo.anjosite.components.widgets.TimelineEntry
 import com.anjo.anjosite.components.widgets.TimelineItem
 
-// Literal port of docs/handoff/index.html's data-screen="about".
-private val Lead = BilingualString(
-    en = "I build backend systems in Kotlin and Java and I like the part of the job most people skip: making the thing understandable afterwards. Documentation, code review, onboarding, explaining a design to a product owner in language they can act on.",
-    pl = "Buduję systemy backendowe w Kotlinie i Javie, a najbardziej lubię tę część pracy, którą większość pomija: sprawienie, żeby to potem było zrozumiałe. Dokumentacja, code review, onboarding, wyjaśnienie rozwiązania product ownerowi w języku, na którym może działać.",
-)
-private val Body1 = BilingualString(
-    en = "Day to day that means microservices deployed on Kubernetes and OpenShift, REST and GraphQL APIs, and release processes I help keep boring. Currently on a client project at GFT Poland, where I also mentor team members and help new developers get productive.",
-    pl = "W praktyce: mikroserwisy na Kubernetesie i OpenShifcie, API REST i GraphQL oraz procesy wydawnicze, które staram się trzymać nudnymi. Obecnie projekt klienta w GFT Poland, gdzie mentoruję zespół i pomagam nowym osobom wejść w projekt.",
-)
-private val Body2 = BilingualString(
-    en = "The side projects are where I try things the day job has no room for — Compose, multiplatform, small tools that solve exactly one problem I had.",
-    pl = "Własne projekty to miejsce na rzeczy, na które nie ma miejsca w pracy — Compose, multiplatform, małe narzędzia rozwiązujące dokładnie jeden mój problem.",
-)
+private const val Lead = "I build backend systems in Kotlin and Java and I like the part of the job most people skip: making the thing understandable afterwards. Documentation, code review, onboarding, explaining a design to a product owner in language they can act on."
+private const val Body1 = "Day to day that means microservices deployed on Kubernetes and OpenShift, REST and GraphQL APIs, and release processes I help keep boring. Currently on a client project at GFT Poland, where I also mentor team members and help new developers get productive."
+private const val Body2 = "The side projects are where I try things the day job has no room for — Compose, multiplatform, small tools that solve exactly one problem I had."
 
-// Timeline where/what/description/stack stay English-only in both languages, same rationale as
-// Home's Stack tags (data-model.md's proper-noun exception).
 private val timelineEntries = listOf(
     TimelineItem("01.2023 — PRESENT", "Software Developer", "GFT Poland · Warsaw", "Java · GraphQL · JUnit · Mockito · Jenkins · OpenShift") to
         "Backend in Java, code review and mentoring, releases, client requirement sessions. Client project on OpenShift.",
@@ -51,10 +37,7 @@ private val timelineEntries = listOf(
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
 
-private val Description = BilingualString(
-    en = "I build backend systems in Kotlin and Java, and care most about making them understandable afterwards.",
-    pl = "Buduję systemy backendowe w Kotlinie i Javie i najbardziej zależy mi, żeby potem były zrozumiałe.",
-)
+private const val Description = "I build backend systems in Kotlin and Java, and care most about making them understandable afterwards."
 
 @InitRoute
 fun initAboutPage(ctx: InitRouteContext) {
@@ -65,8 +48,6 @@ fun initAboutPage(ctx: InitRouteContext) {
 @Layout(".components.layouts.PageLayout")
 @Composable
 fun AboutPage() {
-    val lang = LocalLang.current
-
     Section(attrs = { classes("band", "band--strong", "band--pad") }) {
         Div(attrs = { classes("kicker"); style { property("margin-bottom", "18px") } }) { Text("02 / ABOUT") }
         H1(attrs = { classes("display") }) {
@@ -78,9 +59,9 @@ fun AboutPage() {
 
     Section(attrs = { classes("band", "split") }) {
         Div {
-            P(attrs = { classes("lead") }) { Text(Lead(lang)) }
-            P(attrs = { classes("body") }) { Text(Body1(lang)) }
-            P(attrs = { classes("body"); style { property("margin-bottom", "0") } }) { Text(Body2(lang)) }
+            P(attrs = { classes("lead") }) { Text(Lead) }
+            P(attrs = { classes("body") }) { Text(Body1) }
+            P(attrs = { classes("body"); style { property("margin-bottom", "0") } }) { Text(Body2) }
             Link(
                 "/cv", "full cv →",
                 Modifier.classNames("btn").styleModifier { property("margin-top", "32px") },

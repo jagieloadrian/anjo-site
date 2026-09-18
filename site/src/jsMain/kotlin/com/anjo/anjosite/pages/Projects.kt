@@ -20,44 +20,31 @@ import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.BilingualString
-import com.anjo.anjosite.Lang
-import com.anjo.anjosite.LocalLang
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.ProjectCard
 import com.anjo.anjosite.components.widgets.ProjectSummary
 
-// Real project content, ported from docs/handoff/index.html's PROJECTS screen (specs/004-pages),
-// now fetched at runtime from projects.json (request #2) instead of living as an in-source List —
-// same manual JSON.parse<dynamic> pattern as trophies.json (research.md §3/§4), no
-// kotlinx.serialization dependency.
-//
-// Per clarification Q1, every project (not just the mock's "featured" one) gets its own
-// /projects/{slug} detail route. Static export still needs each slug pre-registered via
-// site/build.gradle.kts's addExtraRoute (Kobweb can't discover dynamic routes from a runtime
-// fetch) — adding a project to projects.json is enough for content edits, but a brand-new slug
-// still needs one line added there too.
 data class ProjectEntry(
     val slug: String,
     val kind: String,
-    val title: BilingualString,
-    val shortDescription: BilingualString,
-    val fullDescription: BilingualString,
+    val title: String,
+    val shortDescription: String,
+    val fullDescription: String,
     val tags: List<String>,
     val coverImageUrl: String? = null,
-    val coverImageAlt: BilingualString,
+    val coverImageAlt: String,
     val repoUrl: String? = null,
     val platform: String,
-    val status: BilingualString,
+    val status: String,
     val role: String = "solo",
     val packageOrRepo: String? = null,
 )
 
-fun ProjectEntry.toSummary(lang: Lang, index: Int) = ProjectSummary(
+fun ProjectEntry.toSummary(index: Int) = ProjectSummary(
     index = (index + 1).toString().padStart(2, '0'),
     kind = kind,
-    title = title(lang),
-    description = shortDescription(lang),
+    title = title,
+    description = shortDescription,
     tags = tags,
     href = "/projects/$slug",
 )
@@ -68,23 +55,21 @@ sealed interface ProjectsFetchState {
     data object Failed : ProjectsFetchState
 }
 
-private fun bilingual(json: dynamic): BilingualString = BilingualString(en = json.en as String, pl = json.pl as String)
-
 fun parseProjectEntries(text: String): List<ProjectEntry> {
     val json = kotlin.js.JSON.parse<dynamic>(text)
     return (json.projects as Array<dynamic>).map {
         ProjectEntry(
             slug = it.slug as String,
             kind = it.kind as String,
-            title = bilingual(it.title),
-            shortDescription = bilingual(it.shortDescription),
-            fullDescription = bilingual(it.fullDescription),
+            title = it.title as String,
+            shortDescription = it.shortDescription as String,
+            fullDescription = it.fullDescription as String,
             tags = (it.tags as Array<String>).toList(),
             coverImageUrl = it.coverImageUrl as String?,
-            coverImageAlt = bilingual(it.coverImageAlt),
+            coverImageAlt = it.coverImageAlt as String,
             repoUrl = it.repoUrl as String?,
             platform = it.platform as String,
-            status = bilingual(it.status),
+            status = it.status as String,
             role = it.role as String,
             packageOrRepo = it.packageOrRepo as String?,
         )
@@ -99,16 +84,10 @@ suspend fun fetchProjectEntries(): ProjectsFetchState = try {
     ProjectsFetchState.Failed
 }
 
-private val LoadingLabel = BilingualString(en = "Loading projects…", pl = "Wczytywanie projektów…")
-private val ErrorLabel = BilingualString(
-    en = "Projects couldn't be loaded right now.",
-    pl = "Nie udało się teraz wczytać projektów.",
-)
+private const val LoadingLabel = "Loading projects…"
+private const val ErrorLabel = "Projects couldn't be loaded right now."
 
-private val Description = BilingualString(
-    en = "Side projects and tools by Adrian Jagieło — Kotlin, Compose Multiplatform, and small utilities.",
-    pl = "Własne projekty i narzędzia Adriana Jagieły — Kotlin, Compose Multiplatform i małe narzędzia.",
-)
+private const val Description = "Side projects and tools by Adrian Jagieło — Kotlin, Compose Multiplatform, and small utilities."
 
 @InitRoute
 fun initProjectsPage(ctx: InitRouteContext) {
@@ -119,7 +98,6 @@ fun initProjectsPage(ctx: InitRouteContext) {
 @Layout(".components.layouts.PageLayout")
 @Composable
 fun ProjectsPage() {
-    val lang = LocalLang.current
     var fetchState by remember { mutableStateOf<ProjectsFetchState>(ProjectsFetchState.Loading) }
 
     LaunchedEffect(Unit) {
@@ -141,18 +119,18 @@ fun ProjectsPage() {
     when (val state = fetchState) {
         is ProjectsFetchState.Loading -> {
             Section(attrs = { classes("band", "band--pad") }) {
-                P(attrs = { classes("body") }) { Text(LoadingLabel(lang)) }
+                P(attrs = { classes("body") }) { Text(LoadingLabel) }
             }
         }
         is ProjectsFetchState.Failed -> {
             Section(attrs = { classes("band", "band--pad") }) {
-                P(attrs = { classes("body") }) { Text(ErrorLabel(lang)) }
+                P(attrs = { classes("body") }) { Text(ErrorLabel) }
             }
         }
         is ProjectsFetchState.Loaded -> {
             Section(attrs = { classes("cards") }) {
                 state.entries.forEachIndexed { index, entry ->
-                    ProjectCard(entry.toSummary(lang, index))
+                    ProjectCard(entry.toSummary(index))
                 }
             }
         }

@@ -13,7 +13,6 @@ import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
-import com.anjo.anjosite.BilingualString
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.ContactPrompt
 import com.anjo.anjosite.components.widgets.LinkCell
@@ -21,17 +20,13 @@ import com.anjo.anjosite.components.widgets.LinkCell
 private const val RecipientEmail = "jagielo.adrian@gmail.com"
 private const val Subject = "Hello from the site"
 
-private val Description = BilingualString(
-    en = "Get in touch with Adrian Jagieło — email, LinkedIn, GitHub, and more.",
-    pl = "Skontaktuj się z Adrianem Jagiełą — e-mail, LinkedIn, GitHub i więcej.",
-)
+private const val Description = "Get in touch with Adrian Jagieło — email, LinkedIn, GitHub, and more."
 
 @InitRoute
 fun initContactPage(ctx: InitRouteContext) {
     ctx.data.add(PageLayoutData("Contact", Description))
 }
 
-// Literal port of docs/handoff/index.html's data-screen="contact".
 @Page
 @Layout(".components.layouts.PageLayout")
 @Composable

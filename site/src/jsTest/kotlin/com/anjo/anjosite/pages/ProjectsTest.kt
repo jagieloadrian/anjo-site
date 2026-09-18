@@ -1,6 +1,5 @@
 package com.anjo.anjosite.pages
 
-import com.anjo.anjosite.Lang
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -12,30 +11,30 @@ class ProjectsTest {
             {
               "slug": "foo-bar",
               "kind": "App",
-              "title": {"en": "Foo Bar", "pl": "Foo Bar PL"},
-              "shortDescription": {"en": "A short one", "pl": "Krótki opis"},
-              "fullDescription": {"en": "A long one", "pl": "Długi opis"},
+              "title": "Foo Bar",
+              "shortDescription": "A short one",
+              "fullDescription": "A long one",
               "tags": ["Kotlin", "Compose"],
               "coverImageUrl": "/covers/foo-bar.png",
-              "coverImageAlt": {"en": "Foo Bar cover", "pl": "Okładka Foo Bar"},
+              "coverImageAlt": "Foo Bar cover",
               "repoUrl": "https://github.com/example/foo-bar",
               "platform": "Android",
-              "status": {"en": "Active", "pl": "Aktywny"},
+              "status": "Active",
               "role": "solo",
               "packageOrRepo": "com.example.foobar"
             },
             {
               "slug": "no-cover",
               "kind": "Library",
-              "title": {"en": "No Cover", "pl": "Bez okładki"},
-              "shortDescription": {"en": "short", "pl": "krótko"},
-              "fullDescription": {"en": "long", "pl": "długo"},
+              "title": "No Cover",
+              "shortDescription": "short",
+              "fullDescription": "long",
               "tags": [],
               "coverImageUrl": null,
-              "coverImageAlt": {"en": "", "pl": ""},
+              "coverImageAlt": "",
               "repoUrl": null,
               "platform": "JVM",
-              "status": {"en": "Archived", "pl": "Zarchiwizowany"},
+              "status": "Archived",
               "role": "solo",
               "packageOrRepo": null
             }
@@ -49,8 +48,7 @@ class ProjectsTest {
         assertEquals(2, entries.size)
         val foo = entries[0]
         assertEquals("foo-bar", foo.slug)
-        assertEquals("Foo Bar", foo.title(Lang.EN))
-        assertEquals("Foo Bar PL", foo.title(Lang.PL))
+        assertEquals("Foo Bar", foo.title)
         assertEquals(listOf("Kotlin", "Compose"), foo.tags)
         assertEquals("/covers/foo-bar.png", foo.coverImageUrl)
     }

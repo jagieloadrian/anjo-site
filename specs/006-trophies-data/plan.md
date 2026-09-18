@@ -10,7 +10,7 @@ Replace `trophies.yml`'s placeholder data step (Phase 5) with a real fetch: a ne
 Node.js script (`scripts/refresh-trophies/index.mjs`) authenticates to PSN with the `NPSSO`
 secret via `psn-api`, fetches the maintainer's trophy summary, title list, and per-title trophy
 detail (research.md §2–§8), and writes `site/src/jsMain/resources/public/trophies.json` in the
-8-key `stats` / 6-game / 10-trophy shape the 006 clarification session settled on — exactly the
+8-key `stats` / 10-game / 10-trophy shape the 006 clarification session settled on — exactly the
 structure `Trophies.kt`'s existing parser expects, plus one small, additive label-map change in
 that same file (FR-008) so the four new stat keys render with a proper label instead of falling
 back to their raw key name.

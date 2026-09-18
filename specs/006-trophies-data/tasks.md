@@ -47,7 +47,8 @@ data and the Trophies page renders it without crashing (quickstart.md steps 1-4)
   `stats.completion` = mean of `progress` across every fetched title, rounded, `"${n}%"`. Depends
   on T003.
 - [X] T005 [US1] In the same file, sort the full title list by `lastUpdatedDateTime` descending and
-  keep the top 6 as `recentTitles` (data-model.md `games` mapping). Depends on T004.
+  keep the top 10 as `recentTitles` (data-model.md `games` mapping — corrected from an initial 6
+  to match the live page's 10 game tiles). Depends on T004.
 - [X] T006 [US1] In the same file, call `getUserTrophyProfileSummary(auth, "me")` and set
   `stats.level`, `stats.platinums`, `stats.gold`, `stats.silver`, `stats.bronze` directly from
   `trophyLevel`/`earnedTrophies`, and `stats.total` as their sum (research.md §4, data-model.md
@@ -55,9 +56,9 @@ data and the Trophies page renders it without crashing (quickstart.md steps 1-4)
 - [X] T007 [US1] In the same file, map `recentTitles` (T005) to the `games` array of
   `GameCoverImage` objects per data-model.md's `imageUrl`/`alt`/`name`/`percentText`/`muted` rules
   (research.md §6). Depends on T005.
-- [X] T008 [US1] In the same file, for each of the 6 `recentTitles`, call `getTitleTrophies` and
+- [X] T008 [US1] In the same file, for each of the 10 `recentTitles`, call `getTitleTrophies` and
   `getUserTrophiesEarnedForTitle` (correct `npServiceName` per title), merge by `trophyId`, keep
-  only `earned === true`, pool across all 6 titles, sort by `earnedDateTime` descending, take the
+  only `earned === true`, pool across all 10 titles, sort by `earnedDateTime` descending, take the
   top 10, and map to the `trophies` array of `TrophyEntry` objects (`tier` uppercased) per
   data-model.md (research.md §8). Depends on T005.
 - [X] T009 [US1] In the same file, assemble `{ stats, games, trophies }` from T004/T006/T007/T008

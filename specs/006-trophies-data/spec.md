@@ -16,13 +16,16 @@ fetches the maintainer's PlayStation Network trophy data via `psn-api` and regen
 ### Session 2026-09-18
 
 - Q: How many games/trophies should appear in `trophies.json`, and what stats are needed? → A:
-  A limited recent-N subset (not the full account history) — 6 most-recently-active games, 10
+  A limited recent-N subset (not the full account history) — 10 most-recently-active games, 10
   most-recently-earned trophies — plus full trophy-tier totals: overall trophy count, and separate
   platinum/gold/silver/bronze counts (not just platinums).
 - Q: New `stats` key names for the tier totals? → A: `total`, `gold`, `silver`, `bronze` (matches
   existing lowercase-noun style of `level`/`games`/`completion`/`platinums`).
 - Q: Exact recent-N limits for `games` and `trophies` lists? → A: 6 games / 10 trophies (matches
   the current placeholder's shape).
+- Q: Games list count revisited — how many game tiles does the Trophies page layout actually show?
+  → A: 10, not 6 — the live page has 10 tiles; the `games` limit is corrected to 10 to match
+  (`trophies` stays 10, unchanged).
 - Q: Sort key for "most-recently-active" games? → A: `lastUpdatedDateTime` (the PSN titles API's
   own field and default sort order — corrected during `/speckit-plan` research from the originally
   stated `lastPlayedDateTime`, which does not exist on the API response), not a derived
@@ -129,7 +132,7 @@ independently valuable and testable on its own.
   Trophies page parser expects — eight fixed `stats` entries (`level`, `games`, `completion`,
   `platinums`, `total`, `gold`, `silver`, `bronze`, where `total`/`gold`/`silver`/`bronze` are the
   account-wide trophy counts for that tier and `total` is the sum across all tiers), a `games` list
-  limited to the 6 games with the most recent `lastUpdatedDateTime`, and a `trophies` list limited
+  limited to the 10 games with the most recent `lastUpdatedDateTime`, and a `trophies` list limited
   to the 10 most-recently-earned trophies, using the exact four-value tier vocabulary
   (`BRONZE`/`SILVER`/`GOLD`/`PLATINUM`).
 - **FR-004**: The system MUST replace the Phase 5 placeholder step in the existing nightly

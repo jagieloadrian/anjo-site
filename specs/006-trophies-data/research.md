@@ -69,13 +69,15 @@ interface UserTrophyProfileSummaryResponse {
 **Rationale**: This is the account-wide, PSN-computed total — exactly what FR-003's `total`/
 `gold`/`silver`/`bronze`/`platinums` keys need, with no manual summation across titles required.
 
-## 5. Fetching `games` count and the 6 most-recently-updated titles
+## 5. Fetching `games` count and the 10 most-recently-updated titles
 
 **Decision**: `getUserTitles(auth, "me")` (default page). `stats.games` = the response's own
-`totalItemCount` field (the account's full title count — not just the page returned). The 6 games
-shown in `games` are the 6 entries with the most recent `lastUpdatedDateTime`, sorted **client-side**
-by this script (not assumed from API response order, even though psn-api's docs suggest that's
-already the default order — sorting explicitly removes that assumption as a failure mode).
+`totalItemCount` field (the account's full title count — not just the page returned). The 10
+games shown in `games` are the 10 entries with the most recent `lastUpdatedDateTime`, sorted
+**client-side** by this script (not assumed from API response order, even though psn-api's docs
+suggest that's already the default order — sorting explicitly removes that assumption as a
+failure mode). (Corrected from an initial 6 to 10 — the live page layout has 10 game tiles, not
+6.)
 
 `TrophyTitle.lastUpdatedDateTime` (ISO 8601): "the date the most recent trophy was earned for the
 title" — confirmed in `trophy-title.model.ts`. This is the field the 006 clarification session
@@ -127,8 +129,8 @@ progression, not game completion, would be a misleading label under `statLabels[
 
 ## 8. `trophies` list (10 most-recently-earned, across games)
 
-**Decision**: Scan only the same 6 most-recently-updated titles already fetched for the `games`
-list (§5) — no separate, broader scan. For each of those 6 titles, call both:
+**Decision**: Scan only the same 10 most-recently-updated titles already fetched for the `games`
+list (§5) — no separate, broader scan. For each of those 10 titles, call both:
 
 - `getTitleTrophies(auth, npCommunicationId, "all", { npServiceName })` → trophy names/icons
   (`TitleThinTrophy`: has `trophyName`, lacks `earned`/`earnedDateTime`)
@@ -146,12 +148,12 @@ documented parameter contract.
 
 **Rationale**: Recently-earned trophies are, almost by definition, concentrated in
 recently-updated titles — `lastUpdatedDateTime` on a title only advances when a trophy is earned
-in it. Reusing the same 6-title pool (already fetched for §5) avoids a second, broader per-title
+in it. Reusing the same 10-title pool (already fetched for §5) avoids a second, broader per-title
 scan across the account's entire library, which would mean dozens-to-hundreds of extra API calls
 for a nightly job with no latency requirement to justify that cost.
 
-`// ponytail: scans only the top-6-most-recent titles for candidate trophies — upgrade to a wider`
-`// scan (e.g. top 15) only if the 10-trophy list frequently comes up short in practice.`
+`// ponytail: scans only the top-10-most-recent titles for candidate trophies — upgrade to a wider`
+`// scan (e.g. top 20) only if the 10-trophy list frequently comes up short in practice.`
 
 **Field mapping** (`TrophyEntry`):
 

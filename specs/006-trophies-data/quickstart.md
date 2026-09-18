@@ -37,7 +37,7 @@ Confirm:
 
 - `stats` has exactly 8 entries with keys `level`, `games`, `completion`, `platinums`, `total`,
   `gold`, `silver`, `bronze` — none missing, none empty-string.
-- `games` has up to 6 entries, each `tier`-free (it's a game, not a trophy) with a real
+- `games` has up to 10 entries, each `tier`-free (it's a game, not a trophy) with a real
   `imageUrl`.
 - `trophies` has up to 10 entries, each `tier` one of exactly `BRONZE`/`SILVER`/`GOLD`/`PLATINUM`
   (matches `TrophyTier.valueOf` in `Trophies.kt` — any other casing crashes the page).

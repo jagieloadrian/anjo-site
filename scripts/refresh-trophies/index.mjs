@@ -16,7 +16,7 @@ const OUTPUT_PATH = resolve(
   "../../site/src/jsMain/resources/public/trophies.json",
 );
 
-const RECENT_GAMES_COUNT = 6;
+const RECENT_GAMES_COUNT = 10;
 const RECENT_TROPHIES_COUNT = 10;
 const TITLES_PAGE_SIZE = 200;
 

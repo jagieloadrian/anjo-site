@@ -29,8 +29,8 @@ rationale on each mapping decision.
 ```
 
 - `stats`: always exactly 8 entries, all 8 keys always present (FR-003, Edge Cases).
-- `games`: always exactly 6 entries (or fewer only if the account has fewer than 6 titles total).
-- `trophies`: up to 10 entries (may be fewer if the top-6 recently-updated titles collectively have
+- `games`: always exactly 10 entries (or fewer only if the account has fewer than 10 titles total).
+- `trophies`: up to 10 entries (may be fewer if the top-10 recently-updated titles collectively have
   fewer than 10 earned trophies — see research.md §8).
 
 ## `stats` field mapping
@@ -48,7 +48,7 @@ rationale on each mapping decision.
 
 ## `games` entity mapping (`GameCoverImage`)
 
-Source: the 6 `TrophyTitle` entries with the most recent `lastUpdatedDateTime` (client-sorted).
+Source: the 10 `TrophyTitle` entries with the most recent `lastUpdatedDateTime` (client-sorted).
 
 | field | Source | Rule |
 |---|---|---|
@@ -61,7 +61,7 @@ Source: the 6 `TrophyTitle` entries with the most recent `lastUpdatedDateTime` (
 ## `trophies` entity mapping (`TrophyEntry`)
 
 Source: earned trophies (`earned === true`) merged from `getTitleTrophies` +
-`getUserTrophiesEarnedForTitle` across the same 6 titles above, globally sorted by
+`getUserTrophiesEarnedForTitle` across the same 10 titles above, globally sorted by
 `earnedDateTime` desc, top 10.
 
 | field | Source | Rule |

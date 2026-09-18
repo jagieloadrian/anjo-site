@@ -31,10 +31,14 @@ import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.navigation.UndecoratedLinkVariant
 import kotlinx.browser.window
 import kotlinx.coroutines.await
+import org.jetbrains.compose.web.attributes.ATarget
+import org.jetbrains.compose.web.attributes.target
+import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Br
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Em
 import org.jetbrains.compose.web.dom.H1
+import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
@@ -102,6 +106,7 @@ private const val LoadingLabel = "Loading trophies…"
 private const val ErrorLabel = "Trophies couldn't be loaded right now."
 
 private val navLinkVariant = UndecoratedLinkVariant.then(UncoloredLinkVariant)
+private const val PsnId = "Sirdiether18"
 
 @Page
 @Layout(".components.layouts.PageLayout")
@@ -170,11 +175,13 @@ fun TrophiesPage() {
                         state.data.trophies.forEach { trophy -> TrophyRow(trophy) }
                     }
                     Div(attrs = { classes("slot"); style { property("margin-top", "24px"); property("padding", "20px") } }) {
-                        Div(attrs = { classes("slot-key") }) { Text("OPTIONAL · PSNPROFILES SIGNATURE") }
-                        P { Text("Slot for the PSNProfiles signature banner (an image they generate and keep current).") }
+                        Div(attrs = { classes("slot-key") }) { Text("PSNPROFILES SIGNATURE") }
+                        A("https://psnprofiles.com/$PsnId", attrs = { target(ATarget.Blank) }) {
+                            Img("https://card.psnprofiles.com/1/$PsnId.png", "PSNProfiles signature for $PsnId")
+                        }
                     }
                     Link(
-                        "https://psnprofiles.com/Sirdiether18",
+                        "https://psnprofiles.com/$PsnId",
                         "full profile ↗",
                         Modifier.classNames("btn", "btn--sm", "btn--outline")
                             .styleModifier { property("margin-top", "20px") },

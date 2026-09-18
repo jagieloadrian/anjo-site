@@ -148,17 +148,17 @@ fun CvPage() {
                     Div(attrs = { classes("label", "label--sm", "label--red"); style { property("letter-spacing", "0.16em"); property("margin-bottom", "8px") } }) {
                         Text(label)
                     }
-                    Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.7"); property("color", "#e6e4e3") } }) { Text(text) }
+                    Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.7"); property("color", "var(--ink-2)") } }) { Text(text) }
                 }
             }
             Div(attrs = { classes("rule", "rule--soft"); style { property("margin-bottom", "24px") } })
             Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "12px") } }) { Text("LANGUAGES") }
-            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "#e6e4e3") } }) {
+            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "var(--ink-2)") } }) {
                 Text("Polish — native"); Br(); Text("English — professional")
             }
             Div(attrs = { classes("rule", "rule--soft"); style { property("margin", "24px 0") } })
             Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "12px") } }) { Text("INTERESTS") }
-            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "#e6e4e3") } }) {
+            Div(attrs = { style { property("font-size", "15px"); property("line-height", "1.8"); property("color", "var(--ink-2)") } }) {
                 Text("History of video games"); Br(); Text("Motorcycles"); Br(); Text("Cooking")
             }
         }

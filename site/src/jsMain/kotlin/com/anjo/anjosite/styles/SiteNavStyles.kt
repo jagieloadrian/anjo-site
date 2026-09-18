@@ -54,6 +54,10 @@ object SiteNavStyles : StyleSheet() {
         ".nav-btn" style {
             property("display", "flex")
             property("align-items", "center")
+            property("justify-content", "center")
+            // specs/007-tests-polishing T025/FR-015: short labels like "CV" fell to 47.84px wide
+            // at 390px viewport, just under the 48px touch-target minimum.
+            property("min-width", "48px")
             property("padding", "18px")
             property("border", "none")
             property("border-left", "2px solid var(--rule)")
@@ -80,6 +84,13 @@ object SiteNavStyles : StyleSheet() {
             property("padding", "0 12px")
         }
         ".lang-btn" style {
+            property("display", "flex")
+            property("align-items", "center")
+            property("justify-content", "center")
+            // specs/007-tests-polishing T025/FR-015: 8px 10px padding measured only 34px tall
+            // (11px mono font + line-height), under the 48px touch-target minimum.
+            property("min-width", "48px")
+            property("min-height", "48px")
             property("padding", "8px 10px")
             property("border", "2px solid var(--pink)")
             property("background", "transparent")

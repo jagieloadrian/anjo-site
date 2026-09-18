@@ -15,8 +15,30 @@ kobweb {
     app {
         index {
             description.set("Powered by Kobweb")
+            // docs/favicon/README.md: browsers use the first matching `rel="icon"` link, so the
+            // SVG variants (which switch on prefers-color-scheme) must come before the .ico
+            // fallback. Kobweb's own `faviconPath` convenience always emits its link before our
+            // head.add block, which would put the .ico first — disabled here so we control order.
+            faviconPath.set("")
             // Archivo + JetBrains Mono, matching docs/handoff/index.html (research.md §2).
             head.add {
+                link(rel = "icon", href = "/favicon.svg") {
+                    type = "image/svg+xml"
+                    media = "(prefers-color-scheme: dark)"
+                }
+                link(rel = "icon", href = "/favicon-light.svg") {
+                    type = "image/svg+xml"
+                    media = "(prefers-color-scheme: light)"
+                }
+                link(rel = "icon", href = "/favicon-32.png") {
+                    type = "image/png"
+                    sizes = "32x32"
+                }
+                link(rel = "shortcut icon", href = "/favicon.ico")
+                link(rel = "apple-touch-icon", href = "/apple-touch-icon.png") {
+                    sizes = "180x180"
+                }
+                link(rel = "manifest", href = "/site.webmanifest")
                 link(rel = "preconnect", href = "https://fonts.googleapis.com")
                 link(rel = "preconnect", href = "https://fonts.gstatic.com") {
                     attributes["crossorigin"] = ""

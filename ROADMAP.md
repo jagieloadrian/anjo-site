@@ -51,7 +51,7 @@ Status na 2026-09-17: Fazy 0–2 gotowe (fundament, layout/routing, komponenty).
   (390 / 430 / 768) po zbudowaniu — dotąd nigdzie nie egzekwowane, mimo że plik istnieje w handoffie
 
 ### Faza 4 — Dane
-- **F025** — `trophies.json`: nocny GitHub Action z `psn-api`, `NPSSO` jako repo secret
+- [x] **F025** — `trophies.json`: nocny GitHub Action z `psn-api`, `NPSSO` jako repo secret
 - **F026** — `projects.json` / `skills.json` jako statyczne dane zamiast hardkodowanych stringów
 
 ### Faza 5 — CI/Deploy

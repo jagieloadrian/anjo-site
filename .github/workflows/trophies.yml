@@ -11,15 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install refresh-trophies dependencies
+        run: npm ci
+        working-directory: scripts/refresh-trophies
+
       - name: Regenerate trophies.json
         env:
           NPSSO: ${{ secrets.NPSSO }}
-        run: |
-          # ponytail: blocked on ROADMAP F025 — no psn-api script exists yet.
-          # This step becomes the real PSN fetch once F025 ships; until then it's a
-          # documented no-op so the schedule/secret wiring is proven independently
-          # (spec.md FR-009/FR-010).
-          echo "blocked on ROADMAP F025 — psn-api script not yet implemented" && exit 0
+        run: node index.mjs
+        working-directory: scripts/refresh-trophies
 
       - name: Commit trophies.json if changed
         run: |

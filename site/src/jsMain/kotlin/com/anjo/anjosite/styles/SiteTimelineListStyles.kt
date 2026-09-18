@@ -131,20 +131,20 @@ object SiteTimelineListStyles : StyleSheet() {
         }
         ".covers" style {
             property("display", "grid")
-            property("grid-template-columns", "repeat(auto-fit, minmax(150px, 1fr))")
-            property("gap", "2px")
-            property("background", "var(--rule-soft)")
-            property("border", "2px solid var(--rule-soft)")
+            property("grid-template-columns", "repeat(auto-fit, minmax(170px, 1fr))")
+            property("gap", "10px")
         }
         ".cover" style {
             property("padding", "18px")
             property("background", "var(--bg)")
+            property("border", "2px solid var(--rule-soft)")
         }
         ".cover-img" style {
             property("width", "100%")
             property("aspect-ratio", "1")
             property("margin-bottom", "12px")
             property("border", "2px dashed var(--rule-mid)")
+            property("background", "var(--tint-0)")
             property("display", "flex")
             property("align-items", "center")
             property("justify-content", "center")
@@ -156,13 +156,18 @@ object SiteTimelineListStyles : StyleSheet() {
         ".cover-img img" style {
             property("width", "100%")
             property("height", "100%")
-            property("object-fit", "cover")
+            property("object-fit", "contain")
             property("display", "block")
         }
         ".cover-name" style {
             property("font-size", "15px")
             property("font-weight", "700")
             property("line-height", "1.25")
+            property("overflow", "hidden")
+            property("text-overflow", "ellipsis")
+            property("display", "-webkit-box")
+            property("-webkit-line-clamp", "2")
+            property("-webkit-box-orient", "vertical")
         }
         ".cover-pct" style {
             property("font-family", "var(--mono)")

@@ -7,57 +7,44 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.varabyte.kobweb.compose.css.ScrollBehavior
-import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.minHeight
-import com.varabyte.kobweb.compose.ui.modifiers.position
-import com.varabyte.kobweb.compose.ui.modifiers.scrollBehavior
+import com.anjo.anjosite.styles.SiteStyles
 import com.varabyte.kobweb.core.App
 import com.varabyte.kobweb.silk.SilkApp
-import com.varabyte.kobweb.silk.components.layout.Surface
-import com.varabyte.kobweb.silk.init.InitSilk
-import com.varabyte.kobweb.silk.init.InitSilkContext
-import com.varabyte.kobweb.silk.init.registerStyleBase
-import com.varabyte.kobweb.silk.style.common.SmoothColorStyle
-import com.varabyte.kobweb.silk.style.toModifier
-import com.varabyte.kobweb.silk.theme.colors.ColorMode
-import com.varabyte.kobweb.silk.theme.colors.loadFromLocalStorage
-import com.varabyte.kobweb.silk.theme.colors.saveToLocalStorage
-import com.varabyte.kobweb.silk.theme.colors.systemPreference
-import org.jetbrains.compose.web.css.Position
-import org.jetbrains.compose.web.css.vh
+import kotlinx.browser.document
 import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Style
 
-private const val COLOR_MODE_KEY = "anjosite:colorMode"
-
-@InitSilk
-fun initColorMode(ctx: InitSilkContext) {
-    ctx.config.initialColorMode = ColorMode.loadFromLocalStorage(COLOR_MODE_KEY) ?: ColorMode.systemPreference
-}
-
-@InitSilk
-fun initStyles(ctx: InitSilkContext) {
-    ctx.stylesheet.apply {
-        registerStyleBase("body") { Modifier.scrollBehavior(ScrollBehavior.Smooth) }
-    }
-}
-
+// Visual styling for the whole site is the `com.anjo.anjosite.styles` package (mechanically
+// transcribed from docs/handoff/styles.css, then split into one file per component — request:
+// move CSS into Kotlin, no more mock changes planned), mounted here via plain Compose HTML
+// `Style()`, applied via literal class names, not Silk CssStyle/ColorMode. Deliberately not
+// Silk's `@InitSilk`/`CssStyle` machinery: Kobweb wraps that output in `@layer general-styles`,
+// and CSS gives any unlayered rule priority over any layered one regardless of specificity — a
+// real bug we hit with a hover style earlier this session. Plain `StyleSheet()`s mounted via
+// `Style()` stay unlayered, exactly like the external stylesheet they replace. SilkApp is kept
+// only because a couple of Silk widgets (TextInput/Button in ContactPrompt) still need SilkTheme
+// present.
 @App
 @Composable
 fun AppEntry(content: @Composable () -> Unit) {
     SilkApp {
-        val colorMode = ColorMode.current
-        LaunchedEffect(colorMode) {
-            colorMode.saveToLocalStorage(COLOR_MODE_KEY)
-        }
+        Style(cssRules = SiteStyles.cssRules)
         // Single app-wide LocalLang provider (spec 002-layout-routing FR-008, data-model.md's
         // Lang validation rule: exactly one provider must exist). No localStorage persistence
         // this phase — in-memory only, re-detected fresh on every page load (spec Edge Cases).
         var lang by remember { mutableStateOf(detectInitialLang()) }
-        CompositionLocalProvider(LocalLang provides lang, LocalLangSetter provides { lang = it }) {
-            Surface(SmoothColorStyle.toModifier().minHeight(100.vh).position(Position.Relative)) {
-                // Decorative overlay chrome (docs/handoff/index.html .fx-scan/.fx-vignette/.fx-grid),
-                // styled in AppStyles.kt — rendered once here so every page gets it (T006).
+        var theme by remember { mutableStateOf(detectInitialTheme()) }
+        LaunchedEffect(theme) {
+            document.documentElement?.setAttribute("data-theme", theme.attrValue)
+        }
+        CompositionLocalProvider(
+            LocalLang provides lang, LocalLangSetter provides { lang = it },
+            LocalTheme provides theme, LocalThemeSetter provides { theme = it; persistTheme(it) },
+        ) {
+            // Sticky footer (request #3): .app is already min-height:100vh (styles.css) — making
+            // it a flex column and letting .screen (below) grow lets short pages still push the
+            // footer to the true bottom instead of leaving a gap after it.
+            Div(attrs = { classes("app"); style { property("display", "flex"); property("flex-direction", "column") } }) {
                 Div(attrs = { classes("fx-scan") })
                 Div(attrs = { classes("fx-vignette") })
                 Div(attrs = { classes("fx-grid") })

@@ -1,10 +1,16 @@
 # Roadmap — anjo-site (Kobweb → GitHub Pages)
 
-Status na 2026-09-16: świeży Kobweb template (`site/`), bez custom kodu. Makieta docelowa w `docs/handoff/` (statyczny HTML/CSS/JS, do przepisania na Compose HTML + Silk).
+Status na 2026-09-17: Fazy 0–2 gotowe (fundament, layout/routing, komponenty). Trwa Faza 3 (Strony). Makieta docelowa w `docs/handoff/` (statyczny HTML/CSS/JS, do przepisania na Compose HTML + Silk).
 
 ## Stan obecny
 
-- `site/build.gradle.kts` — frontend only, Compose HTML + Silk, plugin markdown włączony, brak jsMain treści poza boilerplate (`AppEntry`, `NavHeader`, `Footer`, `PageLayout`, `MarkdownLayout`, `IconButton`).
+- `site/build.gradle.kts` — frontend only, Compose HTML + Silk, plugin markdown włączony.
+- `site/src/jsMain/.../components/widgets/` — siedem gotowych komponentów (`Terminal`,
+  `ProjectCard`, `TimelineEntry`, `StatRow`, `GameCover`, `TrophyRow`, `Tag`), patrz
+  specs/003-components.
+- `site/src/jsMain/.../pages/` — trasy istnieją (`Index`, `Projects`, `Trophies`, `Contact`, `Cv`,
+  `Error404`), ale wciąż jako placeholdery z Fazy 0/1 — realna treść to Faza 3 (specs/004-pages),
+  brakuje też strony `About`.
 - `.kobweb/conf.yaml` — tytuł `d18-site`, port 8080, brak `basePath`.
 - Handoff: 7 ekranów (Home/About/Projects/Project/Trophies/Contact/CV), vanilla router przez `hidden`, boot-typing terminal, mailto contact prompt, EN/PL toggle przez `data-lang-block`, design-notes panel (usunąć przed wdrożeniem), `trophies.json` placeholder, zero backendu.
 
@@ -23,18 +29,18 @@ Status na 2026-09-16: świeży Kobweb template (`site/`), bez custom kodu. Makie
 - [x] **F008** — i18n: `LangProvider`/`CompositionLocal` zamiast `data-lang-block` — `LocalLang`/`LocalLangSetter`, browser-detected default
 - [x] **F009** — Design-notes panel: pominąć w produkcji — pominięty całkowicie (nigdy nie portowany do Kotlin)
 
-### Faza 2 — Komponenty
-- **F010** — `Terminal` (boot typing): `LaunchedEffect` + `prefers-reduced-motion` check
-- **F011** — `ProjectCard`
-- **F012** — `TimelineEntry`
-- **F013** — `StatRow`
-- **F014** — `GameCover`
-- **F015** — `TrophyRow`
-- **F016** — `Tag(variant)`
-- **F017** — Touch target min-height 48px pod 720px breakpoint
-- **F018** — `clamp()` typografia
+### Faza 2 — Komponenty ✅ (specs/003-components)
+- [x] **F010** — `Terminal` (boot typing): `LaunchedEffect` + `prefers-reduced-motion` check
+- [x] **F011** — `ProjectCard`
+- [x] **F012** — `TimelineEntry`
+- [x] **F013** — `StatRow`
+- [x] **F014** — `GameCover`
+- [x] **F015** — `TrophyRow`
+- [x] **F016** — `Tag(variant)`
+- [x] **F017** — Touch target min-height 48px pod 720px breakpoint
+- [x] **F018** — `clamp()` typografia
 
-### Faza 3 — Strony
+### Faza 3 — Strony (specs/004-pages)
 - **F019** — Home
 - **F020** — About
 - **F021** — Projects (grid + detail — jeden layout, data class per projekt)

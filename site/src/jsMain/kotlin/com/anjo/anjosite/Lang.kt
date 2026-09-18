@@ -3,6 +3,7 @@ package com.anjo.anjosite
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 import kotlinx.browser.window
+import com.anjo.anjosite.components.widgets.TimelineItem
 
 enum class Lang {
     EN,
@@ -36,3 +37,10 @@ val ProjectsLabel = BilingualString(en = "Projects", pl = "Projekty")
 val TrophiesLabel = BilingualString(en = "Trophies", pl = "Trofea")
 val ContactLabel = BilingualString(en = "Contact", pl = "Kontakt")
 val CvLabel = BilingualString(en = "CV", pl = "CV")
+
+// Shared bilingual timeline shape (specs/004-pages data-model.md, analyze finding C1): used by
+// both About.kt and Cv.kt, so it lives here alongside every other cross-cutting bilingual helper
+// rather than being duplicated per page.
+data class BilingualTimelineItem(val date: BilingualString, val title: BilingualString, val description: BilingualString)
+
+fun BilingualTimelineItem.resolve(lang: Lang) = TimelineItem(date(lang), title(lang), description(lang))

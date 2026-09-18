@@ -1,46 +1,21 @@
 package com.anjo.anjosite.components.widgets
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.css.*
-import com.varabyte.kobweb.compose.css.functions.clamp
-import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.silk.components.text.SpanText
-import com.varabyte.kobweb.silk.style.CssStyle
-import com.varabyte.kobweb.silk.style.base
-import com.varabyte.kobweb.silk.style.toModifier
-import com.varabyte.kobweb.silk.theme.colors.ColorMode
-import org.jetbrains.compose.web.css.*
-import com.anjo.anjosite.toSitePalette
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Text
 
-data class TimelineItem(val date: String, val title: String, val description: String)
+data class TimelineItem(val date: String, val what: String, val where: String, val stack: String? = null)
 
-val TimelineDateStyle = CssStyle.base {
-    Modifier
-        .fontFamily("JetBrains Mono", "monospace")
-        .fontSize(clamp(0.625.cssRem, 1.vw, 0.75.cssRem))
-        .letterSpacing(0.1.em)
-        .textTransform(TextTransform.Uppercase)
-}
-
-val TimelineTitleStyle = CssStyle.base {
-    Modifier
-        .fontFamily("Archivo", "system-ui", "sans-serif")
-        .fontWeight(700)
-        .fontSize(clamp(1.cssRem, 2.vw, 1.25.cssRem))
-}
-
-val TimelineDescriptionStyle = CssStyle.base {
-    Modifier.fontSize(clamp(0.875.cssRem, 1.5.vw, 1.cssRem))
-}
-
+// Literal port of docs/handoff/index.html's <div class="tl"> — shared by About's timeline (body
+// paragraph content) and CV's experience list (bullet-list content); only the inner content
+// differs, so it's a slot rather than two near-duplicate composables.
 @Composable
-fun TimelineEntry(item: TimelineItem) {
-    val sitePalette = ColorMode.current.toSitePalette()
-    Column(Modifier.fillMaxWidth().gap(0.375.cssRem)) {
-        SpanText(item.date, TimelineDateStyle.toModifier().color(sitePalette.cyan))
-        SpanText(item.title, TimelineTitleStyle.toModifier())
-        SpanText(item.description, TimelineDescriptionStyle.toModifier().color(sitePalette.ink.toRgb().copyf(alpha = 0.8f)))
+fun TimelineEntry(item: TimelineItem, soft: Boolean = false, content: @Composable () -> Unit) {
+    Div(attrs = { classes(buildList { add("tl"); if (soft) add("tl--soft") }) }) {
+        Div(attrs = { classes("tl-when") }) { Text(item.date) }
+        Div(attrs = { classes("tl-what") }) { Text(item.what) }
+        Div(attrs = { classes("tl-where") }) { Text(item.where) }
+        content()
+        item.stack?.let { stack -> Div(attrs = { classes("tl-stack") }) { Text(stack) } }
     }
 }

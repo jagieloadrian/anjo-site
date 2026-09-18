@@ -7,29 +7,24 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.varabyte.kobweb.compose.css.functions.clamp
-import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.silk.components.text.SpanText
-import com.varabyte.kobweb.silk.style.CssStyle
-import com.varabyte.kobweb.silk.style.base
-import com.varabyte.kobweb.silk.style.toModifier
-import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.window
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.I
+import org.jetbrains.compose.web.dom.P
+import org.jetbrains.compose.web.dom.Span
+import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.events.Event
-import com.anjo.anjosite.toSitePalette
 
 enum class TerminalLineStyle { COMMAND, OUTPUT, ACCENT_PINK, ACCENT_CYAN }
 
 data class TerminalLine(val text: String, val style: TerminalLineStyle)
 
-val TerminalStyle = CssStyle.base {
-    Modifier
-        .fontFamily("JetBrains Mono", "monospace")
-        .fontSize(clamp(0.75.cssRem, 1.5.vw, 0.875.cssRem))
+private fun TerminalLineStyle.className() = when (this) {
+    TerminalLineStyle.COMMAND -> "t-cmd"
+    TerminalLineStyle.OUTPUT -> "t-out"
+    TerminalLineStyle.ACCENT_PINK -> "t-pink"
+    TerminalLineStyle.ACCENT_CYAN -> "t-cyan"
 }
 
 private const val REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
@@ -48,14 +43,15 @@ private fun rememberReducedMotion(): Boolean {
     return reducedMotion
 }
 
+// Literal port of docs/handoff/index.html's <div class="term"> boot terminal, including
+// app.js's runBoot() timings (26ms/char on "$"-prefixed command lines, 16ms/char otherwise,
+// 240ms pause between lines).
 @Composable
-fun Terminal(lines: List<TerminalLine>) {
+fun Terminal(lines: List<TerminalLine>, title: String = "adrian@d18: ~/boot") {
     val reducedMotion = rememberReducedMotion()
     var visibleLineCount by remember(lines) { mutableStateOf(0) }
     var visibleCharCount by remember(lines) { mutableStateOf(0) }
 
-    // Mock-ported timings (research.md §5, docs/handoff/app.js): 26ms/char on "$"-prefixed
-    // (command) lines, 16ms/char otherwise, 240ms pause between lines.
     LaunchedEffect(lines, reducedMotion) {
         if (reducedMotion) {
             visibleLineCount = lines.size
@@ -77,20 +73,20 @@ fun Terminal(lines: List<TerminalLine>) {
         visibleCharCount = 0
     }
 
-    val sitePalette = ColorMode.current.toSitePalette()
-    Column(TerminalStyle.toModifier()) {
-        lines.forEachIndexed { index, line ->
-            val color = when (line.style) {
-                TerminalLineStyle.COMMAND -> sitePalette.ink
-                TerminalLineStyle.OUTPUT -> sitePalette.ink.toRgb().copyf(alpha = 0.75f)
-                TerminalLineStyle.ACCENT_PINK -> sitePalette.pink
-                TerminalLineStyle.ACCENT_CYAN -> sitePalette.cyan
+    Div(attrs = { classes("term") }) {
+        Div(attrs = { classes("term-bar") }) {
+            Span { Text(title) }
+            Span(attrs = { classes("term-dots") }) { I {}; I {}; I {} }
+        }
+        Div(attrs = { classes("term-body") }) {
+            lines.forEachIndexed { index, line ->
+                when {
+                    index < visibleLineCount -> P(attrs = { classes(line.style.className()) }) { Text(line.text) }
+                    index == visibleLineCount && !reducedMotion ->
+                        P(attrs = { classes(line.style.className()) }) { Text(line.text.take(visibleCharCount)) }
+                }
             }
-            when {
-                index < visibleLineCount -> SpanText(line.text, Modifier.color(color))
-                index == visibleLineCount && !reducedMotion ->
-                    SpanText(line.text.take(visibleCharCount), Modifier.color(color))
-            }
+            Span(attrs = { classes("caret") })
         }
     }
 }

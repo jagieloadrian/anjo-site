@@ -6,26 +6,55 @@ import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
-import com.varabyte.kobweb.silk.components.text.SpanText
-import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.dom.Br
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Em
+import org.jetbrains.compose.web.dom.H1
+import org.jetbrains.compose.web.dom.P
+import org.jetbrains.compose.web.dom.Section
+import org.jetbrains.compose.web.dom.Text
 import com.anjo.anjosite.components.layouts.PageLayoutData
-import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
-import com.varabyte.kobweb.compose.ui.modifiers.fontSize
-import com.varabyte.kobweb.compose.ui.Modifier
-import com.anjo.anjosite.ContactLabel
-import com.anjo.anjosite.LocalLang
+import com.anjo.anjosite.components.widgets.ContactPrompt
+import com.anjo.anjosite.components.widgets.LinkCell
 
-// Foundation-phase placeholder (spec 002-layout-routing, FR-012) — see Projects.kt for rationale
-// (heading is bilingual per analyze finding D1, reuses NavHeader.kt's `ContactLabel` per F2).
+private const val RecipientEmail = "jagielo.adrian@gmail.com"
+private const val Subject = "Hello from the site"
 
 @InitRoute
 fun initContactPage(ctx: InitRouteContext) {
     ctx.data.add(PageLayoutData("Contact"))
 }
 
+// Literal port of docs/handoff/index.html's data-screen="contact".
 @Page
 @Layout(".components.layouts.PageLayout")
 @Composable
 fun ContactPage() {
-    SpanText(ContactLabel(LocalLang.current), Modifier.fontFamily("JetBrains Mono", "monospace").fontSize(1.cssRem))
+    Section(attrs = { classes("band", "band--strong", "band--pad") }) {
+        Div(attrs = { classes("kicker"); style { property("margin-bottom", "18px") } }) { Text("05 / CONTACT") }
+        H1(attrs = { classes("display") }) {
+            Text("SAY")
+            Br()
+            Em { Text("SOMETHING") }
+        }
+    }
+    Section(attrs = { classes("band", "band--strong", "split") }) {
+        Div {
+            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "18px") } }) { Text("CHANNELS") }
+            Div(attrs = { classes("links", "links--stack") }) {
+                LinkCell("mailto:$RecipientEmail", "EMAIL", RecipientEmail)
+                LinkCell("https://www.linkedin.com/in/jagieloadrian/", "LINKEDIN", "/in/jagieloadrian ↗")
+                LinkCell("https://github.com/jagieloadrian", "GITHUB", "jagieloadrian ↗")
+                LinkCell("https://play.google.com/store/apps/developer?id=diether18", "PLAY STORE", "diether18 ↗")
+                LinkCell("https://psnprofiles.com/Sirdiether18", "PSN", "Sirdiether18 ↗")
+            }
+        }
+        Div {
+            Div(attrs = { classes("label", "label--sm"); style { property("margin-bottom", "18px") } }) { Text("CONTACT PROMPT") }
+            ContactPrompt(RecipientEmail, Subject)
+            P(attrs = { classes("meta"); style { property("margin", "14px 0 0") } }) {
+                Text("the prompt composes a mailto: link — no backend, nothing stored")
+            }
+        }
+    }
 }

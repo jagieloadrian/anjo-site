@@ -106,6 +106,27 @@ document.querySelectorAll(".lang-btn").forEach((btn) => {
   });
 });
 
+/* ── theme ────────────────────────────────────────────────
+   One attribute on <html> flips every token in styles.css.
+   Stored choice wins; otherwise follow the OS setting. */
+const themeBtn = document.querySelector("[data-theme-toggle]");
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  themeBtn.textContent = theme === "dark" ? "☀ light" : "☾ dark";
+  themeBtn.title = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+  try { localStorage.setItem("aj-theme", theme); } catch (e) {}
+}
+
+let stored = null;
+try { stored = localStorage.getItem("aj-theme"); } catch (e) {}
+applyTheme(stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"));
+
+themeBtn.addEventListener("click", () => {
+  const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  applyTheme(next);
+});
+
 /* ── design notes (drop this block on the live site) ──── */
 const notesBtn = document.querySelector("[data-notes]");
 notesBtn.addEventListener("click", () => {

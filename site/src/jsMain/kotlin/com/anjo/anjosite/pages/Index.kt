@@ -52,7 +52,7 @@ private val bootLines: List<TerminalLine> = listOf(
     TerminalLine("""val core = listOf("Kotlin", "Java", "Spring Boot")""", TerminalLineStyle.ACCENT_PINK),
     TerminalLine("$ systemctl status career", TerminalLineStyle.COMMAND),
     TerminalLine("● gft-poland.service — active (running) since 10.2021", TerminalLineStyle.OUTPUT),
-    TerminalLine("$ echo \$INTERESTS", TerminalLineStyle.COMMAND),
+    TerminalLine($$"$ echo $INTERESTS", TerminalLineStyle.COMMAND),
     TerminalLine("video games / motorcycles / cooking", TerminalLineStyle.ACCENT_CYAN),
     TerminalLine("$ ./open --projects", TerminalLineStyle.COMMAND),
 )
@@ -103,6 +103,20 @@ fun HomePage() {
         } catch (t: Throwable) {
             Log.error("Home", "failed to load /stack.json", t)
             StackFetchState.Failed
+        }
+    }
+
+    var trophyStats by remember { mutableStateOf<Map<String, String>?>(null) }
+    LaunchedEffect(Unit) {
+        trophyStats = try {
+            val response = window.fetch("/trophies.json").await()
+            if (!response.ok) throw FetchFailedException("/trophies.json", response.status.toInt())
+            val data = parseTrophiesData(response.text().await())
+            Log.info("Home", "loaded trophy stats")
+            data.stats.associate { it.key to it.value }
+        } catch (t: Throwable) {
+            Log.error("Home", "failed to load /trophies.json", t)
+            null
         }
     }
 
@@ -187,13 +201,13 @@ fun HomePage() {
         }
         Div {
             Div(attrs = { classes("stats") }) {
-                StatCell(StatItem("PSN LEVEL", "—"))
-                StatCell(StatItem("PLATINUMS", "—"))
-                StatCell(StatItem("GAMES", "—", StatColor.CYAN))
-                StatCell(StatItem("COMPLETION", "—", StatColor.RED))
+                StatCell(StatItem("PSN LEVEL", trophyStats?.get("level") ?: "—"))
+                StatCell(StatItem("PLATINUMS", trophyStats?.get("platinums") ?: "—", StatColor.PLATINUM))
+                StatCell(StatItem("GAMES", trophyStats?.get("games") ?: "—", StatColor.CYAN))
+                StatCell(StatItem("COMPLETION", trophyStats?.get("completion") ?: "—", StatColor.RED))
             }
             P(attrs = { classes("meta"); style { property("margin", "16px 0 0") } }) {
-                Text("values load from trophies.json — placeholders until the pipeline is wired")
+                Text("source: trophies.json")
             }
         }
     }

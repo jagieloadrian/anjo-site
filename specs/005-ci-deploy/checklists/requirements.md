@@ -1,7 +1,7 @@
-# Specification Quality Checklist: Layout and Routing
+# Specification Quality Checklist: CI/Deploy
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning
-**Created**: 2026-09-17
+**Created**: 2026-09-18
 **Feature**: [spec.md](../spec.md)
 
 ## Content Quality
@@ -31,6 +31,10 @@
 
 ## Notes
 
-- All items pass on first draft; no [NEEDS CLARIFICATION] markers were needed — the source
-  prompt (docs/phase1-specify-prompt.md) already resolved every ambiguous decision (routing
-  mechanism, 404 styling, i18n mechanism, design-notes panel handling) with a stated default.
+- GitHub Pages / the root-domain publish target and the trophy-data credential (`NPSSO`) are named
+  because they are constitution-level, non-swappable facts of this project (Principle VI/VII), not
+  swappable implementation choices — consistent with how specs 001–004 referenced them.
+- All items pass on first pass. No [NEEDS CLARIFICATION] markers were needed: the source prompt
+  (`docs/phase5-specify-prompt.md`) already resolved the high-impact scope questions (deploy
+  branch, publish-destination decision, F025 dependency status); remaining HOW-level choices
+  (cross-repo auth mechanism, specific GitHub Action used) are deferred to `/speckit-plan`.

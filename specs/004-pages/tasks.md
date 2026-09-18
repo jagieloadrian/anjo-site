@@ -71,8 +71,9 @@ full detail and survives a direct reload (quickstart.md scenarios 1-6).
       tags (via the existing `Tag` component, each `href` pointing at `/projects` — research.md
       §7), and any linked assets. On an unmatched slug, call `router.navigateTo("/404")`
       (research.md §2). Depends on T001 (imports its `projects` list).
-- [X] T003 [US1] Add one `RouteConfig` per project slug to `kobweb.app.export.extraRoutes` in
-      `site/build.gradle.kts` (research.md §1) — without this, `kobweb export` silently skips
+- [X] T003 [US1] Add one `addExtraRoute("/projects/{slug}")` call per project slug in
+      `kobweb.app.export` in `site/build.gradle.kts` (the public API; the underlying `extraRoutes`
+      property itself is `internal`, research.md §1) — without this, `kobweb export` silently skips
       every `/projects/{slug}` page, failing SC-006's per-project static-file requirement (analyze
       finding F3). Depends on T001 for the concrete slug values.
 - [X] T004 [P] [US1] Replace the placeholder body of
@@ -206,7 +207,7 @@ component this phase introduced.
       the six routes plus every project slug registered in T003's `extraRoutes` (SC-001, SC-005,
       SC-006). Depends on Phases 3-6 all being complete.
 - [X] T017 Confirm zero new Gradle dependencies were introduced (`git diff site/build.gradle.kts
-      gradle/libs.versions.toml` shows only the `extraRoutes` addition from T003 — constitution
+      gradle/libs.versions.toml` shows only the `addExtraRoute(...)` calls from T003 — constitution
       Principle VIII, plan.md Constraints).
 
 ---

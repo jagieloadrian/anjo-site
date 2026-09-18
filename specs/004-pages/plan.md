@@ -9,16 +9,17 @@
 ## Summary
 
 Replace all six placeholder routes with real content, adding the missing `/about` route and one
-new dynamic route per project (`/projects/{slug}`, clarification Q1) for the detail view. Home,
-About, Projects (grid + detail), CV, and Contact are built entirely from in-source data lists
-(FR-006/FR-012) and the seven existing Phase 2 components, plus exactly one new shared component
-this phase introduces — `ContactPrompt` (FR-014 exception) — built from Silk's own native
-`TextInput`/`Button` widgets. Trophies is the one route with a runtime dependency: it fetches a
-hand-authored static `trophies.json` placeholder (FR-008) via the browser's native `fetch`, with
-explicit loading/error/success states (FR-009/FR-016) so it's never blank. Static export requires
-one extra piece of build config — `site/build.gradle.kts`'s `extraRoutes` — to actually produce a
-static HTML file per project slug, since Kobweb's exporter otherwise skips any route containing a
-dynamic segment.
+new dynamic route per project (`/projects/{slug}`, clarification Q1) for the detail view. About and
+CV are built from in-source data lists (FR-012); Projects, the Home page's Stack section, and
+Trophies are each a hand-authored static JSON file fetched at runtime (FR-006/FR-008, amended
+during `/speckit-converge`) — all built from the seven existing Phase 2 components, plus two new
+shared components this phase introduces: `ContactPrompt` (FR-010/FR-011 exception) built from
+Silk's own native `TextInput`/`Button` widgets, and `LinkCell` (FR-014 exception, amended during
+`/speckit-converge`), a small link-row used by Home and Contact. Trophies has explicit
+loading/error/success states (FR-009/FR-016) so it's never blank while its fetch is in flight.
+Static export requires one extra piece of build config — `site/build.gradle.kts`'s
+`kobweb.app.export.addExtraRoute(...)` — to actually produce a static HTML file per project slug,
+since Kobweb's exporter otherwise skips any route containing a dynamic segment.
 
 ## Technical Context
 
@@ -59,12 +60,13 @@ module (`:site`) — unchanged.
 **Performance Goals**: No new performance target.
 
 **Constraints**: Zero new Gradle dependencies (constitution Principle VIII). Every route in this
-phase composes from the seven Phase 2 components plus exactly one new component, `ContactPrompt`
-(FR-014, clarification session) — no other new shared component. `trophies.json`'s fetch MUST
-render a defined loading state and a defined error state, never a blank page (FR-009/FR-016).
-Project detail MUST be reachable at a real, static, shareable URL — which requires registering
-each slug in `build.gradle.kts`'s `kobweb.app.export.extraRoutes` in addition to the dynamic
-`@Page` route, or the static export silently produces no file for it (research.md §1).
+phase composes from the seven Phase 2 components plus exactly two new components, `ContactPrompt`
+and `LinkCell` (FR-014, amended during `/speckit-converge`) — no other new shared component.
+`trophies.json`'s fetch MUST render a defined loading state and a defined error state, never a
+blank page (FR-009/FR-016). Project detail MUST be reachable at a real, static, shareable URL —
+which requires registering each slug via `build.gradle.kts`'s `kobweb.app.export.addExtraRoute(...)`
+(the public API; the underlying `extraRoutes` property itself is `internal`, research.md §1) in
+addition to the dynamic `@Page` route, or the static export silently produces no file for it.
 
 **Scale/Scope**: Six page files (one new: `About.kt`) + one new dynamic sub-route file
 (`pages/projects/Slug.kt`) + one new shared component (`ContactPrompt.kt`) + concrete in-source
@@ -81,7 +83,7 @@ two one-line `mediaPrint` additions to existing nav/footer styles + one `build.g
 | Principle | Check | Result |
 |---|---|---|
 | I. Static-First, Zero Backend | Contact builds a `mailto:` link entirely client-side (FR-010); Trophies fetches a static JSON file, not a backend endpoint | PASS |
-| II. Content as Data, Not Markup | Projects/About/CV content are `List<data class>` literals, never markup embedded in composables (FR-006/FR-012); adding a project/timeline entry means editing one list, not layout code | PASS |
+| II. Content as Data, Not Markup | Projects, Home's Stack section, and Trophies are hand-authored JSON fetched at runtime (FR-006/FR-008, amended during `/speckit-converge`); About/CV content are `List<data class>` literals (FR-012). Neither pattern embeds content as markup in composables; adding a project/timeline entry means editing a JSON file or a list, not layout code | PASS |
 | III. Bilingual Parity (EN/PL) | FR-013: every route renders through `LocalLang`/`BilingualString`. In-source lists (Projects/About/CV) store `BilingualString` fields resolved at render time; `trophies.json`'s game/trophy proper nouns are a documented exception (research.md §8), its stat *labels* are page-owned `BilingualString`s | PASS |
 | IV. Single-Sourced Design Tokens | All new page content and `ContactPrompt` source colors/fonts/spacing from `SiteTheme.kt`, consistent with every Phase 2 component | PASS |
 | V. Accessibility & Motion Discipline | `ContactPrompt` uses Silk's native `TextInput`/`Button` (real, labelable, keyboard-operable form elements) rather than a hand-rolled `Div`-based control (research.md §6); no new animation/motion introduced this phase — Home reuses Phase 2's already-compliant `Terminal` | PASS |

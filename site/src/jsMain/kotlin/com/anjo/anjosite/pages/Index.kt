@@ -6,6 +6,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.FetchFailedException
+import com.anjo.anjosite.Log
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.Fact
 import com.anjo.anjosite.components.widgets.LinkCell
@@ -94,10 +96,12 @@ fun HomePage() {
     LaunchedEffect(Unit) {
         stackState = try {
             val response = window.fetch("/stack.json").await()
-            if (!response.ok) throw Exception("HTTP ${response.status}")
-            StackFetchState.Loaded(parseStackGroups(response.text().await()))
+            if (!response.ok) throw FetchFailedException("/stack.json", response.status.toInt())
+            val groups = parseStackGroups(response.text().await())
+            Log.info("Home", "loaded ${groups.size} stack groups")
+            StackFetchState.Loaded(groups)
         } catch (t: Throwable) {
-            console.log(t)
+            Log.error("Home", "failed to load /stack.json", t)
             StackFetchState.Failed
         }
     }

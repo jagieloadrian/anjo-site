@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.Log
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.layouts.updatePageMeta
 import com.anjo.anjosite.components.widgets.Tag
@@ -75,6 +76,7 @@ fun SlugPage() {
 
     if (project == null) {
         LaunchedEffect(slug) {
+            Log.warn("ProjectSlug", "no project found for slug '$slug', redirecting to /404")
             ctx.router.navigateTo("/404")
         }
         return

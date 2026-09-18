@@ -6,6 +6,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.FetchFailedException
+import com.anjo.anjosite.Log
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.Fact
 import com.anjo.anjosite.components.widgets.GameCover
@@ -110,10 +112,12 @@ fun TrophiesPage() {
     LaunchedEffect(Unit) {
         fetchState = try {
             val response = window.fetch("/trophies.json").await()
-            if (!response.ok) throw Exception("HTTP ${response.status}")
-            TrophiesFetchState.Loaded(parseTrophiesData(response.text().await()))
+            if (!response.ok) throw FetchFailedException("/trophies.json", response.status.toInt())
+            val data = parseTrophiesData(response.text().await())
+            Log.info("Trophies", "loaded ${data.trophies.size} trophies, ${data.games.size} games")
+            TrophiesFetchState.Loaded(data)
         } catch (t: Throwable) {
-            console.error(t)
+            Log.error("Trophies", "failed to load /trophies.json", t)
             TrophiesFetchState.Failed
         }
     }

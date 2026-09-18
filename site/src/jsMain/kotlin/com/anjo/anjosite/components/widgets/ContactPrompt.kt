@@ -2,6 +2,7 @@ package com.anjo.anjosite.components.widgets
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import com.anjo.anjosite.Log
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -46,6 +47,7 @@ fun ContactPrompt(recipientEmail: String, subject: String) {
         log.add(ChatLine("> $trimmed", "t-out"))
         log.add(ChatLine("opening your mail client — mailto:$recipientEmail", "t-pink"))
         message = ""
+        Log.info("ContactPrompt", "opening mail client for $recipientEmail")
         val mailto = "mailto:$recipientEmail" +
             "?subject=${encodeURIComponent(subject)}" +
             "&body=${encodeURIComponent(trimmed)}"

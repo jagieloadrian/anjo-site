@@ -21,18 +21,22 @@ fun detectInitialTheme(): Theme {
     val stored = try {
         window.localStorage.getItem(THEME_STORAGE_KEY)
     } catch (t: Throwable) {
+        Log.warn("Theme", "localStorage read failed, falling back to system preference", t)
         null
     }
-    return when (stored) {
+    val theme = when (stored) {
         "light" -> Theme.LIGHT
         "dark" -> Theme.DARK
         else -> if (window.matchMedia("(prefers-color-scheme: light)").matches) Theme.LIGHT else Theme.DARK
     }
+    Log.info("Theme", "initial theme resolved to ${theme.attrValue} (stored=$stored)")
+    return theme
 }
 
 fun persistTheme(theme: Theme) {
     try {
         window.localStorage.setItem(THEME_STORAGE_KEY, theme.attrValue)
     } catch (t: Throwable) {
+        Log.warn("Theme", "localStorage write failed, theme won't persist across reloads", t)
     }
 }

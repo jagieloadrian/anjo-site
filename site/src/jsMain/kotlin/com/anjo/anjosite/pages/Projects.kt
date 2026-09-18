@@ -6,6 +6,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.anjo.anjosite.FetchFailedException
+import com.anjo.anjosite.Log
 import com.anjo.anjosite.components.layouts.PageLayoutData
 import com.anjo.anjosite.components.widgets.ProjectCard
 import com.anjo.anjosite.components.widgets.ProjectSummary
@@ -78,10 +80,12 @@ fun parseProjectEntries(text: String): List<ProjectEntry> {
 
 suspend fun fetchProjectEntries(): ProjectsFetchState = try {
     val response = window.fetch("/projects.json").await()
-    if (!response.ok) throw Exception("HTTP ${response.status}")
-    ProjectsFetchState.Loaded(parseProjectEntries(response.text().await()))
+    if (!response.ok) throw FetchFailedException("/projects.json", response.status.toInt())
+    val entries = parseProjectEntries(response.text().await())
+    Log.info("Projects", "loaded ${entries.size} project entries")
+    ProjectsFetchState.Loaded(entries)
 } catch (t: Throwable) {
-    console.error(t)
+    Log.error("Projects", "failed to load /projects.json", t)
     ProjectsFetchState.Failed
 }
 

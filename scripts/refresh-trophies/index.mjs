@@ -20,12 +20,21 @@ const RECENT_GAMES_COUNT = 10;
 const RECENT_TROPHIES_COUNT = 10;
 const TITLES_PAGE_SIZE = 200;
 
+export class RefreshTrophiesError extends Error {
+  constructor(stage, cause) {
+    super(`${stage} failed: ${cause.message}`, { cause });
+    this.name = "RefreshTrophiesError";
+    this.stage = stage;
+  }
+}
+
 async function fetchAllTitles(authorization) {
   const titles = [];
   let offset = 0;
   let totalItemCount = Infinity;
 
   while (titles.length < totalItemCount) {
+    console.log(`Fetching titles page at offset ${offset}...`);
     const page = await getUserTitles(authorization, "me", {
       limit: TITLES_PAGE_SIZE,
       offset,
@@ -36,6 +45,7 @@ async function fetchAllTitles(authorization) {
     offset += page.trophyTitles.length;
   }
 
+  console.log(`Fetched ${titles.length}/${totalItemCount} titles`);
   return { titles, totalItemCount };
 }
 
@@ -113,22 +123,33 @@ export function rankTrophies(earnedPool) {
 async function fetchRecentTrophies(authorization, recentTitles) {
   const earnedPool = [];
 
-  for (const title of recentTitles) {
+  for (const [i, title] of recentTitles.entries()) {
+    console.log(
+      `Fetching trophies for "${title.trophyTitleName}" (${i + 1}/${recentTitles.length})...`,
+    );
     const npServiceName =
       title.npServiceName === "trophy2" ? undefined : "trophy";
 
-    const [titleTrophies, userTrophies] = await Promise.all([
-      getTitleTrophies(authorization, title.npCommunicationId, "all", {
-        npServiceName,
-      }),
-      getUserTrophiesEarnedForTitle(
-        authorization,
-        "me",
-        title.npCommunicationId,
-        "all",
-        { npServiceName },
-      ),
-    ]);
+    let titleTrophies, userTrophies;
+    try {
+      [titleTrophies, userTrophies] = await Promise.all([
+        getTitleTrophies(authorization, title.npCommunicationId, "all", {
+          npServiceName,
+        }),
+        getUserTrophiesEarnedForTitle(
+          authorization,
+          "me",
+          title.npCommunicationId,
+          "all",
+          { npServiceName },
+        ),
+      ]);
+    } catch (error) {
+      throw new RefreshTrophiesError(
+        `fetch trophies for "${title.trophyTitleName}"`,
+        error,
+      );
+    }
 
     const trophyById = new Map(
       titleTrophies.trophies.map((trophy) => [trophy.trophyId, trophy]),
@@ -151,22 +172,38 @@ async function main() {
     throw new Error("NPSSO environment variable is not set");
   }
 
-  const accessCode = await exchangeNpssoForAccessCode(npsso);
-  const authorization = await exchangeAccessCodeForAuthTokens(accessCode);
+  console.log("Exchanging NPSSO for auth tokens...");
+  let authorization;
+  try {
+    const accessCode = await exchangeNpssoForAccessCode(npsso);
+    authorization = await exchangeAccessCodeForAuthTokens(accessCode);
+  } catch (error) {
+    throw new RefreshTrophiesError("authenticate with PSN", error);
+  }
 
-  const [{ titles: allTitles, totalItemCount }, summary] = await Promise.all([
-    fetchAllTitles(authorization),
-    getUserTrophyProfileSummary(authorization, "me"),
-  ]);
+  let allTitles, totalItemCount, summary;
+  try {
+    [{ titles: allTitles, totalItemCount }, summary] = await Promise.all([
+      fetchAllTitles(authorization),
+      getUserTrophyProfileSummary(authorization, "me"),
+    ]);
+  } catch (error) {
+    throw new RefreshTrophiesError("fetch titles or trophy summary", error);
+  }
 
   const recentTitles = pickRecentTitles(allTitles);
+  console.log(`Selected ${recentTitles.length} most recently played titles`);
 
   const stats = buildStats(allTitles, totalItemCount, summary);
   const games = buildGames(recentTitles);
   const trophies = await fetchRecentTrophies(authorization, recentTitles);
 
   const output = { stats, games, trophies };
-  await writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf-8");
+  try {
+    await writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf-8");
+  } catch (error) {
+    throw new RefreshTrophiesError(`write ${OUTPUT_PATH}`, error);
+  }
   console.log(`Wrote ${OUTPUT_PATH}`);
 }
 
@@ -174,6 +211,7 @@ const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
 if (isMainModule) {
   main().catch((error) => {
     console.error(`refresh-trophies failed: ${error.message}`);
+    if (error.cause) console.error(`caused by: ${error.cause.message}`);
     process.exit(1);
   });
 }

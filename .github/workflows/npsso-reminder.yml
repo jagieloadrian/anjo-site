@@ -1,0 +1,45 @@
+name: NPSSO refresh reminder
+
+on:
+  schedule:
+    - cron: '0 9 1 * *' # 1st of every month, 09:00 UTC — well under NPSSO's ~2-month lifetime
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open reminder issue (skip if one is already open)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          TITLE="Reminder: refresh the NPSSO secret (PSN trophies job)"
+
+          EXISTING=$(gh issue list --state open --search "in:title \"$TITLE\"" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            echo "Reminder issue #$EXISTING already open, skipping."
+            exit 0
+          fi
+
+          gh issue create --title "$TITLE" --body "$(cat <<'EOF'
+          Routine monthly check: the nightly trophies-refresh job authenticates with a PSN
+          `NPSSO` token that expires roughly every 2 months. If it's already been refreshed
+          recently, close this issue — no action needed.
+
+          If the `Refresh trophies` workflow has started failing, it's almost certainly this.
+
+          ## How to get a new NPSSO token
+
+          1. In your browser, go to https://www.playstation.com/ and sign in.
+          2. In the **same browser**, visit https://ca.account.sony.com/api/v1/ssocookie
+          3. Copy the value after `"npsso":` (without the quotes) — a 64-character token.
+          4. In this repo: **Settings → Secrets and variables → Actions**, open the `NPSSO`
+             secret, click **Update**, paste the new value, save.
+
+          Treat the token like a password — never paste it anywhere public.
+          EOF
+          )"

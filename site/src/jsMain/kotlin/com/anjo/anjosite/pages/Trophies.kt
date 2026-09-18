@@ -58,6 +58,7 @@ sealed interface TrophiesFetchState {
 
 private val statLabels = mapOf(
     "level" to "PSN LEVEL", "platinums" to "PLATINUMS", "games" to "GAMES", "completion" to "COMPLETION",
+    "total" to "TOTAL", "gold" to "GOLD", "silver" to "SILVER", "bronze" to "BRONZE",
 )
 private val statColors = mapOf("games" to StatColor.CYAN, "completion" to StatColor.RED)
 

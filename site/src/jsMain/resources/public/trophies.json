@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7295"
+      "value": "7297"
     },
     {
       "key": "gold",
@@ -26,26 +26,26 @@
     },
     {
       "key": "silver",
-      "value": "1626"
+      "value": "1627"
     },
     {
       "key": "bronze",
-      "value": "4796"
+      "value": "4797"
     }
   ],
   "games": [
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/89085106-3159-4d46-95cb-2dabdcae5bec.png",
+      "alt": "Moving Out 2 cover",
+      "name": "Moving Out 2",
+      "percentText": "43% · platinum locked",
+      "muted": false
+    },
     {
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/ce5b85d0-9672-4f3e-8b51-f26df36b85c3.png",
       "alt": "Call of Duty®: Black Ops II cover",
       "name": "Call of Duty®: Black Ops II",
       "percentText": "34% · platinum locked",
-      "muted": false
-    },
-    {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/89085106-3159-4d46-95cb-2dabdcae5bec.png",
-      "alt": "Moving Out 2 cover",
-      "name": "Moving Out 2",
-      "percentText": "39% · platinum locked",
       "muted": false
     },
     {
@@ -106,6 +106,22 @@
     }
   ],
   "trophies": [
+    {
+      "tier": "SILVER",
+      "name": "Wrecking Drone... Lisa needs braces!",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "1.6",
+      "earnedAt": "2026-09-24T23:00:37Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Score Attack!",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "7.7",
+      "earnedAt": "2026-09-24T22:58:26Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
+    },
     {
       "tier": "BRONZE",
       "name": "High IQ",
@@ -168,22 +184,6 @@
       "gameName": "Moving Out 2",
       "rarityPercent": "3.5",
       "earnedAt": "2026-09-22T23:21:37Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "I see F.A.R.T movers",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "5.1",
-      "earnedAt": "2026-09-22T22:52:53Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Hoops & Dreams",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "2.4",
-      "earnedAt": "2026-09-22T21:35:03Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
     }
   ]

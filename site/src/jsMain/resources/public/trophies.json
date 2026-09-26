@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7297"
+      "value": "7305"
     },
     {
       "key": "gold",
@@ -26,11 +26,11 @@
     },
     {
       "key": "silver",
-      "value": "1627"
+      "value": "1629"
     },
     {
       "key": "bronze",
-      "value": "4797"
+      "value": "4803"
     }
   ],
   "games": [
@@ -38,7 +38,14 @@
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/89085106-3159-4d46-95cb-2dabdcae5bec.png",
       "alt": "Moving Out 2 cover",
       "name": "Moving Out 2",
-      "percentText": "43% · platinum locked",
+      "percentText": "46% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
+      "alt": "Ride 2 cover",
+      "name": "Ride 2",
+      "percentText": "14% · platinum locked",
       "muted": false
     },
     {
@@ -46,13 +53,6 @@
       "alt": "Call of Duty®: Black Ops II cover",
       "name": "Call of Duty®: Black Ops II",
       "percentText": "34% · platinum locked",
-      "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
-      "alt": "Ride 2 cover",
-      "name": "Ride 2",
-      "percentText": "2% · platinum locked",
       "muted": false
     },
     {
@@ -108,6 +108,70 @@
   "trophies": [
     {
       "tier": "SILVER",
+      "name": "Welcome to the Future!",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "3.0",
+      "earnedAt": "2026-09-25T23:28:31Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Precarious balance",
+      "gameName": "Ride 2",
+      "rarityPercent": "35.0",
+      "earnedAt": "2026-09-25T20:37:10Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/3E6090EF17F3A5956851441E19CD8689F3625C9B.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "On your toes",
+      "gameName": "Ride 2",
+      "rarityPercent": "39.5",
+      "earnedAt": "2026-09-25T20:32:45Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/951DCACEA05B875C33E2790C1A298C1E225FFAB6.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Track Duel",
+      "gameName": "Ride 2",
+      "rarityPercent": "24.1",
+      "earnedAt": "2026-09-25T20:00:56Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/4728305040B791D77AB7AD3455FB4826E1EA19A7.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "It's crowded here",
+      "gameName": "Ride 2",
+      "rarityPercent": "25.7",
+      "earnedAt": "2026-09-25T18:40:18Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/CC4C42082D19277B7F36AAEF05850FBC28A1925B.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "The longest track",
+      "gameName": "Ride 2",
+      "rarityPercent": "48.8",
+      "earnedAt": "2026-09-25T17:55:10Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/44CB443136F3C2CA889C6DF4151D68D0E9B25806.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Good start",
+      "gameName": "Ride 2",
+      "rarityPercent": "60.3",
+      "earnedAt": "2026-09-25T17:54:10Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/324688893B6317239F7CB012CEDDE793B51A9BB1.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Try and catch me!",
+      "gameName": "Ride 2",
+      "rarityPercent": "52.3",
+      "earnedAt": "2026-09-25T17:45:58Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/B462794AC4D627A6A00155C8B3E0B107AC825A27.PNG"
+    },
+    {
+      "tier": "SILVER",
       "name": "Wrecking Drone... Lisa needs braces!",
       "gameName": "Moving Out 2",
       "rarityPercent": "1.6",
@@ -120,70 +184,6 @@
       "gameName": "Moving Out 2",
       "rarityPercent": "7.7",
       "earnedAt": "2026-09-24T22:58:26Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "High IQ",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "0.3",
-      "earnedAt": "2026-09-23T22:07:15Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/4e14e371-cec7-42e6-b9d7-957946ef7520.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Death from Above",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "4.4",
-      "earnedAt": "2026-09-23T22:06:06Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/355b5148-7986-451d-9ca7-351706168e2b.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Dead or Alive",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "4.3",
-      "earnedAt": "2026-09-23T22:04:21Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/91a1dc7c-37ce-4e79-bb7d-cfde4c52e489.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Late for the Prom",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "4.6",
-      "earnedAt": "2026-09-23T21:32:04Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/2bcf1872-2563-47eb-9552-ee909522dd80.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Sinking Star",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "4.9",
-      "earnedAt": "2026-09-23T00:04:32Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/35c25b7e-0917-44c2-a701-9a2a3edcc0a5.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Ship Shape",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "1.4",
-      "earnedAt": "2026-09-23T00:04:31Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/1bfab0e6-1d54-4af8-b11f-cb18cb67b5dd.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Good Karma",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "0.9",
-      "earnedAt": "2026-09-23T00:04:31Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/2d7cc353-ede3-4e25-b440-f2a489dd937e.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "This is not a dream!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "3.5",
-      "earnedAt": "2026-09-22T23:21:37Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
     }
   ]

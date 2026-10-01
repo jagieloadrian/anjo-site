@@ -18,11 +18,11 @@
     },
     {
       "key": "total",
-      "value": "7333"
+      "value": "7334"
     },
     {
       "key": "gold",
-      "value": "726"
+      "value": "727"
     },
     {
       "key": "silver",
@@ -35,6 +35,13 @@
   ],
   "games": [
     {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
+      "alt": "Ride 2 cover",
+      "name": "Ride 2",
+      "percentText": "61% · platinum locked",
+      "muted": false
+    },
+    {
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/B03B81760460633DF1450920EB7CBF9716D52156.PNG",
       "alt": "Moving Out 2 cover",
       "name": "Moving Out 2",
@@ -46,13 +53,6 @@
       "alt": "Moving Out 2 cover",
       "name": "Moving Out 2",
       "percentText": "100% · platinum earned",
-      "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
-      "alt": "Ride 2 cover",
-      "name": "Ride 2",
-      "percentText": "52% · platinum locked",
       "muted": false
     },
     {
@@ -106,6 +106,14 @@
     }
   ],
   "trophies": [
+    {
+      "tier": "GOLD",
+      "name": "50 wheels",
+      "gameName": "Ride 2",
+      "rarityPercent": "14.5",
+      "earnedAt": "2026-09-30T20:11:47Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/A074C9C0A06139514226C28729FEEC62CD0C6BBE.PNG"
+    },
     {
       "tier": "PLATINUM",
       "name": "Gone Platty",
@@ -176,14 +184,6 @@
       "gameName": "Moving Out 2",
       "rarityPercent": "1.2",
       "earnedAt": "2026-09-28T21:26:48Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Getting the Gang Back Together",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "1.2",
-      "earnedAt": "2026-09-28T21:10:13Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
     }
   ]

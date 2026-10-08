@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7334"
+      "value": "7335"
     },
     {
       "key": "gold",
@@ -26,7 +26,7 @@
     },
     {
       "key": "silver",
-      "value": "1638"
+      "value": "1639"
     },
     {
       "key": "bronze",
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
       "alt": "Ride 2 cover",
       "name": "Ride 2",
-      "percentText": "61% · platinum locked",
+      "percentText": "64% · platinum locked",
       "muted": false
     },
     {
@@ -106,6 +106,14 @@
     }
   ],
   "trophies": [
+    {
+      "tier": "SILVER",
+      "name": "Team number 1",
+      "gameName": "Ride 2",
+      "rarityPercent": "5.1",
+      "earnedAt": "2026-10-07T22:23:53Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/6B1D881775E9C8923C1BFCAE2CBDF559BF6CAEEF.PNG"
+    },
     {
       "tier": "GOLD",
       "name": "50 wheels",
@@ -176,14 +184,6 @@
       "gameName": "Moving Out 2",
       "rarityPercent": "2.9",
       "earnedAt": "2026-09-28T21:35:39Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Max F.A.R.T",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "1.2",
-      "earnedAt": "2026-09-28T21:26:48Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
     }
   ]

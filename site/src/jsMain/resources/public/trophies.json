@@ -18,11 +18,11 @@
     },
     {
       "key": "total",
-      "value": "7335"
+      "value": "7337"
     },
     {
       "key": "gold",
-      "value": "727"
+      "value": "728"
     },
     {
       "key": "silver",
@@ -30,7 +30,7 @@
     },
     {
       "key": "bronze",
-      "value": "4815"
+      "value": "4816"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
       "alt": "Ride 2 cover",
       "name": "Ride 2",
-      "percentText": "64% · platinum locked",
+      "percentText": "74% · platinum locked",
       "muted": false
     },
     {
@@ -107,6 +107,22 @@
   ],
   "trophies": [
     {
+      "tier": "BRONZE",
+      "name": "Top or bottom?",
+      "gameName": "Ride 2",
+      "rarityPercent": "27.5",
+      "earnedAt": "2026-10-08T20:32:38Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/49422E02F58122B60EBA47378ECC4364FA98B0C7.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Best in the world",
+      "gameName": "Ride 2",
+      "rarityPercent": "14.6",
+      "earnedAt": "2026-10-08T20:28:31Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/F3FA9AC6B1C6F4EF855119083E5FD964D20E29BE.PNG"
+    },
+    {
       "tier": "SILVER",
       "name": "Team number 1",
       "gameName": "Ride 2",
@@ -168,22 +184,6 @@
       "gameName": "Moving Out 2",
       "rarityPercent": "1.1",
       "earnedAt": "2026-09-28T21:45:13Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "I want Candy!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "3.3",
-      "earnedAt": "2026-09-28T21:35:39Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Call All Tech Gnomes",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "2.9",
-      "earnedAt": "2026-09-28T21:35:39Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
     }
   ]

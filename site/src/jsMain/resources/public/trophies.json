@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7338"
+      "value": "7339"
     },
     {
       "key": "gold",
@@ -30,7 +30,7 @@
     },
     {
       "key": "bronze",
-      "value": "4817"
+      "value": "4818"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/ce5b85d0-9672-4f3e-8b51-f26df36b85c3.png",
       "alt": "Call of Duty®: Black Ops II cover",
       "name": "Call of Duty®: Black Ops II",
-      "percentText": "37% · platinum locked",
+      "percentText": "38% · platinum locked",
       "muted": false
     },
     {
@@ -106,6 +106,14 @@
     }
   ],
   "trophies": [
+    {
+      "tier": "BRONZE",
+      "name": "Ten K",
+      "gameName": "Call of Duty®: Black Ops II",
+      "rarityPercent": "0.9",
+      "earnedAt": "2026-10-12T21:49:35Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/228c8556-c18a-40e5-8ea3-5f8f968197d4.PNG"
+    },
     {
       "tier": "BRONZE",
       "name": "Ultimate Sacrifice",
@@ -176,14 +184,6 @@
       "gameName": "Moving Out 2",
       "rarityPercent": "1.0",
       "earnedAt": "2026-09-28T22:26:31Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Style for days!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "1.2",
-      "earnedAt": "2026-09-28T21:51:20Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
     }
   ]

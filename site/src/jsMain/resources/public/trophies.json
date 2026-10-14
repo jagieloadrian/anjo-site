@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7339"
+      "value": "7346"
     },
     {
       "key": "gold",
@@ -26,26 +26,33 @@
     },
     {
       "key": "silver",
-      "value": "1639"
+      "value": "1640"
     },
     {
       "key": "bronze",
-      "value": "4818"
+      "value": "4824"
     }
   ],
   "games": [
     {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/ce5b85d0-9672-4f3e-8b51-f26df36b85c3.png",
-      "alt": "Call of Duty®: Black Ops II cover",
-      "name": "Call of Duty®: Black Ops II",
-      "percentText": "38% · platinum locked",
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/656933E3E465C9C8877CB89B63D53891A71944F1.PNG",
+      "alt": "Call of Duty® Infinite Warfare cover",
+      "name": "Call of Duty® Infinite Warfare",
+      "percentText": "5% · platinum locked",
       "muted": false
     },
     {
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
       "alt": "Ride 2 cover",
       "name": "Ride 2",
-      "percentText": "74% · platinum locked",
+      "percentText": "77% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/ce5b85d0-9672-4f3e-8b51-f26df36b85c3.png",
+      "alt": "Call of Duty®: Black Ops II cover",
+      "name": "Call of Duty®: Black Ops II",
+      "percentText": "38% · platinum locked",
       "muted": false
     },
     {
@@ -96,16 +103,65 @@
       "name": "Call of Duty®: Black Ops",
       "percentText": "69% · platinum earned",
       "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR59723_00_000A8C7D1C330B3E861AC6D351730742D53636A40A/C8C1F21683913FDF70AC7D7A491B9CB772509F67.PNG",
-      "alt": "Call of Duty®: Black Ops II cover",
-      "name": "Call of Duty®: Black Ops II",
-      "percentText": "9% · platinum locked",
-      "muted": false
     }
   ],
   "trophies": [
+    {
+      "tier": "BRONZE",
+      "name": "Make it Personal",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "28.7",
+      "earnedAt": "2026-10-13T23:40:38Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/FA5E62896AD51B66B44BF3A267989CF9F3F708C3.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Captain's Log",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "31.5",
+      "earnedAt": "2026-10-13T23:32:23Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/82EF26A04C4068B316D3D690CF435CB039B931DC.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Black Sky",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "33.1",
+      "earnedAt": "2026-10-13T23:25:34Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/C2B8707E279DBFA6A7CADF44668AD9E8A6938F60.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "New Gun Collector",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "40.1",
+      "earnedAt": "2026-10-13T22:02:28Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/8E617C64C3FEA10BB8181E3A6357C7221BCD0843.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Rising Threat",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "41.3",
+      "earnedAt": "2026-10-13T21:50:57Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/417CC5500986E1ACF389DDBD991C2CDF3F56C27E.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Boots on the Ground",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "37.4",
+      "earnedAt": "2026-10-13T21:42:15Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/E41B359F51C580DEE0F20003B41CFFF2311AE720.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Decidedly better",
+      "gameName": "Ride 2",
+      "rarityPercent": "1.9",
+      "earnedAt": "2026-10-13T18:00:27Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/366DD09E980B39608F905C352E93781B3586B0BF.PNG"
+    },
     {
       "tier": "BRONZE",
       "name": "Ten K",
@@ -129,62 +185,6 @@
       "rarityPercent": "27.5",
       "earnedAt": "2026-10-08T20:32:38Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/49422E02F58122B60EBA47378ECC4364FA98B0C7.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Best in the world",
-      "gameName": "Ride 2",
-      "rarityPercent": "14.6",
-      "earnedAt": "2026-10-08T20:28:31Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/F3FA9AC6B1C6F4EF855119083E5FD964D20E29BE.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Team number 1",
-      "gameName": "Ride 2",
-      "rarityPercent": "5.1",
-      "earnedAt": "2026-10-07T22:23:53Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/6B1D881775E9C8923C1BFCAE2CBDF559BF6CAEEF.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "50 wheels",
-      "gameName": "Ride 2",
-      "rarityPercent": "14.5",
-      "earnedAt": "2026-09-30T20:11:47Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/A074C9C0A06139514226C28729FEEC62CD0C6BBE.PNG"
-    },
-    {
-      "tier": "PLATINUM",
-      "name": "Gone Platty",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "0.8",
-      "earnedAt": "2026-09-28T22:45:40Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/89085106-3159-4d46-95cb-2dabdcae5bec.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "A Job Well Done",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "2.5",
-      "earnedAt": "2026-09-28T22:45:40Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Don't Get Off The Train",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "0.9",
-      "earnedAt": "2026-09-28T22:44:31Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Cart Boss",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "1.0",
-      "earnedAt": "2026-09-28T22:26:31Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR30067_00/8ff62e64-f1f6-4bff-8d3c-172303f1eeaf.png"
     }
   ]
 }

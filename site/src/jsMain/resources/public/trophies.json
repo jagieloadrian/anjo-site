@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7346"
+      "value": "7351"
     },
     {
       "key": "gold",
@@ -30,7 +30,7 @@
     },
     {
       "key": "bronze",
-      "value": "4824"
+      "value": "4829"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/656933E3E465C9C8877CB89B63D53891A71944F1.PNG",
       "alt": "Call of Duty® Infinite Warfare cover",
       "name": "Call of Duty® Infinite Warfare",
-      "percentText": "5% · platinum locked",
+      "percentText": "10% · platinum locked",
       "muted": false
     },
     {
@@ -108,6 +108,46 @@
   "trophies": [
     {
       "tier": "BRONZE",
+      "name": "Reality TV",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "22.9",
+      "earnedAt": "2026-10-14T21:26:09Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/E3DC2481B39EA9C223EFF43AFC45BC2F2B29811E.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Operation Port Armor",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "27.4",
+      "earnedAt": "2026-10-14T21:17:20Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/F6EE548D99B63022B0DF17037EE850687B14649C.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Ante Up",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "27.5",
+      "earnedAt": "2026-10-14T21:17:20Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/8280B90736ACBA4BADE1326B4346760B0620BC67.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Serious Gun Collector",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "24.8",
+      "earnedAt": "2026-10-14T20:46:41Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/2C583FD0F43297AE55C147887A36AB022E7F31F6.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Gear Up",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "29.3",
+      "earnedAt": "2026-10-14T18:40:29Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/E5783FEE206D8556E41D93E0D0CFF519316DA2F1.PNG"
+    },
+    {
+      "tier": "BRONZE",
       "name": "Make it Personal",
       "gameName": "Call of Duty® Infinite Warfare",
       "rarityPercent": "28.7",
@@ -145,46 +185,6 @@
       "rarityPercent": "41.3",
       "earnedAt": "2026-10-13T21:50:57Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/417CC5500986E1ACF389DDBD991C2CDF3F56C27E.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Boots on the Ground",
-      "gameName": "Call of Duty® Infinite Warfare",
-      "rarityPercent": "37.4",
-      "earnedAt": "2026-10-13T21:42:15Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/E41B359F51C580DEE0F20003B41CFFF2311AE720.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Decidedly better",
-      "gameName": "Ride 2",
-      "rarityPercent": "1.9",
-      "earnedAt": "2026-10-13T18:00:27Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/366DD09E980B39608F905C352E93781B3586B0BF.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Ten K",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "0.9",
-      "earnedAt": "2026-10-12T21:49:35Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/228c8556-c18a-40e5-8ea3-5f8f968197d4.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Ultimate Sacrifice",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "4.0",
-      "earnedAt": "2026-10-11T22:36:39Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/67a2824c-da21-43f6-8d62-640f8edf5789.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Top or bottom?",
-      "gameName": "Ride 2",
-      "rarityPercent": "27.5",
-      "earnedAt": "2026-10-08T20:32:38Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/49422E02F58122B60EBA47378ECC4364FA98B0C7.PNG"
     }
   ]
 }

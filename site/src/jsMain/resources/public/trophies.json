@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7378"
+      "value": "7380"
     },
     {
       "key": "gold",
@@ -30,7 +30,7 @@
     },
     {
       "key": "bronze",
-      "value": "4846"
+      "value": "4848"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/656933E3E465C9C8877CB89B63D53891A71944F1.PNG",
       "alt": "Call of Duty® Infinite Warfare cover",
       "name": "Call of Duty® Infinite Warfare",
-      "percentText": "44% · platinum locked",
+      "percentText": "46% · platinum locked",
       "muted": false
     },
     {
@@ -107,6 +107,22 @@
   ],
   "trophies": [
     {
+      "tier": "BRONZE",
+      "name": "Get Packed",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "12.9",
+      "earnedAt": "2026-10-18T22:56:12Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/4FF5A0BA9FF3CBF8E0B6241436163B64AF34D292.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "C12",
+      "gameName": "Call of Duty® Infinite Warfare",
+      "rarityPercent": "5.7",
+      "earnedAt": "2026-10-18T21:39:47Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/DE5DE5C3F6B109D30CDE7ACAC0C590083C0F1FF9.PNG"
+    },
+    {
       "tier": "SILVER",
       "name": "Danger Close",
       "gameName": "Call of Duty® Infinite Warfare",
@@ -169,22 +185,6 @@
       "rarityPercent": "2.3",
       "earnedAt": "2026-10-17T20:41:20Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/91D0E920D420A25A22E72DE1F8AF2FA555112A5B.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Fully Equipped",
-      "gameName": "Call of Duty® Infinite Warfare",
-      "rarityPercent": "0.3",
-      "earnedAt": "2026-10-17T19:47:44Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/F58D76AF74B2CD90F89980D7450DF979B2D4744C.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Operation Trace Kill",
-      "gameName": "Call of Duty® Infinite Warfare",
-      "rarityPercent": "5.4",
-      "earnedAt": "2026-10-17T09:24:50Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/7544837B3F80544B829BF9BEBD5977F5CBF7748F.PNG"
     }
   ]
 }

@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7388"
+      "value": "7393"
     },
     {
       "key": "gold",
@@ -26,11 +26,11 @@
     },
     {
       "key": "silver",
-      "value": "1650"
+      "value": "1652"
     },
     {
       "key": "bronze",
-      "value": "4854"
+      "value": "4857"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/B03B81760460633DF1450920EB7CBF9716D52156.PNG",
       "alt": "Moving Out 2 cover",
       "name": "Moving Out 2",
-      "percentText": "20% · platinum locked",
+      "percentText": "30% · platinum locked",
       "muted": false
     },
     {
@@ -107,6 +107,46 @@
   ],
   "trophies": [
     {
+      "tier": "SILVER",
+      "name": "Smashing Good Time",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "2.7",
+      "earnedAt": "2026-10-20T22:05:28Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/9ED3876F0191FF5844E7CF338B2EFFEAACB42111.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Open the Portals",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "27.6",
+      "earnedAt": "2026-10-20T22:00:51Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/7E971A1836B0F03C2D0BD4C8094C462352683D82.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "F.A.R.T to the power of 3",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "15.0",
+      "earnedAt": "2026-10-20T21:48:54Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/DB148C295B6C2BC0AE87BEB48783E9C8CA9FDE11.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "I'm Moving In!",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "42.9",
+      "earnedAt": "2026-10-20T21:40:13Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/65018974E61FDA17F3E23D00393D1E3D8C62410F.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Arcade Novice",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "27.6",
+      "earnedAt": "2026-10-20T21:32:57Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/F583320B26384511C72401981E4C6906680A3C9F.PNG"
+    },
+    {
       "tier": "BRONZE",
       "name": "I Cart Therefore I Am",
       "gameName": "Moving Out 2",
@@ -145,46 +185,6 @@
       "rarityPercent": "9.4",
       "earnedAt": "2026-10-19T21:55:37Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/AFD2BBF978416AFA9D832255FD28E0E0E4CF35B0.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Totally Optional",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "10.5",
-      "earnedAt": "2026-10-19T21:53:58Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/FFD41582CD428D09771E031FDD0C303BAC573A2F.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Gooooooooooalllllll!!!!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "21.1",
-      "earnedAt": "2026-10-19T21:50:52Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/0ED87A908E1AF91C3DE4284424B51651D7BA798F.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "1st F.A.R.T",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "85.9",
-      "earnedAt": "2026-10-19T21:49:28Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/B4F9910078623EDB000795CC9B0FA8C5CE319E43.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Get Packed",
-      "gameName": "Call of Duty® Infinite Warfare",
-      "rarityPercent": "12.9",
-      "earnedAt": "2026-10-18T22:56:12Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/4FF5A0BA9FF3CBF8E0B6241436163B64AF34D292.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "C12",
-      "gameName": "Call of Duty® Infinite Warfare",
-      "rarityPercent": "5.7",
-      "earnedAt": "2026-10-18T21:39:47Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/DE5DE5C3F6B109D30CDE7ACAC0C590083C0F1FF9.PNG"
     }
   ]
 }

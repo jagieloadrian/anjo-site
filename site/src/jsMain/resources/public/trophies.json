@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7398"
+      "value": "7399"
     },
     {
       "key": "gold",
@@ -26,7 +26,7 @@
     },
     {
       "key": "silver",
-      "value": "1656"
+      "value": "1657"
     },
     {
       "key": "bronze",
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/B03B81760460633DF1450920EB7CBF9716D52156.PNG",
       "alt": "Moving Out 2 cover",
       "name": "Moving Out 2",
-      "percentText": "40% · platinum locked",
+      "percentText": "43% · platinum locked",
       "muted": false
     },
     {
@@ -106,6 +106,14 @@
     }
   ],
   "trophies": [
+    {
+      "tier": "SILVER",
+      "name": "I want Candy!",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "3.2",
+      "earnedAt": "2026-10-27T22:54:58Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/C3D236A304003028B27FE8B2110D31EB9F04FC81.PNG"
+    },
     {
       "tier": "BRONZE",
       "name": "Score Attack!",
@@ -177,14 +185,6 @@
       "rarityPercent": "42.9",
       "earnedAt": "2026-10-20T21:40:13Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/65018974E61FDA17F3E23D00393D1E3D8C62410F.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Arcade Novice",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "27.6",
-      "earnedAt": "2026-10-20T21:32:57Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/F583320B26384511C72401981E4C6906680A3C9F.PNG"
     }
   ]
 }

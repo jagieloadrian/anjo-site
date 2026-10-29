@@ -18,15 +18,15 @@
     },
     {
       "key": "total",
-      "value": "7399"
+      "value": "7403"
     },
     {
       "key": "gold",
-      "value": "730"
+      "value": "731"
     },
     {
       "key": "silver",
-      "value": "1657"
+      "value": "1660"
     },
     {
       "key": "bronze",
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/B03B81760460633DF1450920EB7CBF9716D52156.PNG",
       "alt": "Moving Out 2 cover",
       "name": "Moving Out 2",
-      "percentText": "43% · platinum locked",
+      "percentText": "60% · platinum locked",
       "muted": false
     },
     {
@@ -108,6 +108,38 @@
   "trophies": [
     {
       "tier": "SILVER",
+      "name": "Welcome to the Future!",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "2.9",
+      "earnedAt": "2026-10-28T23:44:16Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/6650A213B36903B02ACA8D029BB4D8E253D6A27D.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Call All Tech Gnomes",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "2.8",
+      "earnedAt": "2026-10-28T23:44:16Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/E8BEBD7FF1F0153A1B9EA19EE9C5E8172920965A.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Wrecking Drone... Lisa needs braces!",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "1.5",
+      "earnedAt": "2026-10-28T23:41:32Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/FDFB9BD53EE5E634D5FDD0EA0FBAA5CC5CB20DDE.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Getting the Gang Back Together",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "1.2",
+      "earnedAt": "2026-10-28T23:36:12Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/0C9FE4E46F003B93505217796C1529E01A709F9F.PNG"
+    },
+    {
+      "tier": "SILVER",
       "name": "I want Candy!",
       "gameName": "Moving Out 2",
       "rarityPercent": "3.2",
@@ -153,38 +185,6 @@
       "rarityPercent": "0.5",
       "earnedAt": "2026-10-25T22:40:39Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/22b025f6-6aa3-4677-a88a-b7dda6c7b85d.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Smashing Good Time",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "2.7",
-      "earnedAt": "2026-10-20T22:05:28Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/9ED3876F0191FF5844E7CF338B2EFFEAACB42111.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Open the Portals",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "27.6",
-      "earnedAt": "2026-10-20T22:00:51Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/7E971A1836B0F03C2D0BD4C8094C462352683D82.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "F.A.R.T to the power of 3",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "15.1",
-      "earnedAt": "2026-10-20T21:48:54Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/DB148C295B6C2BC0AE87BEB48783E9C8CA9FDE11.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "I'm Moving In!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "42.9",
-      "earnedAt": "2026-10-20T21:40:13Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/65018974E61FDA17F3E23D00393D1E3D8C62410F.PNG"
     }
   ]
 }

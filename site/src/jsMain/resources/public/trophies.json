@@ -2,11 +2,11 @@
   "stats": [
     {
       "key": "level",
-      "value": "462"
+      "value": "463"
     },
     {
       "key": "games",
-      "value": "347"
+      "value": "348"
     },
     {
       "key": "completion",
@@ -14,23 +14,23 @@
     },
     {
       "key": "platinums",
-      "value": "154"
+      "value": "155"
     },
     {
       "key": "total",
-      "value": "7403"
+      "value": "7410"
     },
     {
       "key": "gold",
-      "value": "731"
+      "value": "735"
     },
     {
       "key": "silver",
-      "value": "1660"
+      "value": "1661"
     },
     {
       "key": "bronze",
-      "value": "4858"
+      "value": "4859"
     }
   ],
   "games": [
@@ -38,7 +38,14 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/B03B81760460633DF1450920EB7CBF9716D52156.PNG",
       "alt": "Moving Out 2 cover",
       "name": "Moving Out 2",
-      "percentText": "60% · platinum locked",
+      "percentText": "100% · platinum earned",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR61837_00/058c6ad5-099f-4a8e-98e2-ad0376199ce5.png",
+      "alt": "Metro 2033 Redux cover",
+      "name": "Metro 2033 Redux",
+      "percentText": "0% · platinum locked",
       "muted": false
     },
     {
@@ -96,16 +103,65 @@
       "name": "RIDE 3",
       "percentText": "0% · platinum locked",
       "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR59944_00_00B94EF69FAD0E20B4CBC73E4EF8D0C7F2ED0B29FB/FB28038C970AAF1B914B945BCAB98BF0E9044D11.PNG",
-      "alt": "Call of Duty®: Black Ops cover",
-      "name": "Call of Duty®: Black Ops",
-      "percentText": "69% · platinum earned",
-      "muted": false
     }
   ],
   "trophies": [
+    {
+      "tier": "PLATINUM",
+      "name": "Gone Platty",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "0.7",
+      "earnedAt": "2026-10-29T23:59:34Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/5A383F7E1B5874806F2BA611998B377CD8B4CA15.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "A Job Well Done",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "2.4",
+      "earnedAt": "2026-10-29T23:59:34Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/ECE29567F1719F93867FD691BB1A767D53B916AE.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Don't Get Off The Train",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "0.8",
+      "earnedAt": "2026-10-29T23:56:02Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/987F8A9D69C16A37DBB0650310DE79D6A8DF4EA2.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Cart Boss",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "0.9",
+      "earnedAt": "2026-10-29T23:39:01Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/7E1B31942EF0CAC19517705D6BC8B66E83C3829D.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Arcade Legend",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "1.1",
+      "earnedAt": "2026-10-29T23:12:00Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/66DF82A73A330224D232D8E0F95BF71AE502F386.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Max F.A.R.T",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "1.1",
+      "earnedAt": "2026-10-29T22:57:24Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/F107D5B482D2B2672DC72B1F4FC478EA14558465.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Style for days!",
+      "gameName": "Moving Out 2",
+      "rarityPercent": "1.2",
+      "earnedAt": "2026-10-29T22:57:24Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/D17B99B86184F136AB67E79709891183EEF6E0D9.PNG"
+    },
     {
       "tier": "SILVER",
       "name": "Welcome to the Future!",
@@ -129,62 +185,6 @@
       "rarityPercent": "1.5",
       "earnedAt": "2026-10-28T23:41:32Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/FDFB9BD53EE5E634D5FDD0EA0FBAA5CC5CB20DDE.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Getting the Gang Back Together",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "1.2",
-      "earnedAt": "2026-10-28T23:36:12Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/0C9FE4E46F003B93505217796C1529E01A709F9F.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "I want Candy!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "3.2",
-      "earnedAt": "2026-10-27T22:54:58Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/C3D236A304003028B27FE8B2110D31EB9F04FC81.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Score Attack!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "7.4",
-      "earnedAt": "2026-10-26T23:12:33Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/7894B85166EC8441D928CEACB2A84CBBD0482D3C.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "This is not a dream!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "3.4",
-      "earnedAt": "2026-10-26T23:00:18Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/304F2427AEB88FFF732DFF5931DBAAF4DC9E263D.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Pain in the glass!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "19.3",
-      "earnedAt": "2026-10-26T22:38:38Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/4B93D4E4258F770275BB911DF08CCD69714FAC0F.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "I see F.A.R.T movers",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "4.8",
-      "earnedAt": "2026-10-26T22:24:02Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/8BF638D8FFAD5DBC713F3803C8A6CC7C7AF324A1.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Mission Complete",
-      "gameName": "Call of Duty®: Black Ops II",
-      "rarityPercent": "0.5",
-      "earnedAt": "2026-10-25T22:40:39Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/22b025f6-6aa3-4677-a88a-b7dda6c7b85d.PNG"
     }
   ]
 }

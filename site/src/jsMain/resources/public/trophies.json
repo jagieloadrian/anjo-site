@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7410"
+      "value": "7412"
     },
     {
       "key": "gold",
@@ -30,10 +30,17 @@
     },
     {
       "key": "bronze",
-      "value": "4859"
+      "value": "4861"
     }
   ],
   "games": [
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/EAB2FD2837B12F89718720BAE733CE18EB0CC4CE.PNG",
+      "alt": "Call of Duty® Modern Warfare® III cover",
+      "name": "Call of Duty® Modern Warfare® III",
+      "percentText": "42% · platinum locked",
+      "muted": false
+    },
     {
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/B03B81760460633DF1450920EB7CBF9716D52156.PNG",
       "alt": "Moving Out 2 cover",
@@ -96,16 +103,25 @@
       "name": "Dying Light",
       "percentText": "13% · platinum locked",
       "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR12775_00_00F56E29745426F087A7492133386576D884799699/C198EFF55E0A1F72E039424804CB1D49E99023F3.PNG",
-      "alt": "RIDE 3 cover",
-      "name": "RIDE 3",
-      "percentText": "0% · platinum locked",
-      "muted": false
     }
   ],
   "trophies": [
+    {
+      "tier": "BRONZE",
+      "name": "Floater",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "3.5",
+      "earnedAt": "2026-11-02T00:37:37Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/CBB80BCD4605AEAF78D20CE40B96CDB230947EC4.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Death Row",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "27.3",
+      "earnedAt": "2026-11-01T23:14:44Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/BC00026286912C8B98469A4BFF20A9F9C4E7F42F.PNG"
+    },
     {
       "tier": "PLATINUM",
       "name": "Gone Platty",
@@ -169,22 +185,6 @@
       "rarityPercent": "2.9",
       "earnedAt": "2026-10-28T23:44:16Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/6650A213B36903B02ACA8D029BB4D8E253D6A27D.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Call All Tech Gnomes",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "2.8",
-      "earnedAt": "2026-10-28T23:44:16Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/E8BEBD7FF1F0153A1B9EA19EE9C5E8172920965A.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Wrecking Drone... Lisa needs braces!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "1.5",
-      "earnedAt": "2026-10-28T23:41:32Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/FDFB9BD53EE5E634D5FDD0EA0FBAA5CC5CB20DDE.PNG"
     }
   ]
 }

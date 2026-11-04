@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7412"
+      "value": "7415"
     },
     {
       "key": "gold",
@@ -30,7 +30,7 @@
     },
     {
       "key": "bronze",
-      "value": "4861"
+      "value": "4864"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/EAB2FD2837B12F89718720BAE733CE18EB0CC4CE.PNG",
       "alt": "Call of Duty® Modern Warfare® III cover",
       "name": "Call of Duty® Modern Warfare® III",
-      "percentText": "42% · platinum locked",
+      "percentText": "46% · platinum locked",
       "muted": false
     },
     {
@@ -108,6 +108,30 @@
   "trophies": [
     {
       "tier": "BRONZE",
+      "name": "Frequent Flyer",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "7.5",
+      "earnedAt": "2026-11-04T01:11:48Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/06257D405B17FAABAE32D6781269D38DAEBFB85A.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Have You Tried Turning it Off and On?",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "2.5",
+      "earnedAt": "2026-11-04T01:00:59Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/CD7B2B9210F4962B18F92460951460E48440BA4D.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Sample Platter",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "19.0",
+      "earnedAt": "2026-11-04T00:17:47Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/05D006B0CCBA28653E467522306A96560375DE95.PNG"
+    },
+    {
+      "tier": "BRONZE",
       "name": "Floater",
       "gameName": "Call of Duty® Modern Warfare® III",
       "rarityPercent": "3.5",
@@ -118,7 +142,7 @@
       "tier": "BRONZE",
       "name": "Death Row",
       "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "27.3",
+      "rarityPercent": "27.4",
       "earnedAt": "2026-11-01T23:14:44Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/BC00026286912C8B98469A4BFF20A9F9C4E7F42F.PNG"
     },
@@ -161,30 +185,6 @@
       "rarityPercent": "1.1",
       "earnedAt": "2026-10-29T23:12:00Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/66DF82A73A330224D232D8E0F95BF71AE502F386.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Max F.A.R.T",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "1.1",
-      "earnedAt": "2026-10-29T22:57:24Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/F107D5B482D2B2672DC72B1F4FC478EA14558465.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Style for days!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "1.2",
-      "earnedAt": "2026-10-29T22:57:24Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/D17B99B86184F136AB67E79709891183EEF6E0D9.PNG"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Welcome to the Future!",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "2.9",
-      "earnedAt": "2026-10-28T23:44:16Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/6650A213B36903B02ACA8D029BB4D8E253D6A27D.PNG"
     }
   ]
 }

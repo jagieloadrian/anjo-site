@@ -6,7 +6,7 @@
     },
     {
       "key": "games",
-      "value": "348"
+      "value": "349"
     },
     {
       "key": "completion",
@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7416"
+      "value": "7420"
     },
     {
       "key": "gold",
@@ -26,7 +26,7 @@
     },
     {
       "key": "silver",
-      "value": "1661"
+      "value": "1665"
     },
     {
       "key": "bronze",
@@ -34,6 +34,13 @@
     }
   ],
   "games": [
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/3A10B8C225BB264E081E01C68122947BBC9BE744.PNG",
+      "alt": "We Were Here Too cover",
+      "name": "We Were Here Too",
+      "percentText": "12% · platinum locked",
+      "muted": false
+    },
     {
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/EAB2FD2837B12F89718720BAE733CE18EB0CC4CE.PNG",
       "alt": "Call of Duty® Modern Warfare® III cover",
@@ -96,16 +103,41 @@
       "name": "Ride",
       "percentText": "100% · platinum earned",
       "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR05659_00_00E860F5334098230AE4381F20597847411D67981E/D9BBA0E08F3AC5104AA00346C8B3462A15F4322D.PNG",
-      "alt": "Dying Light cover",
-      "name": "Dying Light",
-      "percentText": "13% · platinum locked",
-      "muted": false
     }
   ],
   "trophies": [
+    {
+      "tier": "SILVER",
+      "name": "The Pointy End",
+      "gameName": "We Were Here Too",
+      "rarityPercent": "58.5",
+      "earnedAt": "2026-11-06T00:12:27Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/1CEB2649CEE563BEF66BB4A4EB7FD14A7D6AD081.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Step by Step",
+      "gameName": "We Were Here Too",
+      "rarityPercent": "60.2",
+      "earnedAt": "2026-11-05T23:56:44Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/7F4A763FABE2445F2297FD242C9C64BC8807B689.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Occultist Culling",
+      "gameName": "We Were Here Too",
+      "rarityPercent": "63.7",
+      "earnedAt": "2026-11-05T23:26:38Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/F6353A6CF1535C39EE37800FEB68EE99C0F28ED1.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Big Hit",
+      "gameName": "We Were Here Too",
+      "rarityPercent": "66.0",
+      "earnedAt": "2026-11-05T23:17:58Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/C465286F67EBDBDC65E439BB84E85203466BC6D0.PNG"
+    },
     {
       "tier": "BRONZE",
       "name": "2-fer",
@@ -153,38 +185,6 @@
       "rarityPercent": "27.4",
       "earnedAt": "2026-11-01T23:14:44Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/BC00026286912C8B98469A4BFF20A9F9C4E7F42F.PNG"
-    },
-    {
-      "tier": "PLATINUM",
-      "name": "Gone Platty",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "0.7",
-      "earnedAt": "2026-10-29T23:59:34Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/5A383F7E1B5874806F2BA611998B377CD8B4CA15.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "A Job Well Done",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "2.4",
-      "earnedAt": "2026-10-29T23:59:34Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/ECE29567F1719F93867FD691BB1A767D53B916AE.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Don't Get Off The Train",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "0.8",
-      "earnedAt": "2026-10-29T23:56:02Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/987F8A9D69C16A37DBB0650310DE79D6A8DF4EA2.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Cart Boss",
-      "gameName": "Moving Out 2",
-      "rarityPercent": "0.9",
-      "earnedAt": "2026-10-29T23:39:01Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR30068_00_0091887B2FEF885559085A64D7378ABEFDE5E8C119/7E1B31942EF0CAC19517705D6BC8B66E83C3829D.PNG"
     }
   ]
 }

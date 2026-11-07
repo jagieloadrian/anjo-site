@@ -2,11 +2,11 @@
   "stats": [
     {
       "key": "level",
-      "value": "463"
+      "value": "465"
     },
     {
       "key": "games",
-      "value": "349"
+      "value": "350"
     },
     {
       "key": "completion",
@@ -14,38 +14,45 @@
     },
     {
       "key": "platinums",
-      "value": "155"
+      "value": "157"
     },
     {
       "key": "total",
-      "value": "7420"
+      "value": "7459"
     },
     {
       "key": "gold",
-      "value": "735"
+      "value": "749"
     },
     {
       "key": "silver",
-      "value": "1665"
+      "value": "1685"
     },
     {
       "key": "bronze",
-      "value": "4865"
+      "value": "4868"
     }
   ],
   "games": [
     {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/3A10B8C225BB264E081E01C68122947BBC9BE744.PNG",
-      "alt": "We Were Here Too cover",
-      "name": "We Were Here Too",
-      "percentText": "12% · platinum locked",
-      "muted": false
-    },
-    {
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/EAB2FD2837B12F89718720BAE733CE18EB0CC4CE.PNG",
       "alt": "Call of Duty® Modern Warfare® III cover",
       "name": "Call of Duty® Modern Warfare® III",
-      "percentText": "47% · platinum locked",
+      "percentText": "52% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/56cc0cdc-1076-4a90-8a12-27be9e466174.png",
+      "alt": "We Were Here Too cover",
+      "name": "We Were Here Too",
+      "percentText": "100% · platinum earned",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/3A10B8C225BB264E081E01C68122947BBC9BE744.PNG",
+      "alt": "We Were Here Too cover",
+      "name": "We Were Here Too",
+      "percentText": "100% · platinum earned",
       "muted": false
     },
     {
@@ -96,95 +103,88 @@
       "name": "Call of Duty®: Black Ops",
       "percentText": "69% · platinum earned",
       "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR08059_00_00DD2D35385D51D82654F2372F2F39571ADD0AC539/9E77400016E7D77833941466A1A8F4D9DA85905A.PNG",
-      "alt": "Ride cover",
-      "name": "Ride",
-      "percentText": "100% · platinum earned",
-      "muted": false
     }
   ],
   "trophies": [
     {
-      "tier": "SILVER",
-      "name": "The Pointy End",
+      "tier": "BRONZE",
+      "name": "Snow Angel",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "1.1",
+      "earnedAt": "2026-11-07T08:25:10Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/9D00CD1FF402C258B45BF68849CB7AB51E6330B7.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Think She'll Notice?",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "2.0",
+      "earnedAt": "2026-11-07T01:05:28Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/54CD0C028C7625A7F5A826AD32A4DF663C3470DA.PNG"
+    },
+    {
+      "tier": "PLATINUM",
+      "name": "The Curse of Castle Rock",
       "gameName": "We Were Here Too",
-      "rarityPercent": "58.5",
-      "earnedAt": "2026-11-06T00:12:27Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/1CEB2649CEE563BEF66BB4A4EB7FD14A7D6AD081.PNG"
+      "rarityPercent": "19.7",
+      "earnedAt": "2026-11-07T00:30:30Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/bb175d4a-415f-4e24-bea7-791491cbc733.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Ups and Downs",
+      "gameName": "We Were Here Too",
+      "rarityPercent": "45.1",
+      "earnedAt": "2026-11-07T00:30:30Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/dc98286f-47a2-4be2-8aa3-e1122a6f9ea4.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Relation Elevation",
+      "gameName": "We Were Here Too",
+      "rarityPercent": "44.8",
+      "earnedAt": "2026-11-07T00:28:15Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/a32d824e-b6f5-4e71-8146-f2eccf5e2372.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Medium-Rare",
+      "gameName": "We Were Here Too",
+      "rarityPercent": "44.2",
+      "earnedAt": "2026-11-07T00:27:33Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/7195f4fd-5355-4323-bf1b-8a44a8bb013f.png"
     },
     {
       "tier": "SILVER",
-      "name": "Step by Step",
+      "name": "The Runner Games",
       "gameName": "We Were Here Too",
-      "rarityPercent": "60.2",
-      "earnedAt": "2026-11-05T23:56:44Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/7F4A763FABE2445F2297FD242C9C64BC8807B689.PNG"
+      "rarityPercent": "45.5",
+      "earnedAt": "2026-11-07T00:26:08Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/6d46f27f-a227-4729-804d-e91cf5e8c338.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Gordian Knight",
+      "gameName": "We Were Here Too",
+      "rarityPercent": "49.1",
+      "earnedAt": "2026-11-07T00:22:26Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/d0455db8-9695-4d45-9d55-0bd8d0496f87.png"
     },
     {
       "tier": "SILVER",
-      "name": "Occultist Culling",
+      "name": "The Joy of Puzzling",
       "gameName": "We Were Here Too",
-      "rarityPercent": "63.7",
-      "earnedAt": "2026-11-05T23:26:38Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/F6353A6CF1535C39EE37800FEB68EE99C0F28ED1.PNG"
+      "rarityPercent": "50.4",
+      "earnedAt": "2026-11-07T00:20:51Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/0b49ff83-11aa-4676-a2f7-e77306b9de6a.png"
     },
     {
       "tier": "SILVER",
-      "name": "Big Hit",
+      "name": "Astriction Constriction",
       "gameName": "We Were Here Too",
-      "rarityPercent": "66.0",
-      "earnedAt": "2026-11-05T23:17:58Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR22025_00_00B14FFD8871D89488D4B4D055D0765E69A16FF3CF/C465286F67EBDBDC65E439BB84E85203466BC6D0.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "2-fer",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "0.5",
-      "earnedAt": "2026-11-04T22:48:20Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/3B63D5AFF7C8847DEDDDDD6962F3736A8F92EB7D.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Frequent Flyer",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "7.5",
-      "earnedAt": "2026-11-04T01:11:48Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/06257D405B17FAABAE32D6781269D38DAEBFB85A.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Have You Tried Turning it Off and On?",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "2.5",
-      "earnedAt": "2026-11-04T01:00:59Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/CD7B2B9210F4962B18F92460951460E48440BA4D.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Sample Platter",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "19.0",
-      "earnedAt": "2026-11-04T00:17:47Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/05D006B0CCBA28653E467522306A96560375DE95.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Floater",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "3.5",
-      "earnedAt": "2026-11-02T00:37:37Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/CBB80BCD4605AEAF78D20CE40B96CDB230947EC4.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Death Row",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "27.4",
-      "earnedAt": "2026-11-01T23:14:44Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/BC00026286912C8B98469A4BFF20A9F9C4E7F42F.PNG"
+      "rarityPercent": "51.8",
+      "earnedAt": "2026-11-07T00:18:10Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/0678bba0-be83-4e10-8902-8abf51f1ddc5.png"
     }
   ]
 }

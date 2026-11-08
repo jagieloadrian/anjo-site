@@ -18,19 +18,19 @@
     },
     {
       "key": "total",
-      "value": "7459"
+      "value": "7466"
     },
     {
       "key": "gold",
-      "value": "749"
+      "value": "752"
     },
     {
       "key": "silver",
-      "value": "1685"
+      "value": "1686"
     },
     {
       "key": "bronze",
-      "value": "4868"
+      "value": "4871"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/EAB2FD2837B12F89718720BAE733CE18EB0CC4CE.PNG",
       "alt": "Call of Duty® Modern Warfare® III cover",
       "name": "Call of Duty® Modern Warfare® III",
-      "percentText": "52% · platinum locked",
+      "percentText": "85% · platinum locked",
       "muted": false
     },
     {
@@ -108,6 +108,62 @@
   "trophies": [
     {
       "tier": "BRONZE",
+      "name": "Elevator Out of Order",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "0.6",
+      "earnedAt": "2026-11-08T01:16:32Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/4B152CEC2B620CB72F358F8590309868A1860C27.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "141 Ready",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "1.0",
+      "earnedAt": "2026-11-08T01:10:22Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/3F2010B68AFD75C2B5D8E0E261FD83B463908F1D.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Never Bury Your Enemies Alive",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "21.4",
+      "earnedAt": "2026-11-08T01:10:10Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/100E3E70CAA8CDDA9B3A99A23190D662E8926FB2.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Your tax dollars at work",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "12.1",
+      "earnedAt": "2026-11-08T00:06:03Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/021557DE64B9B670664CFEE3DE080EA9C33DF8EC.PNG"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Gearhead",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "0.7",
+      "earnedAt": "2026-11-07T23:56:22Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/879DE3EB626C6215F396AAD660C1BF820FBBD4ED.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "No Such Thing as Too Many",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "0.7",
+      "earnedAt": "2026-11-07T23:47:28Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/D9EE2DD2C140D0DE628CF410C59897B9EBBFFDC2.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Bulletproof",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "1.6",
+      "earnedAt": "2026-11-07T23:07:09Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/7BB641F39220DFA37E824E073F6D46127CF03569.PNG"
+    },
+    {
+      "tier": "BRONZE",
       "name": "Snow Angel",
       "gameName": "Call of Duty® Modern Warfare® III",
       "rarityPercent": "1.1",
@@ -126,65 +182,9 @@
       "tier": "PLATINUM",
       "name": "The Curse of Castle Rock",
       "gameName": "We Were Here Too",
-      "rarityPercent": "19.7",
+      "rarityPercent": "19.8",
       "earnedAt": "2026-11-07T00:30:30Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/bb175d4a-415f-4e24-bea7-791491cbc733.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Ups and Downs",
-      "gameName": "We Were Here Too",
-      "rarityPercent": "45.1",
-      "earnedAt": "2026-11-07T00:30:30Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/dc98286f-47a2-4be2-8aa3-e1122a6f9ea4.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Relation Elevation",
-      "gameName": "We Were Here Too",
-      "rarityPercent": "44.8",
-      "earnedAt": "2026-11-07T00:28:15Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/a32d824e-b6f5-4e71-8146-f2eccf5e2372.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Medium-Rare",
-      "gameName": "We Were Here Too",
-      "rarityPercent": "44.2",
-      "earnedAt": "2026-11-07T00:27:33Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/7195f4fd-5355-4323-bf1b-8a44a8bb013f.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "The Runner Games",
-      "gameName": "We Were Here Too",
-      "rarityPercent": "45.5",
-      "earnedAt": "2026-11-07T00:26:08Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/6d46f27f-a227-4729-804d-e91cf5e8c338.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Gordian Knight",
-      "gameName": "We Were Here Too",
-      "rarityPercent": "49.1",
-      "earnedAt": "2026-11-07T00:22:26Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/d0455db8-9695-4d45-9d55-0bd8d0496f87.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "The Joy of Puzzling",
-      "gameName": "We Were Here Too",
-      "rarityPercent": "50.4",
-      "earnedAt": "2026-11-07T00:20:51Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/0b49ff83-11aa-4676-a2f7-e77306b9de6a.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Astriction Constriction",
-      "gameName": "We Were Here Too",
-      "rarityPercent": "51.8",
-      "earnedAt": "2026-11-07T00:18:10Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR53038_00/0678bba0-be83-4e10-8902-8abf51f1ddc5.png"
     }
   ]
 }

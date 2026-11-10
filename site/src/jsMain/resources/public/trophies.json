@@ -14,11 +14,11 @@
     },
     {
       "key": "platinums",
-      "value": "157"
+      "value": "158"
     },
     {
       "key": "total",
-      "value": "7473"
+      "value": "7481"
     },
     {
       "key": "gold",
@@ -26,19 +26,26 @@
     },
     {
       "key": "silver",
-      "value": "1686"
+      "value": "1687"
     },
     {
       "key": "bronze",
-      "value": "4878"
+      "value": "4884"
     }
   ],
   "games": [
     {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
+      "alt": "LEGO® Horizon Adventures™ cover",
+      "name": "LEGO® Horizon Adventures™",
+      "percentText": "9% · platinum locked",
+      "muted": false
+    },
+    {
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/EAB2FD2837B12F89718720BAE733CE18EB0CC4CE.PNG",
       "alt": "Call of Duty® Modern Warfare® III cover",
       "name": "Call of Duty® Modern Warfare® III",
-      "percentText": "95% · platinum locked",
+      "percentText": "100% · platinum earned",
       "muted": false
     },
     {
@@ -96,16 +103,73 @@
       "name": "Moving Out 2",
       "percentText": "100% · platinum earned",
       "muted": false
-    },
-    {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59811_00/c3f7e132-d92c-4066-9995-059bbc4485c7.png",
-      "alt": "Call of Duty®: Black Ops cover",
-      "name": "Call of Duty®: Black Ops",
-      "percentText": "69% · platinum earned",
-      "muted": false
     }
   ],
   "trophies": [
+    {
+      "tier": "SILVER",
+      "name": "Out of the Woods",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "28.3",
+      "earnedAt": "2026-11-10T00:50:26Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/e99e8a4f-3ad9-42cd-aa3b-6c6136d2e89c.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Almost a Warrior",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "33.9",
+      "earnedAt": "2026-11-10T00:12:48Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/37a97e66-ca18-4c96-b1f3-fce9492dfd28.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Flathead",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "45.5",
+      "earnedAt": "2026-11-09T23:50:30Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/3b18df31-b356-44d0-99b4-e41dcef0c15e.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "There's Gold in them Bricks",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "53.2",
+      "earnedAt": "2026-11-09T23:23:32Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/9b1454c2-2865-4db9-8e7a-f270ca947368.png"
+    },
+    {
+      "tier": "PLATINUM",
+      "name": "A Soldier's Purpose",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "0.1",
+      "earnedAt": "2026-11-09T23:07:12Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/ADE51F91458E258A6C341DD6C51165E3D6CC16FC.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Gravestone",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "1.9",
+      "earnedAt": "2026-11-09T23:07:12Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/0DB378DF1CD995C37EE353756E9ACEFB6D7BA0C5.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Back in the Field",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "0.4",
+      "earnedAt": "2026-11-09T22:44:22Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/6F91221CDFDB70B1F27F302B04531BF9AE6E642E.PNG"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Hitchhiker",
+      "gameName": "Call of Duty® Modern Warfare® III",
+      "rarityPercent": "1.5",
+      "earnedAt": "2026-11-09T22:33:18Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/A507757132E2D1BC41993656359333C624741D7F.PNG"
+    },
     {
       "tier": "BRONZE",
       "name": "High Wire Act",
@@ -121,70 +185,6 @@
       "rarityPercent": "1.6",
       "earnedAt": "2026-11-09T00:24:17Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/0B0D31E71D9B6ECC454466F49D9BC1CD9639975B.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Tag, You're it!",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "4.2",
-      "earnedAt": "2026-11-09T00:17:52Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/79BCDD46FB1222983AEEF81E482C3F7C3C88067D.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Helo Hat Trick",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "1.1",
-      "earnedAt": "2026-11-09T00:08:10Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/8C7F6E6BD7D81D1DE0DEE642BEDE9BFF81600302.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "That's One Way to Do It...",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "0.5",
-      "earnedAt": "2026-11-08T23:56:17Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/81FC65C4F5508D06329C8CB4B5C2F21E96438144.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "I Call Shotgun!",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "2.0",
-      "earnedAt": "2026-11-08T23:18:48Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/AFBD69FBB4B7737107E2FFEDA307AFFBA2F07EA4.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Dialed In",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "18.6",
-      "earnedAt": "2026-11-08T23:16:13Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/BB6E883C1B73979AE4942AAB17D0BC4466A011DB.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Elevator Out of Order",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "0.6",
-      "earnedAt": "2026-11-08T01:16:32Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/4B152CEC2B620CB72F358F8590309868A1860C27.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "141 Ready",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "1.0",
-      "earnedAt": "2026-11-08T01:10:22Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/3F2010B68AFD75C2B5D8E0E261FD83B463908F1D.PNG"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Never Bury Your Enemies Alive",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "21.4",
-      "earnedAt": "2026-11-08T01:10:10Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/100E3E70CAA8CDDA9B3A99A23190D662E8926FB2.PNG"
     }
   ]
 }

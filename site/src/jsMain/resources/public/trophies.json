@@ -2,7 +2,7 @@
   "stats": [
     {
       "key": "level",
-      "value": "465"
+      "value": "466"
     },
     {
       "key": "games",
@@ -18,19 +18,19 @@
     },
     {
       "key": "total",
-      "value": "7481"
+      "value": "7485"
     },
     {
       "key": "gold",
-      "value": "752"
+      "value": "753"
     },
     {
       "key": "silver",
-      "value": "1687"
+      "value": "1689"
     },
     {
       "key": "bronze",
-      "value": "4884"
+      "value": "4885"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
       "alt": "LEGO® Horizon Adventures™ cover",
       "name": "LEGO® Horizon Adventures™",
-      "percentText": "9% · platinum locked",
+      "percentText": "25% · platinum locked",
       "muted": false
     },
     {
@@ -108,6 +108,38 @@
   "trophies": [
     {
       "tier": "SILVER",
+      "name": "Climb Every Mountain",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "18.0",
+      "earnedAt": "2026-11-11T00:37:50Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/429adce8-086e-4018-9a24-e8b911a87c92.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Factory Setting",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "18.0",
+      "earnedAt": "2026-11-11T00:37:50Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/c3bb656c-b5c0-4034-b1fd-93dff7b923ab.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Top Grade",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "14.1",
+      "earnedAt": "2026-11-10T23:57:48Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/d5faf301-1018-46f9-9a7d-51927648a12a.png"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Together At Last",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "19.7",
+      "earnedAt": "2026-11-10T23:52:06Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/7c5da7e1-8d33-490f-ae73-de4c787524da.png"
+    },
+    {
+      "tier": "SILVER",
       "name": "Out of the Woods",
       "gameName": "LEGO® Horizon Adventures™",
       "rarityPercent": "28.3",
@@ -153,38 +185,6 @@
       "rarityPercent": "1.9",
       "earnedAt": "2026-11-09T23:07:12Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/0DB378DF1CD995C37EE353756E9ACEFB6D7BA0C5.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Back in the Field",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "0.4",
-      "earnedAt": "2026-11-09T22:44:22Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/6F91221CDFDB70B1F27F302B04531BF9AE6E642E.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Hitchhiker",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "1.5",
-      "earnedAt": "2026-11-09T22:33:18Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/A507757132E2D1BC41993656359333C624741D7F.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "High Wire Act",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "0.5",
-      "earnedAt": "2026-11-09T00:39:02Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/83F8BAE32E3DBB81AF92106DDE20F75C8CBF0EE6.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Hey, Catch!",
-      "gameName": "Call of Duty® Modern Warfare® III",
-      "rarityPercent": "1.6",
-      "earnedAt": "2026-11-09T00:24:17Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR50313_00_005B1C58FDBE7F7D44E3BA418FC41BDCDD16B60799/0B0D31E71D9B6ECC454466F49D9BC1CD9639975B.PNG"
     }
   ]
 }

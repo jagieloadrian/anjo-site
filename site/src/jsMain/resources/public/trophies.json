@@ -18,15 +18,15 @@
     },
     {
       "key": "total",
-      "value": "7488"
+      "value": "7492"
     },
     {
       "key": "gold",
-      "value": "755"
+      "value": "758"
     },
     {
       "key": "silver",
-      "value": "1690"
+      "value": "1691"
     },
     {
       "key": "bronze",
@@ -38,7 +38,7 @@
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/db719c12-18b1-4eff-8045-ae27cb09ebe7.png",
       "alt": "Big Walk cover",
       "name": "Big Walk",
-      "percentText": "21% · platinum locked",
+      "percentText": "53% · platinum locked",
       "muted": false
     },
     {
@@ -108,6 +108,38 @@
   "trophies": [
     {
       "tier": "GOLD",
+      "name": "Big Climb",
+      "gameName": "Big Walk",
+      "rarityPercent": "11.9",
+      "earnedAt": "2026-11-13T00:11:30Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/e671de78-9aad-4cd8-afea-c92a9ef118be.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Big Sit",
+      "gameName": "Big Walk",
+      "rarityPercent": "17.9",
+      "earnedAt": "2026-11-13T00:08:04Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/6abcbcd5-ccda-4f2b-ba9d-4b8e3e8b1af1.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Big Ride",
+      "gameName": "Big Walk",
+      "rarityPercent": "15.7",
+      "earnedAt": "2026-11-12T23:11:37Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/79a17df0-a2b4-4882-87b5-22f9216ecebc.png"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Big Help",
+      "gameName": "Big Walk",
+      "rarityPercent": "15.5",
+      "earnedAt": "2026-11-12T22:29:06Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/21db7b0b-8101-429c-b759-742a0630ed0c.png"
+    },
+    {
+      "tier": "GOLD",
       "name": "Big View",
       "gameName": "Big Walk",
       "rarityPercent": "28.3",
@@ -153,38 +185,6 @@
       "rarityPercent": "14.1",
       "earnedAt": "2026-11-10T23:57:48Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/d5faf301-1018-46f9-9a7d-51927648a12a.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Together At Last",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "19.7",
-      "earnedAt": "2026-11-10T23:52:06Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/7c5da7e1-8d33-490f-ae73-de4c787524da.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Out of the Woods",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "28.3",
-      "earnedAt": "2026-11-10T00:50:26Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/e99e8a4f-3ad9-42cd-aa3b-6c6136d2e89c.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Almost a Warrior",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "33.9",
-      "earnedAt": "2026-11-10T00:12:48Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/37a97e66-ca18-4c96-b1f3-fce9492dfd28.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Flathead",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "45.5",
-      "earnedAt": "2026-11-09T23:50:30Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/3b18df31-b356-44d0-99b4-e41dcef0c15e.png"
     }
   ]
 }

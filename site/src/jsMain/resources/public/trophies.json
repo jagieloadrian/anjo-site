@@ -18,19 +18,19 @@
     },
     {
       "key": "total",
-      "value": "7500"
+      "value": "7503"
     },
     {
       "key": "gold",
-      "value": "762"
+      "value": "763"
     },
     {
       "key": "silver",
-      "value": "1694"
+      "value": "1695"
     },
     {
       "key": "bronze",
-      "value": "4886"
+      "value": "4887"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
       "alt": "LEGO® Horizon Adventures™ cover",
       "name": "LEGO® Horizon Adventures™",
-      "percentText": "72% · platinum locked",
+      "percentText": "86% · platinum locked",
       "muted": false
     },
     {
@@ -107,6 +107,30 @@
   ],
   "trophies": [
     {
+      "tier": "BRONZE",
+      "name": "Just For Show",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "4.4",
+      "earnedAt": "2026-11-15T23:37:42Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/0f5ada69-e053-4e08-bffc-de495db0c420.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Light My Spire",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "11.2",
+      "earnedAt": "2026-11-15T23:31:30Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/c1bdaf44-107c-41db-bb0d-218568679dc4.png"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Dune and Dusted",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "11.7",
+      "earnedAt": "2026-11-15T22:58:57Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/95e68712-15b8-4c3b-a568-2a788d033654.png"
+    },
+    {
       "tier": "GOLD",
       "name": "Community Service",
       "gameName": "LEGO® Horizon Adventures™",
@@ -161,30 +185,6 @@
       "rarityPercent": "9.3",
       "earnedAt": "2026-11-13T22:28:20Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/97c675c7-e868-473a-845a-2a2a32c927de.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Farewell to the Jungle",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "13.8",
-      "earnedAt": "2026-11-13T22:23:53Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/82bab1c5-7a56-457d-b693-b80be6cfba1d.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Big Climb",
-      "gameName": "Big Walk",
-      "rarityPercent": "11.9",
-      "earnedAt": "2026-11-13T00:11:30Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/e671de78-9aad-4cd8-afea-c92a9ef118be.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Big Sit",
-      "gameName": "Big Walk",
-      "rarityPercent": "18.0",
-      "earnedAt": "2026-11-13T00:08:04Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/6abcbcd5-ccda-4f2b-ba9d-4b8e3e8b1af1.png"
     }
   ]
 }

@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7503"
+      "value": "7505"
     },
     {
       "key": "gold",
@@ -26,11 +26,11 @@
     },
     {
       "key": "silver",
-      "value": "1695"
+      "value": "1696"
     },
     {
       "key": "bronze",
-      "value": "4887"
+      "value": "4888"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
       "alt": "LEGO® Horizon Adventures™ cover",
       "name": "LEGO® Horizon Adventures™",
-      "percentText": "86% · platinum locked",
+      "percentText": "90% · platinum locked",
       "muted": false
     },
     {
@@ -107,6 +107,22 @@
   ],
   "trophies": [
     {
+      "tier": "SILVER",
+      "name": "Super Hero",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "5.7",
+      "earnedAt": "2026-11-16T23:32:39Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/7ed68d90-d8bf-4a46-8c55-d918ba0937ec.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Gonna Need a Bigger Wardrobe",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "4.5",
+      "earnedAt": "2026-11-16T21:59:13Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/dc649a12-4574-453c-b9db-4a2067210cd1.png"
+    },
+    {
       "tier": "BRONZE",
       "name": "Just For Show",
       "gameName": "LEGO® Horizon Adventures™",
@@ -169,22 +185,6 @@
       "rarityPercent": "13.1",
       "earnedAt": "2026-11-13T22:46:23Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/e89ddeae-24d1-45d8-8e86-c08d1ddbdb64.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "All the Toys",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "13.1",
-      "earnedAt": "2026-11-13T22:46:17Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/8a99647c-8b80-4868-8f3b-f5c71cfced08.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Masterbuilder",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "9.3",
-      "earnedAt": "2026-11-13T22:28:20Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/97c675c7-e868-473a-845a-2a2a32c927de.png"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "stats": [
     {
       "key": "level",
-      "value": "466"
+      "value": "467"
     },
     {
       "key": "games",
@@ -10,7 +10,7 @@
     },
     {
       "key": "completion",
-      "value": "48%"
+      "value": "49%"
     },
     {
       "key": "platinums",
@@ -18,11 +18,11 @@
     },
     {
       "key": "total",
-      "value": "7505"
+      "value": "7509"
     },
     {
       "key": "gold",
-      "value": "763"
+      "value": "767"
     },
     {
       "key": "silver",
@@ -35,17 +35,17 @@
   ],
   "games": [
     {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
-      "alt": "LEGO® Horizon Adventures™ cover",
-      "name": "LEGO® Horizon Adventures™",
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/db719c12-18b1-4eff-8045-ae27cb09ebe7.png",
+      "alt": "Big Walk cover",
+      "name": "Big Walk",
       "percentText": "90% · platinum locked",
       "muted": false
     },
     {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/db719c12-18b1-4eff-8045-ae27cb09ebe7.png",
-      "alt": "Big Walk cover",
-      "name": "Big Walk",
-      "percentText": "53% · platinum locked",
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
+      "alt": "LEGO® Horizon Adventures™ cover",
+      "name": "LEGO® Horizon Adventures™",
+      "percentText": "90% · platinum locked",
       "muted": false
     },
     {
@@ -107,6 +107,38 @@
   ],
   "trophies": [
     {
+      "tier": "GOLD",
+      "name": "Big Goodbye",
+      "gameName": "Big Walk",
+      "rarityPercent": "9.2",
+      "earnedAt": "2026-11-18T01:13:05Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/088a9af7-c373-4532-abe4-b0fc6fa74beb.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Big Wall",
+      "gameName": "Big Walk",
+      "rarityPercent": "9.6",
+      "earnedAt": "2026-11-18T00:49:43Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/30ec63f2-182a-416b-b207-1550244260a5.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Big Makeover",
+      "gameName": "Big Walk",
+      "rarityPercent": "5.8",
+      "earnedAt": "2026-11-17T23:39:08Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/26038187-42bf-4526-b4a2-3859b1ef9bff.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Big Tunnel",
+      "gameName": "Big Walk",
+      "rarityPercent": "13.0",
+      "earnedAt": "2026-11-17T23:34:05Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/ee6a1eda-c6d8-48a3-9846-45d18bd12232.png"
+    },
+    {
       "tier": "SILVER",
       "name": "Super Hero",
       "gameName": "LEGO® Horizon Adventures™",
@@ -153,38 +185,6 @@
       "rarityPercent": "5.6",
       "earnedAt": "2026-11-14T00:16:37Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/3d63b7f2-5b98-4baf-9eb9-f94701e4418e.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Walking with Giants",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "7.8",
-      "earnedAt": "2026-11-14T00:02:50Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/fb2983f5-49e7-4253-95c0-8c5d02b7ef86.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Toil and Trouble",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "13.6",
-      "earnedAt": "2026-11-13T23:48:09Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/45038522-8431-4379-b2fc-d9fdc260ba7b.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Yellow Brick Hoard",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "6.3",
-      "earnedAt": "2026-11-13T23:48:09Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/0b76147c-43e6-4466-ab41-df89cc56f21b.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "A Rare Treat",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "13.1",
-      "earnedAt": "2026-11-13T22:46:23Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/e89ddeae-24d1-45d8-8e86-c08d1ddbdb64.png"
     }
   ]
 }

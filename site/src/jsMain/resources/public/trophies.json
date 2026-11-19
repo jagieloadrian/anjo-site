@@ -6,23 +6,23 @@
     },
     {
       "key": "games",
-      "value": "351"
+      "value": "352"
     },
     {
       "key": "completion",
-      "value": "49%"
+      "value": "48%"
     },
     {
       "key": "platinums",
-      "value": "158"
+      "value": "159"
     },
     {
       "key": "total",
-      "value": "7509"
+      "value": "7512"
     },
     {
       "key": "gold",
-      "value": "767"
+      "value": "768"
     },
     {
       "key": "silver",
@@ -30,21 +30,28 @@
     },
     {
       "key": "bronze",
-      "value": "4888"
+      "value": "4889"
     }
   ],
   "games": [
     {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/db719c12-18b1-4eff-8045-ae27cb09ebe7.png",
-      "alt": "Big Walk cover",
-      "name": "Big Walk",
-      "percentText": "90% · platinum locked",
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/a71143e7-a67a-434e-b61d-38653cf9608f.png",
+      "alt": "Grand Theft Auto VI cover",
+      "name": "Grand Theft Auto VI",
+      "percentText": "1% · platinum locked",
       "muted": false
     },
     {
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
       "alt": "LEGO® Horizon Adventures™ cover",
       "name": "LEGO® Horizon Adventures™",
+      "percentText": "100% · platinum earned",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/db719c12-18b1-4eff-8045-ae27cb09ebe7.png",
+      "alt": "Big Walk cover",
+      "name": "Big Walk",
       "percentText": "90% · platinum locked",
       "muted": false
     },
@@ -96,16 +103,33 @@
       "name": "Call of Duty® Infinite Warfare",
       "percentText": "46% · platinum locked",
       "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
-      "alt": "Ride 2 cover",
-      "name": "Ride 2",
-      "percentText": "77% · platinum locked",
-      "muted": false
     }
   ],
   "trophies": [
+    {
+      "tier": "BRONZE",
+      "name": "Just Like Paradise",
+      "gameName": "Grand Theft Auto VI",
+      "rarityPercent": "93.9",
+      "earnedAt": "2026-11-19T00:25:03Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/54be3243-2d20-4b5c-8c26-f4208c365aee.png"
+    },
+    {
+      "tier": "PLATINUM",
+      "name": "Every Last One",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "3.2",
+      "earnedAt": "2026-11-18T22:54:38Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/37bd8a1f-6684-4727-8e1a-fe9bef4e7260.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Super Team",
+      "gameName": "LEGO® Horizon Adventures™",
+      "rarityPercent": "3.2",
+      "earnedAt": "2026-11-18T22:54:38Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/3d35cdbc-9a79-4fcb-9e88-58f1c7ce9fc5.png"
+    },
     {
       "tier": "GOLD",
       "name": "Big Goodbye",
@@ -161,30 +185,6 @@
       "rarityPercent": "4.4",
       "earnedAt": "2026-11-15T23:37:42Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/0f5ada69-e053-4e08-bffc-de495db0c420.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Light My Spire",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "11.2",
-      "earnedAt": "2026-11-15T23:31:30Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/c1bdaf44-107c-41db-bb0d-218568679dc4.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Dune and Dusted",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "11.7",
-      "earnedAt": "2026-11-15T22:58:57Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/95e68712-15b8-4c3b-a568-2a788d033654.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Community Service",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "5.6",
-      "earnedAt": "2026-11-14T00:16:37Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/3d63b7f2-5b98-4baf-9eb9-f94701e4418e.png"
     }
   ]
 }

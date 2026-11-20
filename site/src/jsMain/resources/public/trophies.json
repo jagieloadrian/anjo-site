@@ -6,7 +6,7 @@
     },
     {
       "key": "games",
-      "value": "352"
+      "value": "353"
     },
     {
       "key": "completion",
@@ -34,6 +34,13 @@
     }
   ],
   "games": [
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/128ceb3a-3c51-4547-84f7-8569651067db.png",
+      "alt": "Marvel's Wolverine cover",
+      "name": "Marvel's Wolverine",
+      "percentText": "0% · platinum locked",
+      "muted": false
+    },
     {
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/a71143e7-a67a-434e-b61d-38653cf9608f.png",
       "alt": "Grand Theft Auto VI cover",
@@ -96,13 +103,6 @@
       "name": "Call of Duty®: Black Ops II",
       "percentText": "40% · platinum locked",
       "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR10788_00_004ECD8F1D1DE1D7965C8BCFEE6BC1376C75F192AB/656933E3E465C9C8877CB89B63D53891A71944F1.PNG",
-      "alt": "Call of Duty® Infinite Warfare cover",
-      "name": "Call of Duty® Infinite Warfare",
-      "percentText": "46% · platinum locked",
-      "muted": false
     }
   ],
   "trophies": [
@@ -110,7 +110,7 @@
       "tier": "BRONZE",
       "name": "Just Like Paradise",
       "gameName": "Grand Theft Auto VI",
-      "rarityPercent": "93.9",
+      "rarityPercent": "97.6",
       "earnedAt": "2026-11-19T00:25:03Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/54be3243-2d20-4b5c-8c26-f4208c365aee.png"
     },
@@ -134,7 +134,7 @@
       "tier": "GOLD",
       "name": "Big Goodbye",
       "gameName": "Big Walk",
-      "rarityPercent": "9.2",
+      "rarityPercent": "9.3",
       "earnedAt": "2026-11-18T01:13:05Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/088a9af7-c373-4532-abe4-b0fc6fa74beb.png"
     },

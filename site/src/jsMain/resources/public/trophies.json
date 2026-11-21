@@ -14,15 +14,15 @@
     },
     {
       "key": "platinums",
-      "value": "159"
+      "value": "160"
     },
     {
       "key": "total",
-      "value": "7512"
+      "value": "7515"
     },
     {
       "key": "gold",
-      "value": "768"
+      "value": "769"
     },
     {
       "key": "silver",
@@ -30,7 +30,7 @@
     },
     {
       "key": "bronze",
-      "value": "4889"
+      "value": "4890"
     }
   ],
   "games": [
@@ -38,7 +38,7 @@
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/128ceb3a-3c51-4547-84f7-8569651067db.png",
       "alt": "Marvel's Wolverine cover",
       "name": "Marvel's Wolverine",
-      "percentText": "0% · platinum locked",
+      "percentText": "1% · platinum locked",
       "muted": false
     },
     {
@@ -49,17 +49,17 @@
       "muted": false
     },
     {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
-      "alt": "LEGO® Horizon Adventures™ cover",
-      "name": "LEGO® Horizon Adventures™",
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/db719c12-18b1-4eff-8045-ae27cb09ebe7.png",
+      "alt": "Big Walk cover",
+      "name": "Big Walk",
       "percentText": "100% · platinum earned",
       "muted": false
     },
     {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/db719c12-18b1-4eff-8045-ae27cb09ebe7.png",
-      "alt": "Big Walk cover",
-      "name": "Big Walk",
-      "percentText": "90% · platinum locked",
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/ab7daeb9-8cdf-4164-ae7b-ed7913a72ac2.png",
+      "alt": "LEGO® Horizon Adventures™ cover",
+      "name": "LEGO® Horizon Adventures™",
+      "percentText": "100% · platinum earned",
       "muted": false
     },
     {
@@ -108,9 +108,33 @@
   "trophies": [
     {
       "tier": "BRONZE",
+      "name": "Hot Head",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "93.2",
+      "earnedAt": "2026-11-21T10:15:53Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/619d8e46-23cf-42fe-bebe-22a100f7f596.png"
+    },
+    {
+      "tier": "PLATINUM",
+      "name": "Big Trophy",
+      "gameName": "Big Walk",
+      "rarityPercent": "3.6",
+      "earnedAt": "2026-11-20T18:02:41Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/59c083bf-18ff-4d6c-94d4-95cf821df1ce.png"
+    },
+    {
+      "tier": "GOLD",
+      "name": "Big Game",
+      "gameName": "Big Walk",
+      "rarityPercent": "4.0",
+      "earnedAt": "2026-11-20T18:02:41Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/f02ea992-8bf5-4bb9-b7f9-b9f35d2041a7.png"
+    },
+    {
+      "tier": "BRONZE",
       "name": "Just Like Paradise",
       "gameName": "Grand Theft Auto VI",
-      "rarityPercent": "97.6",
+      "rarityPercent": "98.1",
       "earnedAt": "2026-11-19T00:25:03Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/54be3243-2d20-4b5c-8c26-f4208c365aee.png"
     },
@@ -161,30 +185,6 @@
       "rarityPercent": "13.0",
       "earnedAt": "2026-11-17T23:34:05Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/ee6a1eda-c6d8-48a3-9846-45d18bd12232.png"
-    },
-    {
-      "tier": "SILVER",
-      "name": "Super Hero",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "5.7",
-      "earnedAt": "2026-11-16T23:32:39Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/7ed68d90-d8bf-4a46-8c55-d918ba0937ec.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Gonna Need a Bigger Wardrobe",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "4.5",
-      "earnedAt": "2026-11-16T21:59:13Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/dc649a12-4574-453c-b9db-4a2067210cd1.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Just For Show",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "4.4",
-      "earnedAt": "2026-11-15T23:37:42Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/0f5ada69-e053-4e08-bffc-de495db0c420.png"
     }
   ]
 }

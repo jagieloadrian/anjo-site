@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7515"
+      "value": "7528"
     },
     {
       "key": "gold",
@@ -26,26 +26,33 @@
     },
     {
       "key": "silver",
-      "value": "1696"
+      "value": "1697"
     },
     {
       "key": "bronze",
-      "value": "4890"
+      "value": "4902"
     }
   ],
   "games": [
     {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/128ceb3a-3c51-4547-84f7-8569651067db.png",
-      "alt": "Marvel's Wolverine cover",
-      "name": "Marvel's Wolverine",
-      "percentText": "1% · platinum locked",
-      "muted": false
-    },
-    {
       "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/a71143e7-a67a-434e-b61d-38653cf9608f.png",
       "alt": "Grand Theft Auto VI cover",
       "name": "Grand Theft Auto VI",
-      "percentText": "1% · platinum locked",
+      "percentText": "5% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
+      "alt": "Ride 2 cover",
+      "name": "Ride 2",
+      "percentText": "80% · platinum locked",
+      "muted": false
+    },
+    {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/128ceb3a-3c51-4547-84f7-8569651067db.png",
+      "alt": "Marvel's Wolverine cover",
+      "name": "Marvel's Wolverine",
+      "percentText": "14% · platinum locked",
       "muted": false
     },
     {
@@ -96,95 +103,88 @@
       "name": "Metro 2033 Redux",
       "percentText": "0% · platinum locked",
       "muted": false
-    },
-    {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR59721_00/ce5b85d0-9672-4f3e-8b51-f26df36b85c3.png",
-      "alt": "Call of Duty®: Black Ops II cover",
-      "name": "Call of Duty®: Black Ops II",
-      "percentText": "40% · platinum locked",
-      "muted": false
     }
   ],
   "trophies": [
     {
       "tier": "BRONZE",
-      "name": "Hot Head",
-      "gameName": "Marvel's Wolverine",
-      "rarityPercent": "93.2",
-      "earnedAt": "2026-11-21T10:15:53Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/619d8e46-23cf-42fe-bebe-22a100f7f596.png"
-    },
-    {
-      "tier": "PLATINUM",
-      "name": "Big Trophy",
-      "gameName": "Big Walk",
-      "rarityPercent": "3.6",
-      "earnedAt": "2026-11-20T18:02:41Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/59c083bf-18ff-4d6c-94d4-95cf821df1ce.png"
-    },
-    {
-      "tier": "GOLD",
-      "name": "Big Game",
-      "gameName": "Big Walk",
-      "rarityPercent": "4.0",
-      "earnedAt": "2026-11-20T18:02:41Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/f02ea992-8bf5-4bb9-b7f9-b9f35d2041a7.png"
+      "name": "Paradise Lost",
+      "gameName": "Grand Theft Auto VI",
+      "rarityPercent": "33.9",
+      "earnedAt": "2026-11-21T23:56:54Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/99df9de1-dd5c-4110-95da-7e1cba86f23a.png"
     },
     {
       "tier": "BRONZE",
-      "name": "Just Like Paradise",
+      "name": "Baited My Tackle",
       "gameName": "Grand Theft Auto VI",
-      "rarityPercent": "98.1",
-      "earnedAt": "2026-11-19T00:25:03Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/54be3243-2d20-4b5c-8c26-f4208c365aee.png"
+      "rarityPercent": "11.8",
+      "earnedAt": "2026-11-21T22:25:06Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/4bed4178-e7ac-4869-a449-6f419742bbb3.png"
     },
     {
-      "tier": "PLATINUM",
-      "name": "Every Last One",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "3.2",
-      "earnedAt": "2026-11-18T22:54:38Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/37bd8a1f-6684-4727-8e1a-fe9bef4e7260.png"
+      "tier": "BRONZE",
+      "name": "Online Champion",
+      "gameName": "Ride 2",
+      "rarityPercent": "4.1",
+      "earnedAt": "2026-11-21T21:35:58Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/F29EEFFAEC92AA6A6724F381EC4A766A4AD047DB.PNG"
     },
     {
-      "tier": "GOLD",
-      "name": "Super Team",
-      "gameName": "LEGO® Horizon Adventures™",
-      "rarityPercent": "3.2",
-      "earnedAt": "2026-11-18T22:54:38Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR37082_00/3d35cdbc-9a79-4fcb-9e88-58f1c7ce9fc5.png"
+      "tier": "BRONZE",
+      "name": "Hello World!",
+      "gameName": "Ride 2",
+      "rarityPercent": "11.6",
+      "earnedAt": "2026-11-21T21:28:28Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/9BE4AE3997F2C8543DF05BC4F8606608D2FA6A32.PNG"
     },
     {
-      "tier": "GOLD",
-      "name": "Big Goodbye",
-      "gameName": "Big Walk",
-      "rarityPercent": "9.3",
-      "earnedAt": "2026-11-18T01:13:05Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/088a9af7-c373-4532-abe4-b0fc6fa74beb.png"
+      "tier": "BRONZE",
+      "name": "Whip It Good",
+      "gameName": "Grand Theft Auto VI",
+      "rarityPercent": "10.4",
+      "earnedAt": "2026-11-21T17:23:36Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/44e80081-95a6-4802-af36-7c33bc0085dc.png"
     },
     {
-      "tier": "GOLD",
-      "name": "Big Wall",
-      "gameName": "Big Walk",
-      "rarityPercent": "9.6",
-      "earnedAt": "2026-11-18T00:49:43Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/30ec63f2-182a-416b-b207-1550244260a5.png"
+      "tier": "BRONZE",
+      "name": "Road Rage",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "83.4",
+      "earnedAt": "2026-11-21T12:27:51Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/c1c95898-eb47-4ded-bc61-a990cbc9941b.png"
     },
     {
-      "tier": "GOLD",
-      "name": "Big Makeover",
-      "gameName": "Big Walk",
-      "rarityPercent": "5.8",
-      "earnedAt": "2026-11-17T23:39:08Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/26038187-42bf-4526-b4a2-3859b1ef9bff.png"
+      "tier": "BRONZE",
+      "name": "Waking Nightmare",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "84.4",
+      "earnedAt": "2026-11-21T11:58:46Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/0bd95356-8933-4ffe-86b6-085395b80d6c.png"
     },
     {
-      "tier": "GOLD",
-      "name": "Big Tunnel",
-      "gameName": "Big Walk",
-      "rarityPercent": "13.0",
-      "earnedAt": "2026-11-17T23:34:05Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR56487_00/ee6a1eda-c6d8-48a3-9846-45d18bd12232.png"
+      "tier": "BRONZE",
+      "name": "Shish Kebab",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "72.1",
+      "earnedAt": "2026-11-21T11:56:51Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/15d0f7a7-aaee-4a0c-8f1f-680a79df92d5.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Greased",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "41.5",
+      "earnedAt": "2026-11-21T11:49:04Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/bef9fac4-101b-494b-9229-a8811aabdc68.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Suit Up",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "85.4",
+      "earnedAt": "2026-11-21T11:34:52Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/e7828288-d2bb-4fad-b503-e8c94fc38ca4.png"
     }
   ]
 }

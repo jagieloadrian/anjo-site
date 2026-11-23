@@ -18,7 +18,7 @@
     },
     {
       "key": "total",
-      "value": "7528"
+      "value": "7531"
     },
     {
       "key": "gold",
@@ -30,7 +30,7 @@
     },
     {
       "key": "bronze",
-      "value": "4902"
+      "value": "4905"
     }
   ],
   "games": [
@@ -42,17 +42,17 @@
       "muted": false
     },
     {
+      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/128ceb3a-3c51-4547-84f7-8569651067db.png",
+      "alt": "Marvel's Wolverine cover",
+      "name": "Marvel's Wolverine",
+      "percentText": "18% · platinum locked",
+      "muted": false
+    },
+    {
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
       "alt": "Ride 2 cover",
       "name": "Ride 2",
       "percentText": "80% · platinum locked",
-      "muted": false
-    },
-    {
-      "imageUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/128ceb3a-3c51-4547-84f7-8569651067db.png",
-      "alt": "Marvel's Wolverine cover",
-      "name": "Marvel's Wolverine",
-      "percentText": "14% · platinum locked",
       "muted": false
     },
     {
@@ -108,9 +108,33 @@
   "trophies": [
     {
       "tier": "BRONZE",
+      "name": "Berserker Unleashed",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "77.8",
+      "earnedAt": "2026-11-22T15:17:28Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/82c71abd-1ff2-43d5-9293-91a7e9cf9cee.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Hell Raisers",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "81.1",
+      "earnedAt": "2026-11-22T14:26:33Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/5e2e321f-b35b-4125-bb16-bf33eb94fbaa.png"
+    },
+    {
+      "tier": "BRONZE",
+      "name": "Recycled",
+      "gameName": "Marvel's Wolverine",
+      "rarityPercent": "41.8",
+      "earnedAt": "2026-11-22T13:54:12Z",
+      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/7b933ccf-bf55-4c82-aea6-74aedb214da1.png"
+    },
+    {
+      "tier": "BRONZE",
       "name": "Paradise Lost",
       "gameName": "Grand Theft Auto VI",
-      "rarityPercent": "33.9",
+      "rarityPercent": "41.8",
       "earnedAt": "2026-11-21T23:56:54Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/99df9de1-dd5c-4110-95da-7e1cba86f23a.png"
     },
@@ -118,7 +142,7 @@
       "tier": "BRONZE",
       "name": "Baited My Tackle",
       "gameName": "Grand Theft Auto VI",
-      "rarityPercent": "11.8",
+      "rarityPercent": "13.6",
       "earnedAt": "2026-11-21T22:25:06Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/4bed4178-e7ac-4869-a449-6f419742bbb3.png"
     },
@@ -142,7 +166,7 @@
       "tier": "BRONZE",
       "name": "Whip It Good",
       "gameName": "Grand Theft Auto VI",
-      "rarityPercent": "10.4",
+      "rarityPercent": "16.9",
       "earnedAt": "2026-11-21T17:23:36Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/44e80081-95a6-4802-af36-7c33bc0085dc.png"
     },
@@ -161,30 +185,6 @@
       "rarityPercent": "84.4",
       "earnedAt": "2026-11-21T11:58:46Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/0bd95356-8933-4ffe-86b6-085395b80d6c.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Shish Kebab",
-      "gameName": "Marvel's Wolverine",
-      "rarityPercent": "72.1",
-      "earnedAt": "2026-11-21T11:56:51Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/15d0f7a7-aaee-4a0c-8f1f-680a79df92d5.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Greased",
-      "gameName": "Marvel's Wolverine",
-      "rarityPercent": "41.5",
-      "earnedAt": "2026-11-21T11:49:04Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/bef9fac4-101b-494b-9229-a8811aabdc68.png"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Suit Up",
-      "gameName": "Marvel's Wolverine",
-      "rarityPercent": "85.4",
-      "earnedAt": "2026-11-21T11:34:52Z",
-      "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR57054_00/e7828288-d2bb-4fad-b503-e8c94fc38ca4.png"
     }
   ]
 }

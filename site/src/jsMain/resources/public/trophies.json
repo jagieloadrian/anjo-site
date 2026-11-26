@@ -18,15 +18,15 @@
     },
     {
       "key": "total",
-      "value": "7544"
+      "value": "7546"
     },
     {
       "key": "gold",
-      "value": "772"
+      "value": "773"
     },
     {
       "key": "silver",
-      "value": "1701"
+      "value": "1702"
     },
     {
       "key": "bronze",
@@ -42,6 +42,13 @@
       "muted": false
     },
     {
+      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
+      "alt": "Ride 2 cover",
+      "name": "Ride 2",
+      "percentText": "91% · platinum locked",
+      "muted": false
+    },
+    {
       "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR21354_00_00928B3B51E70730B11169A8F085EC8F2F8838D852/478F62E396AB3640F31911C68CA0D3F855B03E5F.PNG",
       "alt": "We Were Here Together cover",
       "name": "We Were Here Together",
@@ -53,13 +60,6 @@
       "alt": "Marvel's Wolverine cover",
       "name": "Marvel's Wolverine",
       "percentText": "18% · platinum locked",
-      "muted": false
-    },
-    {
-      "imageUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/43D7A632045917EA1F35F8F9958A5B5BE019013A.PNG",
-      "alt": "Ride 2 cover",
-      "name": "Ride 2",
-      "percentText": "80% · platinum locked",
       "muted": false
     },
     {
@@ -107,10 +107,26 @@
   ],
   "trophies": [
     {
+      "tier": "GOLD",
+      "name": "100 wheels",
+      "gameName": "Ride 2",
+      "rarityPercent": "5.6",
+      "earnedAt": "2026-11-25T22:15:49Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/508381B4B0E5889BE0549E69E20FED3B12DE1655.PNG"
+    },
+    {
+      "tier": "SILVER",
+      "name": "Silver",
+      "gameName": "Ride 2",
+      "rarityPercent": "3.1",
+      "earnedAt": "2026-11-25T22:00:01Z",
+      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR11295_00_0080E9AE135E5B9EC72AF7E461FCA0AF1798D7E71E/83F9158A8B9D97294B95CDD9F23FD3409135983D.PNG"
+    },
+    {
       "tier": "BRONZE",
       "name": "Trust",
       "gameName": "Grand Theft Auto VI",
-      "rarityPercent": "39.5",
+      "rarityPercent": "42.4",
       "earnedAt": "2026-11-24T23:54:59Z",
       "iconUrl": "https://psnobj.prod.dl.playstation.net/psnobj/NPWR21085_00/c66389f7-9630-4b18-853a-05a51b28d9a0.png"
     },
@@ -169,22 +185,6 @@
       "rarityPercent": "45.0",
       "earnedAt": "2026-11-23T22:04:54Z",
       "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR21354_00_00928B3B51E70730B11169A8F085EC8F2F8838D852/CD5374FD686E0237FBB8664D46548C0559E498F1.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "The Tower",
-      "gameName": "We Were Here Together",
-      "rarityPercent": "47.2",
-      "earnedAt": "2026-11-23T21:56:41Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR21354_00_00928B3B51E70730B11169A8F085EC8F2F8838D852/D8EE108EEEE95FAEFFED4E8E1B58CDDC6B629299.PNG"
-    },
-    {
-      "tier": "BRONZE",
-      "name": "Abridged Adventure",
-      "gameName": "We Were Here Together",
-      "rarityPercent": "77.7",
-      "earnedAt": "2026-11-23T21:46:59Z",
-      "iconUrl": "https://image.api.playstation.com/trophy/np/NPWR21354_00_00928B3B51E70730B11169A8F085EC8F2F8838D852/32AF91B99318E18A916417705E17C78748C4F9B9.PNG"
     }
   ]
 }
